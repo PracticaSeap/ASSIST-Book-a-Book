@@ -1,3 +1,109 @@
-.paaragraph {
+.container {
+    position: absolute;
+    width: 920px;
+    height: 750px;
+    left: 260px;
+    top: 192px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    /* border: 10px solid green */
+}
+
+.form-control {
+    padding-bottom: 24px;
+    padding-right: 20px;
+}
+
+.header {
+    border: 1px solid #F5F7FA;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+    background-color: #F5F7FA
+}
+
+.buttons {
+    padding: 42px;
+}
+
+.title_form {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #9AA5B1;
+}
+
+.text {
+    position: absolute;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
     text-align: center;
+    color: #C4C4C4;
+}
+
+.btn {
+    margin-right: 20px;
+}
+
+.submit {
+    background: #1CD4D4;
+    box-shadow: 0px 4px 9px rgba(28, 212, 212, 0.2);
+    border-radius: 5px;
+    margin: 0;
+    color: #FFFFFF;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+    font: inherit;
+}
+
+.cancel {
+    border: 1px solid #C4C4C4;
+    box-shadow: 0px 4px 9px rgba(28, 212, 212, 0.2);
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 0;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+    font: inherit;
+}
+
+.buttonsCancel {
+    position: absolute;
+    height: 18px;
+    left: 24px;
+    right: 24px;
+    top: 14px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #C4C4C4;
+}
+
+.distance-check {
+    bottom: 23.73%;
+}
+
+.checkmark1 {
+    padding: 10px;
+}
+
+.checkmark2 {
+    padding: 10px;
 }
