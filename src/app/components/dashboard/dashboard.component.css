@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+@import url("https://fonts.googleapis.com/css?family=Helvetica:500,700");
+
+.header{
+    position: relative;
+    background: #19216C;
+    height: 437px;
+  }
+
+  .header h1{
+    position: absolute;
+    width: 667px;
+    height: 132px;
+    left: 164px;
+    top: 125px;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 65px;
+    
+    color: #FFFFFF;
+  }
+
+  .searchBox{
+    position: absolute;
+    width: 540px;
+    height: 56px;
+    left: 164px;
+    top: 293px;
+
+    background: #FFFFFF;
+    border-radius: 5px;
+  }
+
+  ::placeholder{
+    font-family: Helvetica;
+    font-size: 12px;
+    line-height: 12px;
+    padding-left: 20px;
+    
+    color: #9AA5B1;
+  }
+
+  .bookRow{
+      margin-top: 63px;
+      margin-bottom: 63px;
+  }
+
+.card-title{
+    position: absolute;
+    left: 43.62%;
+    right: 6.1%;
+    top: 10.77%;
+    bottom: 70.03%;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+
+    color: #19216C;
+}
+
+.card-text{
+    position: absolute;
+    left: 43.62%;
+    right: 4.99%;
+    top: 35.69%;
+    bottom: 45.12%;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+
+    color: #9AA5B1;
+}
+
+.book_borrow{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+
+    background: #1CD4D4;
+    box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
+    border-radius: 3.91304px;
+}
+
+#borrowButton{
+    position: absolute;
+    left: 236px;
+    right: 0px;
+    top: 188px;
+    bottom: 73px;
+
+    height: 36px;
+    width: 131px;
+
+    background: #1CD4D4;
+    box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
+    border-color: #1CD4D4;
+    border-radius: 3.91304px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10.9565px;
+    line-height: 13px;
+    text-align: center;
+}
+
+#previewButton{
+    position: absolute;
+    left: 376px;
+    right: 0px;
+    top: 188px;
+    bottom: 73px;
+
+    height: 36px;
+    width: 131px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
+    border-color: #1CD4D4;
+    border-radius: 3.91304px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10.9565px;
+    line-height: 13px;
+    text-align: center;
+
+    color: #1CD4D4;
+}
+
+#loadMore{
+    position: absolute;
+    margin-top: 0px;
+    margin-bottom: 36px;
+    width: 185px;
+    height: 46px;
+
+    border: 1px solid #9AA5B1;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #9AA5B1;
+}
+
+.sIcon{
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    left: 182px;
+    top: 325px;
+}
+
+
+
+
+  
+

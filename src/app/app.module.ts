@@ -20,6 +20,7 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 @NgModule({
@@ -45,8 +46,8 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
-    AngularFireDatabaseModule
-
+    AngularFireDatabaseModule,
+    AngularFontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
