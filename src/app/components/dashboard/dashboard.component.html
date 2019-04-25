@@ -1,10 +1,11 @@
 <div class="header">
   <h1>Search and discover books you love.</h1>
 
+<div class="search_input">
+  <input class="form-control searchBox" type="text" placeholder="Search by Title, Author or IBAN" aria-label="Search">
+  <img id="searchImg" src="assets/search_icon.png"/>
+</div>
 
-    <fa class="sIcon" name="search"></fa>
-    <input class="form-control searchBox" type="text" placeholder="Search by Title, Author or IBAN" aria-label="Search">
-  
 </div>
 
 <div class="container">
@@ -19,6 +20,7 @@
                 <p class="card-text">The Gunslinger is a fantasy novel by American author Stephen King, the first volume in the Dark Tower series...</p>
                 <button id="borrowButton" class="btn btn-primary">Borrow</button>
                 <button id="previewButton" class="btn btn-primary">Preview</button>
+                <hr>
             </div>
         </div>
       </div>
@@ -95,7 +97,35 @@
     </div>
   </div>
 
-<button id="loadMore" class="btn btn-primary">Load More</button>
+  <div class="row bookRow">
+      <div class="col-sm">
+        <div class="card flex-row flex-wrap">
+            <div>
+                <img src="assets/book_cover.png" alt="" height="297" width="209">
+            </div>
+            <div class="card-block px-2">
+                <h4 class="card-title">The Indispensable UX Designer</h4>
+                <p class="card-text">The Gunslinger is a fantasy novel by American author Stephen King, the first volume in the Dark Tower series...</p>
+                <button id="borrowButton" class="btn btn-primary">Borrow</button>
+                <button id="previewButton" class="btn btn-primary">Preview</button>
+            </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card flex-row flex-wrap">
+          <div>
+            <img src="assets/book_cover.png" alt="" height="297" width="209">
+          </div>
+          <div class="card-block px-2">
+              <h4 class="card-title">The Indispensable UX Designer</h4>
+              <p class="card-text">The Gunslinger is a fantasy novel by American author Stephen King, the first volume in the Dark Tower series...</p>
+              <button id="borrowButton" class="btn btn-primary">Borrow</button>
+              <button id="previewButton" class="btn btn-primary">Preview</button>
+          </div>
+      </div>
+    </div>
+  </div>
 
+    <button id="loadMore" class="btn btn-primary">Load More</button>
 </div>
 

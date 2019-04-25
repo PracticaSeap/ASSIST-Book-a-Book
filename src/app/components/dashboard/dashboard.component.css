@@ -30,15 +30,25 @@
     left: 164px;
     top: 293px;
 
+    padding-left: 35px;
+
     background: #FFFFFF;
     border-radius: 5px;
   }
+
+  #searchImg{
+    position: absolute; 
+    width: 15px;
+    height: 15px;
+    left: 175px;
+    top: 315px;
+    color: #9AA5B1;
+}
 
   ::placeholder{
     font-family: Helvetica;
     font-size: 12px;
     line-height: 12px;
-    padding-left: 20px;
     
     color: #9AA5B1;
   }
@@ -146,6 +156,7 @@
     margin-bottom: 36px;
     width: 185px;
     height: 46px;
+    left: 45%;
 
     border: 1px solid #9AA5B1;
     box-sizing: border-box;
@@ -165,9 +176,22 @@
     position: absolute;
     width: 9px;
     height: 9px;
-    left: 182px;
-    top: 325px;
+    left: 175px;
+    top: 275px;
+
+    color: #9AA5B1;
 }
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-style: inset;
+    border-width: 1px;
+  }
+
 
 
 
