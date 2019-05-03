@@ -1,0 +1,187 @@
+.header-title {
+/* Welcome to Bookcase. */
+
+position: absolute;
+width: 190px;
+height: 44px;
+left: 165px;
+top: 41px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 33px;
+line-height: 44px;
+
+color: #19216C;
+}
+.welcome{
+    position: absolute;
+width: 445px;
+height: 157px;
+left: 165px;
+top: 192px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 78px;
+
+color: #19216C;
+}
+.description{
+/* We make it easy for everyone to borrow and read books inside the company. */
+
+position: absolute;
+width: 445px;
+height: 58px;
+left: 165px;
+top: 281px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 29px;
+
+color: #7B8794;
+
+}
+.rectangle{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0.71%;
+
+}
+
+.text{
+
+/* text-input_filling */
+
+position: absolute;
+width: 350px;
+height: 70px;
+left: 165px;
+top: 340px;
+background-color:whitesmoke
+}
+.vector{
+/* Vector 2 */
+
+position: absolute;
+left: 0.29%;
+right: 99.71%;
+top: 0%;
+bottom: 0%;
+
+/* secondary-turquoise */
+border: 2px solid #1CD4D4;
+
+
+
+}
+.email{
+
+/* Book Description */
+
+position: absolute;
+left: 6.57%;
+right: 6.86%;
+top: 24.11%;
+bottom: 56.03%;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+
+color: #7B8794;
+}
+.inputbox{
+/* Book Description */
+
+position: absolute;
+left: 6.57%;
+right: 6.86%;
+top: 55.32%;
+bottom: 14.68%;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 30px;
+
+color: #1CD4D4;
+
+
+
+}
+.vector2{
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 99.29%;
+bottom: 0.71%;
+
+border: 1px solid #EAEBF0;
+}
+.password{
+
+
+
+    position: absolute;
+    width: 350px;
+    height: 70px;
+    left: 165px;
+    top: 420px;
+    
+background-color:whitesmoke
+
+
+}
+
+.password1{
+
+    position: absolute;
+    left: 23px;
+    right: 24px;
+    top: 20%;
+    bottom: 40%;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    
+    color: #7B8794;
+    
+
+
+
+}
+.book-lover{
+/* book_lover */
+
+position: absolute;
+width: 808.63px;
+height: 597.63px;
+left: 610px;
+top: 192px;
+
+
+
+}
+
+
+
+
+
