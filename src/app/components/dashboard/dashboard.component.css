@@ -1,11 +1,37 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
 @import url("https://fonts.googleapis.com/css?family=Helvetica:500,700");
 
+body{
+  background-color: #F5F7FA;
+}
+
 .header{
     position: relative;
     background: #19216C;
     height: 437px;
   }
+
+footer {
+  background-color: #FFFFFF;
+  height: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.logo h3{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+
+  color: #19216C;
+  }
+
+.dot{
+  color: #1CD4D4;
+}
 
   .header h1{
     position: absolute;
@@ -51,11 +77,6 @@
     line-height: 12px;
     
     color: #9AA5B1;
-  }
-
-  .bookRow{
-      margin-top: 63px;
-      margin-bottom: 63px;
   }
 
 .card-title{
@@ -150,13 +171,20 @@
     color: #1CD4D4;
 }
 
+.container{
+  margin-top: 63px;
+}
+
+.loadButton{
+  display: flex;
+  justify-content: center;
+}
+
 #loadMore{
-    position: absolute;
-    margin-top: 0px;
-    margin-bottom: 36px;
     width: 185px;
     height: 46px;
-    left: 45%;
+    margin-bottom: 65px;
+    margin-top: 36px;
 
     border: 1px solid #9AA5B1;
     box-sizing: border-box;
@@ -172,6 +200,10 @@
     color: #9AA5B1;
 }
 
+.bookRow{
+  margin-top: 27px;
+}
+
 .sIcon{
     position: absolute;
     width: 9px;
@@ -182,15 +214,13 @@
     color: #9AA5B1;
 }
 
-hr { 
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: 0px;
-    margin-right: 0px;
-    border-style: inset;
-    border-width: 1px;
-  }
+.card-block{
+  border-bottom: 2px solid black;
+}
+
+
+
+
 
 
 
