@@ -22,6 +22,7 @@ import { MyAccountComponent } from './components/my-account/my-account.component
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
