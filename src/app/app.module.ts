@@ -20,6 +20,7 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 
 @NgModule({
@@ -52,3 +53,5 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
