@@ -38,11 +38,10 @@ footer {
 }
 
   .header h1{
-    position: absolute;
-    width: 667px;
+    width: 900px;
     height: 132px;
-    left: 164px;
-    top: 125px;
+    padding-top: 75px;
+    padding-right: 100px;
     
     font-family: Montserrat;
     font-style: normal;
@@ -54,24 +53,23 @@ footer {
   }
 
   .searchBox{
-    position: absolute;
     width: 540px;
     height: 56px;
-    left: 164px;
-    top: 293px;
-
     padding-left: 35px;
-
     background: #FFFFFF;
     border-radius: 5px;
+  }
+
+  .search_input{
+    padding-top: 110px;
   }
 
   #searchImg{
     position: absolute; 
     width: 15px;
     height: 15px;
-    left: 175px;
-    top: 315px;
+    left: 205px;
+    top: 271px;
     color: #9AA5B1;
 }
 
@@ -149,7 +147,7 @@ footer {
     color: #1CD4D4;
 }
 
-.container{
+.bookContainer{
   margin-top: 63px;
 }
 

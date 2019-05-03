@@ -1,15 +1,17 @@
+<app-header-bar></app-header-bar>
 <body>
-<div class="header">
-  <h1>Search and discover books you love.</h1>
+    <div class="header">
+      <div class="container">
+        <h1>Search and discover books you love.</h1>
+      
+        <div class="search_input">
+          <input class="form-control searchBox" type="text" placeholder="Search by Title, Author or IBAN" aria-label="Search">
+          <img id="searchImg" src="assets/search_icon.png"/>
+        </div>
+      </div>
+      </div>
 
-  <div class="search_input">
-    <input class="form-control searchBox" type="text" placeholder="Search by Title, Author or IBAN" aria-label="Search">
-    <img id="searchImg" src="assets/search_icon.png"/>
-  </div>
-</div>
-
-<div class="container">
-  
+<div class="container bookContainer">
     <div class="row bookRow">
         <div class="col-sm">
           <div class="card flex-row flex-wrap">
