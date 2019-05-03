@@ -1,10 +1,9 @@
-
 .login-header-title{
 /* position: absolute;
 width: 290px;
 height: 44px;
-padding-left: 165px;
-top: 41px; */
+left: 165px;
+top: 41px; */ 
 
 font-family: Montserrat;
 font-style: normal;
@@ -20,10 +19,9 @@ color: #19216C;
     /* position: absolute;
     width: 290px;
     height: 44px;
-    padding-left: 193px;
+    left: 193px;
     top: 0px; */
 
-    
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -36,22 +34,180 @@ color: #19216C;
 .login-welcome{
     /* Welcome to Bookcase. */
 
-/* position: absolute;
-width: 445px;
-height: 157px;
-padding-left: 165px;
-top: 292px; */
 
 padding-top: 207px;
 font-family: Montserrat;
 font-style: normal;
 font-weight: bold;
-font-size: 64px;
+font-size: 49px;
 line-height: 78px;
 
 color: #19216C;
 
 /* primary-blue */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.book-lover{
+    /* book_lover */
+
+position: absolute;
+width: 808.63px;
+height: 597.63px;
+left: 610px;
+top: 292px;
+
+}
+
+.vector3{
+    /* Vector */
+
+position: absolute;
+left: 0%;
+right: 8.56%;
+top: 0%;
+bottom: 0%;
+
+background: rgba(25, 33, 108, 0.69);
+opacity: 0.18;
+}
+
+
+.checkbox{
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;/* or 167% */
+    display: flex;
+    align-items: center;
+    
+    color: #9AA5B1;
+
+    padding-left: 5px;
+
+}
+
+.login {
+    padding-left: 165px;
+    background-color: rgb(245,247,250)
+}
+
+.Forgot.password{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;/* or 167% */
+    display: flex;
+    align-items: center;
+    text-align: right;
+    
+    color: #9AA5B1;
+}
+
+.privacy{
+
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;/* or 167% */
+
+    padding-top: 81px;
+    
+    color: #9AA5B1;
+
+}
+
+.copyright{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;/* or 167% */
+    padding-left: 300px;
+    color: #9AA5B1;
+    padding-top: 81px;
+}
+
+.login-button{
+ 
+    font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 13px;
+display: flex;
+align-items: center;
+position: relative;
+  left: 60px;
+  top: -17px;
+color: #FFFFFF;
+
+}
+
+.login-border{
+
+/* secondary-turquoise */
+background: #1CD4D4;
+box-shadow: 0px 4px 9px rgba(28, 212, 212, 0.2);
+border-radius: 5px;
+width: 168px;
+height: 46px;
+padding-top: 35px;
+}
+.abc{
+
+    padding-top: 74px;
+}
+
+
+
+.register-button{
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  left: 60px;
+  top: 15px;
+    
+    color: #19216C;
+
+
+
+}
+.register-border{
+
+
+
+
+    background: #FFFFFF;
+box-shadow: 0px 4px 9px rgba(218, 220, 232, 0.3);
+border-radius: 5px;
+width: 168px;
+height: 46px;
 }
 
 .login-description{
@@ -87,7 +243,7 @@ padding-top: 60px;
 
 .login-rectangle{
     /* Rectangle */
-    background: #FFFFFF;
+    background: rgb(213, 233, 255);
     /* padding-top: 60px; */
     width: 350px;
     line-height: 70px;
@@ -196,32 +352,6 @@ bottom: 0%;
 background: rgb(245, 247, 250);
 opacity: 0.18;
 }
-
-.bookcase-login-button{
-    /* bookcase_login-button */
-
-position: absolute;
-width: 168px;
-height: 46px;
-padding-left: 165px;
-top: 839px;
-}
-
-/* .login-rectangle{
- 
-
-position: absolute;
-padding-left: 0px;
-right: 0px;
-top: 0px;
-bottom: 0px;
-
-
-background: #1CD4D4;
-box-shadow: 0px 4px 9px rgba(28, 212, 212, 0.2);
-border-radius: 5px;
-} */
-
 .login-button-text{
     /* Log in */
 
@@ -241,9 +371,4 @@ align-items: center;
 text-align: center;
 
 color: #FFFFFF;
-}
-
-.login {
-    padding-left: 165px;
-    background-color:rgb(245, 247, 250);
 }
