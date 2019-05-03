@@ -1,10 +1,10 @@
 
 .login-header-title{
-position: absolute;
+/* position: absolute;
 width: 290px;
 height: 44px;
-left: 165px;
-top: 41px;
+padding-left: 165px;
+top: 41px; */
 
 font-family: Montserrat;
 font-style: normal;
@@ -17,12 +17,13 @@ color: #19216C;
 }
 
 .login-blue-point{
-    position: absolute;
+    /* position: absolute;
     width: 290px;
     height: 44px;
-    left: 193px;
-    top: 0px;
+    padding-left: 193px;
+    top: 0px; */
 
+    
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -35,12 +36,13 @@ color: #19216C;
 .login-welcome{
     /* Welcome to Bookcase. */
 
-position: absolute;
+/* position: absolute;
 width: 445px;
 height: 157px;
-left: 165px;
-top: 292px;
+padding-left: 165px;
+top: 292px; */
 
+padding-top: 207px;
 font-family: Montserrat;
 font-style: normal;
 font-weight: bold;
@@ -54,18 +56,20 @@ color: #19216C;
 
 .login-description{
     /* We make it easy for everyone to borrow and read books inside the company. */
-
+/* 
 position: absolute;
 width: 445px;
 height: 58px;
-left: 165px;
-top: 481px;
+padding-left: 165px;
+top: 481px; */
 
+padding-top: 32px;
 font-family: Montserrat;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
 line-height: 29px;
+
 
 color: #7B8794;
 
@@ -74,62 +78,68 @@ color: #7B8794;
 .login-text-input-filling{
     /* text-input_filling */
 
-position: absolute;
-width: 350px;
-height: 70px;
-left: 165px;
-top: 599px;
+padding-top: 60px;
+
+
 
 }
 
 
 .login-rectangle{
     /* Rectangle */
+    background: #FFFFFF;
+    /* padding-top: 60px; */
+    width: 350px;
+    line-height: 70px;
 
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0.71%;
-
-background: rgb(213, 233, 255);
 }
 
 .vector{
-    position: absolute;
-left: 0%;
-right: 0%;
-top: 99.29%;
-bottom: 0.71%;
 
-border: 1px solid #EAEBF0;
+ /* padding-left: 0%;
+padding-right: 0%;
+padding-top: 99.29%;
+padding-bottom: 0.71%;  */
+/* width: 2px; */
+
+
+
+border-left: 4px solid #1CD4D4;
 }
 
 .vector2{
     /* Vector 2 */
 
-position: absolute;
-left: 0.29%;
-right: 99.71%;
-top: 0%;
-bottom: 0%;
+
+
+  
+
 
 /* secondary-turquoise */
-border: 2px solid #1CD4D4;
+border-bottom: 1px solid #EAEBF0;
+/* border: 2px solid #1CD4D4; */
+}
+
+.padd-txt-left{
+    padding-left: 22px;
 }
 
 .input-title{
-    position: absolute;
-left: 6.57%;
+
+/* padding-left: 6.57%;
 right: 6.86%;
 top: 24.11%;
-bottom: 56.03%;
+bottom: 56.03%; */
 
 font-family: Montserrat;
 font-style: normal;
 font-weight: 500;
 font-size: 14px;
 line-height: 20px;
+padding-top: 12px;
+
+
+
 
 color: #7B8794; 
 }
@@ -137,17 +147,18 @@ color: #7B8794;
 .input-text{
     /* Book Description */
 
-position: absolute;
-left: 6.57%;
+/* 
+padding-left: 6.57%;
 right: 6.86%;
 top: 55.32%;
-bottom: 14.68%;
+bottom: 14.68%; */
 
 font-family: Montserrat;
 font-style: normal;
 font-weight: 500;
 font-size: 14px;
 line-height: 20px;
+padding-left: 40px;
 
 
 color: #1CD4D4;
@@ -158,11 +169,7 @@ color: #1CD4D4;
 .login-text-input-normal{
 /* text-input_normal */
 
-position: absolute;
-width: 350px;
-height: 70px;
-left: 165px;
-top: 677px;
+padding-top: 10px;
 
 }
 
@@ -172,7 +179,7 @@ top: 677px;
 position: absolute;
 width: 808.63px;
 height: 597.63px;
-left: 610px;
+padding-left: 610px;
 top: 292px;
 
 }
@@ -180,8 +187,8 @@ top: 292px;
 .vector3{
     /* Vector */
 
-position: absolute;
-left: 0%;
+
+padding-left: 0%;
 right: 8.56%;
 top: 0%;
 bottom: 0%;
@@ -190,3 +197,53 @@ background: rgba(25, 33, 108, 0.69);
 opacity: 0.18;
 }
 
+.bookcase-login-button{
+    /* bookcase_login-button */
+
+position: absolute;
+width: 168px;
+height: 46px;
+padding-left: 165px;
+top: 839px;
+}
+
+/* .login-rectangle{
+ 
+
+position: absolute;
+padding-left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+
+background: #1CD4D4;
+box-shadow: 0px 4px 9px rgba(28, 212, 212, 0.2);
+border-radius: 5px;
+} */
+
+.login-button-text{
+    /* Log in */
+
+
+height: 18px;
+padding-left: 24px;
+right: 24px;
+top: 14px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 17px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.login {
+    padding-left: 165px;
+    background-color: whitesmoke;
+}
