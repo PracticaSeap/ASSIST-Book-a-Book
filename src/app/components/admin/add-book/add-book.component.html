@@ -1,6 +1,6 @@
-<!-- titlu -->
 <div class="container">
 
+  <!-- titlu -->
   <div class="header">
     <h1 class="title_form">Add Book</h1>
   </div>
@@ -9,59 +9,77 @@
   <form>
     <!-- primul rand -->
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-6">
         <input type="text" class="form-control" id="inputTitle" placeholder="Title">
       </div>
-      <div class="form-group col-md-6">
+      <div class="form-group col-6">
         <input type="text" class="form-control" id="inputAuthor" placeholder="Author">
       </div>
     </div>
     <!-- al doilea rand -->
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-6">
         <input type="text" class="form-control" id="inputIsbn" placeholder="ISBN">
       </div>
-      <div class="form-group col-md-6">
+      <div class="form-group col-6">
         <input type="number" class="form-control" id="inputNrPages" placeholder="Number of pages">
       </div>
     </div>
     <!-- al treilea rand -->
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <select id="category" class="form-control">
-          <option value="disable">Category</option>
-        </select>
-      </div>
-      <div class="form-group col-md-6">
-        <select id="status" class="form-control">
-          <option value="disable">Status</option>
-        </select>
+    <div id="mainselection">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <select id="category" class="form-control">
+            <option value="disable">Category</option>
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <select id="status" class="form-control">
+            <option value="disable">Status</option>
+          </select>
+        </div>
       </div>
     </div>
     <!-- al patrulea rand -->
 
-    <div class="form-group">
+    <div class="form-group description">
       <input type="text" class="form-control" id="inputDescription" placeholder="Desription">
     </div>
-    <!-- check virtual book -->
-    <div class="form-row" class="form-group col-md-6" class="distance-check">
-      <input type="radio" checked="checked" name="radio">
-      <label class="container_css">Virtual book</label>
-      <span class="checkmark1"></span>
 
-      <input type="radio" checked="checked" name="radio">
-      <label class="container_css">Physical book</label>
-      <span class="checkmark2"></span>
+    <!-- butoanele radio -->
+
+
+    <div class="form-row radio-buttons" class="form-group col-6" class="distance-check" class="container_css">
+
+      <div class="radio-item">
+        <input type="radio" id="ritema" name="bookType" value="VirtualBook" (click)="bookType='VirtualBook'" ngModel>
+        <label for="ritema">Virtual book</label>
+      </div>
+
+      <div class="radio-item">
+        <input type="radio" id="ritemb" name="bookType" value="PhisicalBook" (click)="bookType='PhisicalBook'"
+          [checked]=true ngModel>
+        <label for="ritemb">Physical book</label>
+      </div>
     </div>
-    <!-- </div> -->
+    <!-- <input type="file" id (change)="onFileUpload($event)"> -->
 
+    <p *ngIf="bookType ==='VirtualBook'">
+      <input class="inputFile" type="file" name="pic" accept="pdf/*">
+      
+    </p>
   </form>
+
 
   <!-- subsol -->
   <div class="footer">
     <!-- buton submit and cancel -->
     <div class="buttons">
-      <button type="cancel" class="btn cancel"><div class="buttonsCancel">Cancel</div></button>
-      <button type="submit" class="submit"><div class="buttonsSubmit">Submit</div></button>
+      <button type="cancel" class="btn cancel">
+        <div class="buttonsCancel">Cancel</div>
+      </button>
+      <button type="submit" class="btn submit">
+        <div class="buttonsSubmit">Submit</div>
+      </button>
     </div>
   </div>
