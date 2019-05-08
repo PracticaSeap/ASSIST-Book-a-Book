@@ -10,120 +10,136 @@ p {
 }
 
 .header{
-    position: relative;
-    background: #19216C;
-    height: 437px;
-  }
+  position: relative;
+  background: #19216C;
+  height: 437px;
+}
 
 footer {
   background-color: #FFFFFF;
   height: 95px;
   display: flex;
-  justify-content: center;
   align-items: center;
 
 }
 
-.logo h3{
+.footerLeft{
+  float: left;
+}
+
+.footerRight{
+  float: right;
+}
+
+.logo p{
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
 
   color: #19216C;
-  }
+}
+
+.logo small{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+}
 
 .dot{
   color: #1CD4D4;
 }
 
-  .header h1{
-    width: 900px;
-    height: 132px;
-    padding-top: 75px;
-    padding-right: 100px;
+.header h1{
+  width: 900px;
+  height: 132px;
+  padding-top: 75px;
+  padding-right: 100px;
     
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 60px;
-    line-height: 65px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 65px;
     
-    color: #FFFFFF;
-  }
+  color: #FFFFFF;
+}
 
-  ::placeholder{
-    font-family: Helvetica;
-    font-size: 12px;
-    line-height: 12px;
+::placeholder{
+  font-family: Helvetica;
+  font-size: 12px;
+  line-height: 12px;
     
-    color: #9AA5B1;
-  }
+  color: #9AA5B1;
+}
 
 .card-title{
-    display: flex;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 31px;
+  display: flex;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
 
-    color: #19216C;
+  color: #19216C;
 }
 
 .card-text{
-    padding-left: 10px;
+  padding-left: 10px;
 
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
 
-    color: #9AA5B1;
+  color: #9AA5B1;
 }
 
 .book_borrow{
-    background: #1CD4D4;
-    box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
-    border-radius: 3.91304px;
+  background: #1CD4D4;
+  box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
+  border-radius: 3.91304px;
 }
 
 #borrowButton{
-    height: 36px;
-    width: 131px;
+  height: 36px;
+  width: 131px;
 
-    background: #1CD4D4;
-    box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
-    border-color: #1CD4D4;
-    border-radius: 3.91304px;
+  background: #1CD4D4;
+  box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
+  border-color: #1CD4D4;
+  border-radius: 3.91304px;
 
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 10.9565px;
-    line-height: 13px;
-    text-align: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10.9565px;
+  line-height: 13px;
+  text-align: center;
 }
 
 #previewButton{
+  height: 36px;
+  width: 131px;
 
-    height: 36px;
-    width: 131px;
+  background: #FFFFFF;
+  box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
+  border-color: #1CD4D4;
+  border-radius: 3.91304px;
 
-    background: #FFFFFF;
-    box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
-    border-color: #1CD4D4;
-    border-radius: 3.91304px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10.9565px;
+  line-height: 13px;
+  text-align: center;
 
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 10.9565px;
-    line-height: 13px;
-    text-align: center;
-
-    color: #1CD4D4;
+  color: #1CD4D4;
 }
 
 .bookContainer{
@@ -136,23 +152,23 @@ footer {
 }
 
 #loadMore{
-    width: 185px;
-    height: 46px;
-    margin-bottom: 65px;
-    margin-top: 36px;
+  width: 185px;
+  height: 46px;
+  margin-bottom: 65px;
+  margin-top: 36px;
 
-    border: 1px solid #9AA5B1;
-    box-sizing: border-box;
-    border-radius: 5px;
-    background-color: #FFFFFF;
+  border: 1px solid #9AA5B1;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #FFFFFF;
 
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
 
-    color: #9AA5B1;
+  color: #9AA5B1;
 }
 
 .bookRow{
@@ -160,13 +176,13 @@ footer {
 }
 
 .sIcon{
-    position: absolute;
-    width: 9px;
-    height: 9px;
-    left: 175px;
-    top: 275px;
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 175px;
+  top: 275px;
 
-    color: #9AA5B1;
+  color: #9AA5B1;
 }
 
 hr {
@@ -176,7 +192,7 @@ hr {
   margin-right: auto;
   background-color:#F5F7FA;
   border: 0 none;
-  }
+}
 
   .card-block{
     padding-top: 32px;
@@ -192,38 +208,38 @@ hr {
 }
 
 .cardFooter p{
-font-family: Montserrat;
-font-style: normal;
-font-weight: bold;
-font-size: 12px;
-line-height: 19px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 19px;
 
-color: #CBD2D9;
+  color: #CBD2D9;
 }
 
 .return{
-padding-left: 20px;
-font-family: Montserrat;
-font-style: normal;
-font-weight: bold;
-font-size: 8px;
-line-height: 10px;
-display: flex;
-align-items: center;
+  padding-left: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 8px;
+  line-height: 10px;
+  display: flex;
+  align-items: center;
 
-color: #A8A8C3;
+  color: #A8A8C3;
 }
 
 .returnDate{
   padding-left: 20px;
   font-family: Montserrat;
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 17px;
-display: flex;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
 
-color: #19216C;
+  color: #19216C;
 
 }
 
@@ -235,6 +251,8 @@ color: #19216C;
 
 .input-icon {
   background: #ffffff;
+  display: flex;
+  align-items: center;
 }
 
 .input-with-icon {
