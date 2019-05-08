@@ -5,7 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireDatabaseModule, AngularFireDatabase} from '@angular/fire/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { appRoutes } from './app.routes';
@@ -21,6 +21,20 @@ import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 
+// pus de mine
+import { 
+  MatButtonModule, 
+  MatCheckboxModule} from '@angular/material';
+  import { FormsModule } from '@angular/forms'
+  import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule} from "@angular/material"
+  import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+  import {MatRadioModule} from '@angular/material/radio';
+// import {MdButtonModule} from '@angular2-material/input';
+// import {MD_INPUT_DIRECTIVES} from '@angular2-material/input/input'
+// import {MatFormFieldModule} from '@angular/material/form-field';
+// import {Component} from '@angular/core';
+import {MatSelectModule} from '@angular/material/select';
+// import {MDCFormField} from '@material/form-field';
 
 @NgModule({
   declarations: [
@@ -38,14 +52,22 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     HeaderBarComponent,
   ],
   imports: [
+    MatRadioModule,
+    NoopAnimationsModule,
+    MatSelectModule,
+    FormsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    // Component,
+    // MatFormFieldModule,
     BrowserModule,
+    MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
+    AngularFireDatabaseModule
     // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
-    AngularFireDatabaseModule
 
   ],
   providers: [],

@@ -7,50 +7,65 @@
 
   <!-- mijloc -->
   <form>
+    <!-- #myForm="ngForm"> -->
     <!-- primul rand -->
     <div class="form-row">
       <div class="form-group col-6">
-        <input type="text" class="form-control" id="inputTitle" placeholder="Title">
+        <mat-form-field class="exemple-container test">
+          <input matInput placeholder="Title">
+        </mat-form-field>
       </div>
       <div class="form-group col-6">
-        <input type="text" class="form-control" id="inputAuthor" placeholder="Author">
+        <mat-form-field class="exemple-container test">
+          <input matInput placeholder="Author">
+        </mat-form-field>
       </div>
     </div>
     <!-- al doilea rand -->
     <div class="form-row">
       <div class="form-group col-6">
-        <input type="text" class="form-control" id="inputIsbn" placeholder="ISBN">
+        <mat-form-field class="exemple-container test">
+          <input matInput placeholder="ISBN">
+        </mat-form-field>
       </div>
       <div class="form-group col-6">
-        <input type="number" class="form-control" id="inputNrPages" placeholder="Number of pages">
+        <mat-form-field class="exemple-container test">
+          <input matInput placeholder="Number of pages">
+        </mat-form-field>
       </div>
     </div>
     <!-- al treilea rand -->
     <div id="mainselection">
       <div class="form-row">
         <div class="form-group col-6">
-          <select id="category" class="form-control">
-            <option value="disable">Category</option>
-          </select>
+          <mat-form-field class="exemple-container test">
+            <mat-select placeholder="Category">
+              <mat-option value="option">Category</mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
         <div class="form-group col-6">
-          <select id="status" class="form-control">
-            <option value="disable">Status</option>
-          </select>
+          <mat-form-field class="exemple-container test">
+            <mat-select placeholder="Status">
+              <mat-option value="option">Status</mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
       </div>
     </div>
     <!-- al patrulea rand -->
 
     <div class="form-group description">
-      <input type="text" class="form-control" id="inputDescription" placeholder="Desription">
+      <mat-form-field class="test">
+        <input matInput id="inputDescription" placeholder="Desription">
+      </mat-form-field>
     </div>
 
     <!-- butoanele radio -->
 
 
     <div class="form-row radio-buttons" class="form-group col-6" class="distance-check" class="container_css">
-
+<!-- 
       <div class="radio-item">
         <input type="radio" id="ritema" name="bookType" value="VirtualBook" (click)="bookType='VirtualBook'" ngModel>
         <label for="ritema">Virtual book</label>
@@ -61,12 +76,18 @@
           [checked]=true ngModel>
         <label for="ritemb">Physical book</label>
       </div>
-    </div>
+    </div> -->
+    <mat-radio-group class="radio-item">
+      <mat-radio-button id="ritema" name="bookType" value="VirtualBook" (click)="bookType='VirtualBook'" ngModel> VirtualBook</mat-radio-button>
+      <mat-radio-button id="ritemb" name="bookType" value="PhisicalBook" (click)="bookType='PhisicalBook'" [checked]=true ngModel> PhisicalBook</mat-radio-button>
+    </mat-radio-group>
+
+  </div>
     <!-- <input type="file" id (change)="onFileUpload($event)"> -->
 
     <p *ngIf="bookType ==='VirtualBook'">
       <input class="inputFile" type="file" name="pic" accept="pdf/*">
-      
+
     </p>
   </form>
 
