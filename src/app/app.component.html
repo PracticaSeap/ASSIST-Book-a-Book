@@ -1,2 +1,44 @@
-<h1>Hello SEAP</h1>
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+  <h1>Hello SEAP</h1>
+  <button class="btn btn-primary" (click)="createUserWithEmailAndPassword()">
+    Create User
+  </button>
+  <button class="btn btn-success" (click)="loginUser()">Login User</button>
+  <button class="btn btn-danger" (click)="logoutUser()">Logout User</button>
+  <button class="btn btn-warning" (click)="sendDataToTest()">Send to Database</button>
+
+  <!-- <div class="radio">
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="Male"
+        (click)="setradio('Male')"
+        [checked]="true"
+        ngModel
+      />
+      Male
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="Female"
+        (click)="setradio('Female')"
+        ngModel
+      />
+      Female
+    </label>
+  </div>
+
+  <div *ngIf="isSelected('Male')">
+    <input type="text" />Male radio button selected
+  </div>
+
+  <div *ngIf="isSelected('Female')">
+    <input type="text" /> Female radio button selected
+  </div> -->
+</div>
