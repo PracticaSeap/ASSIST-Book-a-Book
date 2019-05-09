@@ -1,3 +1,142 @@
-<p>
-  add-book works!
-</p>
+<div class="container">
+
+  <!-- titlu -->
+  <div class="header">
+    <h1 class="title_form">Add Book</h1>
+  </div>
+
+  <!-- mijloc -->
+  <form #myForm="ngForm">
+
+    <div class="form-row">
+      <div class="form-group col-6">
+        <mat-form-field class="exemple-container test">
+          <input matInput placeholder="Title">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-6">
+        <mat-form-field class="exemple-container test">
+          <input matInput placeholder="Author">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- al doilea rand -->
+    <div class="form-row">
+      <div class="form-group col-6">
+        <mat-form-field class="exemple-container test">
+          <input matInput placeholder="ISBN">
+        </mat-form-field>
+      </div>
+      <div class="form-group col-6">
+        <mat-form-field class="exemple-container test">
+          <input matInput placeholder="Number of pages">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- al treilea rand -->
+    <div id="mainselection">
+      <div class="form-row">
+        <div class="form-group col-6">
+          <mat-form-field class="exemple-container test">
+            <mat-select placeholder="Category">
+              <mat-option value="option">Category</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-6">
+          <mat-form-field class="exemple-container test">
+            <mat-select placeholder="Status">
+              <mat-option value="option">Status</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <!-- al patrulea rand -->
+
+    <!-- optional -->
+    <div class="form-row">
+      <div class="form-group col-6">
+        <mat-form-field class="exemple-container test">
+          <mat-select placeholder="Current borrower">
+            <mat-option value="option">Current borrower</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row col-6">
+        <div class="form-group col-6">
+          <mat-form-field class="mat1">
+            <input matInput [matDatepicker]="piker1" placeholder="Lend date">
+            <mat-datepicker-toggle matSuffix [for]="piker1"></mat-datepicker-toggle>
+            <mat-datepicker #piker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-6">
+          <mat-form-field class="mat1">
+            <input matInput [matDatepicker]="piker2" placeholder="Due date">
+            <mat-datepicker-toggle matSuffix [for]="piker2"></mat-datepicker-toggle>
+            <mat-datepicker #piker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- al 4+1 rand -->
+    <div class="form-group description">
+      <mat-form-field class="test">
+        <input matInput id="inputDescription" placeholder="Desription">
+      </mat-form-field>
+    </div>
+
+
+    <!-- butoanele radio -->
+
+
+    <div class="form-row radio-buttons" class="form-group col-6" class="distance-check" class="container_css">
+
+      <div class="radio-item">
+        <input type="radio" id="ritema" name="bookType" value="VirtualBook" (click)="bookType='VirtualBook'" ngModel>
+        <label for="ritema">Virtual book</label>
+      </div>
+
+      <div class="radio-item">
+        <input type="radio" id="ritemb" name="bookType" value="PhisicalBook" (click)="bookType='PhisicalBook'"
+          [checked]=true ngModel>
+        <label for="ritemb">Physical book</label>
+      </div>
+    </div>
+    <!-- <mat-radio-group class="radio-item">
+        <mat-radio-button id="ritema" name="bookType" value="VirtualBook" (click)="bookType='VirtualBook'" ngModel>
+          VirtualBook</mat-radio-button>
+        <mat-radio-button id="ritemb" name="bookType" value="PhisicalBook" (click)="bookType='PhisicalBook'"
+          [checked]=true ngModel> PhisicalBook</mat-radio-button>
+      </mat-radio-group> -->
+
+    <!-- </div> -->
+    <!-- <input type="file" id (change)="onFileUpload($event)"> -->
+
+    <p *ngIf="bookType ==='VirtualBook'">
+      <input class="inputFile" type="file" name="pic" accept="pdf/*">
+
+    </p>
+
+  </form>
+
+
+  <!-- subsol -->
+  <div class="footer">
+
+    <!-- buton submit and cancel -->
+    <div class="buttons">
+      <button type="cancel" class="btn cancel">
+        <div class="buttonsCancel">Cancel</div>
+      </button>
+      <button type="submit" class="btn submit">
+        <div class="buttonsSubmit">Submit</div>
+      </button>
+
+    </div>
+  </div>

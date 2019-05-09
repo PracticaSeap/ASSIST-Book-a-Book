@@ -5,7 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireDatabaseModule, AngularFireDatabase} from '@angular/fire/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { appRoutes } from './app.routes';
@@ -21,6 +21,22 @@ import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 
+// am atasat eu
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { FormsModule } from '@angular/forms'
+import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from "@angular/material"
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatRadioModule } from '@angular/material/radio';
+// import {MD_INPUT_DIRECTIVES} from '@angular2-material/input/input'
+import {MatFormFieldModule} from '@angular/material/form-field';
+// import {Component} from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { MaterialModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import {MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material'
+import 'hammerjs';
+// import {MDCFormField} from '@material/form-field';
 
 @NgModule({
   declarations: [
@@ -38,6 +54,17 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     HeaderBarComponent,
   ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
+    FormsModule,
+    MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule,
+    NoopAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
@@ -48,7 +75,7 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     AngularFireDatabaseModule
 
   ],
-  providers: [],
+  providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
