@@ -21,6 +21,7 @@ import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { DashboardBookComponent } from './components/dashboard/dashboard-book/dashboard-book.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MyBooksComponent,
     MyAccountComponent,
     HeaderBarComponent,
+    DashboardBookComponent,
   ],
   imports: [
     BrowserModule,
