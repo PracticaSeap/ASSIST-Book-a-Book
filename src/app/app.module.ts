@@ -20,6 +20,8 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+
 
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { FormsModule } from '@angular/forms'
@@ -75,3 +77,5 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
