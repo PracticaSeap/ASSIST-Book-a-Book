@@ -17,10 +17,11 @@
     <div class="row">
 
       <app-dashboard-book
-        *ngFor="let book of [1,2,3,4,5]"
-        [inputBook]="book"
+        *ngFor="let book of books"
+        [inputBook]=book
         class="col-6 bookRow"
       ></app-dashboard-book>
+
     </div>
 
     <div class="loadButton">
