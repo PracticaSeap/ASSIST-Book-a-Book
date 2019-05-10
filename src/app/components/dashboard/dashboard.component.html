@@ -14,32 +14,13 @@
 
   <div class="container bookContainer">
 
-    <div class="row bookRow">
+    <div class="row">
 
-      <app-dashboard-book></app-dashboard-book>
-      <app-dashboard-book></app-dashboard-book>
-
-    </div>
-
-    <div class="row bookRow">
-
-      <app-dashboard-book></app-dashboard-book>
-      <app-dashboard-book></app-dashboard-book>
-
-    </div>
-
-    <div class="row bookRow">
-
-      <app-dashboard-book></app-dashboard-book>
-      <app-dashboard-book></app-dashboard-book>
-
-    </div>
-
-    <div class="row bookRow">
-
-      <app-dashboard-book></app-dashboard-book>
-      <app-dashboard-book></app-dashboard-book>
-
+      <app-dashboard-book
+        *ngFor="let book of [1,2,3,4,5]"
+        [book] ="book"
+        class="col-6 bookRow"
+      ></app-dashboard-book>
     </div>
 
     <div class="loadButton">
