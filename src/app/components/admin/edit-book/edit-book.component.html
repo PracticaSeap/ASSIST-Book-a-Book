@@ -3,7 +3,7 @@
 
   <!-- titlu -->
   <div class="header">
-    <h1 class="title_form">Add Book</h1>
+    <h1 class="title_form">Edit Book</h1>
   </div>
 
   <!-- mijloc -->
@@ -55,6 +55,37 @@
     </div>
     <!-- al patrulea rand -->
 
+    <!-- optional -->
+    <div class="form-row">
+      <div class="form-group col-6">
+        <mat-form-field class="exemple-container test">
+          <mat-select placeholder="Current borrower">
+            <mat-option value="option">Current borrower</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row col-6">
+        <div class="form-group col-6">
+          <mat-form-field class="mat1">
+            <input matInput [matDatepicker]="piker1" placeholder="Lend date">
+            <mat-datepicker-toggle matSuffix [for]="piker1"></mat-datepicker-toggle>
+            <mat-datepicker #piker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-6">
+          <mat-form-field class="mat1">
+            <input matInput [matDatepicker]="piker2" placeholder="Due date">
+            <mat-datepicker-toggle matSuffix [for]="piker2"></mat-datepicker-toggle>
+            <mat-datepicker #piker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- al 4+1 rand -->
     <div class="form-group description">
       <mat-form-field class="test">
         <input matInput id="inputDescription" placeholder="Desription">
