@@ -21,22 +21,18 @@ import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 
-// am atasat eu
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { FormsModule } from '@angular/forms'
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from "@angular/material"
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
-// import {MD_INPUT_DIRECTIVES} from '@angular2-material/input/input'
 import {MatFormFieldModule} from '@angular/material/form-field';
-// import {Component} from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MaterialModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 import {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material'
 import 'hammerjs';
-// import {MDCFormField} from '@material/form-field';
+import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +48,7 @@ import 'hammerjs';
     MyBooksComponent,
     MyAccountComponent,
     HeaderBarComponent,
+    EditBookComponent,
   ],
   imports: [
     MatDatepickerModule,
@@ -69,10 +66,9 @@ import 'hammerjs';
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
-    AngularFireDatabaseModule
+    //AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+   // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    //AngularFireStorageModule, // imports firebase/storage only needed for storage features,
 
   ],
   providers: [MatNativeDateModule],
