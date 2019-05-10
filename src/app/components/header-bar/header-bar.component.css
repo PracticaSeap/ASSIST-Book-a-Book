@@ -1,0 +1,46 @@
+.navbar{
+    background: #19216C;
+    height: 107px;
+}
+
+.navbar h3{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #FFFFFF;
+    }
+  
+.dot{
+    color: #1CD4D4;
+  }
+
+.navMenu{
+    color:#FFFFFF;
+    font-size: 13px;
+}
+
+.navBrowse span{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+
+    color: #FFFFFF;
+}
+
+.menuBars{
+    color:white;
+}
+
+.menuLink{
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+color:white;
+}
+
+.mb-1, .my-1 {
+    margin-bottom: 0rem !important;
+}
