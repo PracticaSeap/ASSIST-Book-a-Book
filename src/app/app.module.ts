@@ -37,6 +37,8 @@ import {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material'
 import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
     EditBookComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule,

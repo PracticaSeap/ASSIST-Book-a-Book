@@ -7,30 +7,29 @@
   </div>
 
   <!-- mijloc -->
-  <form #myForm="ngForm">
-
-    <div class="form-row">
+  <form #f="ngForm" [formGroup]="addBook" (ngSubmit)="onSubmit(addBook)">
+    <div class="form-row form form-group">
       <div class="form-group col-6">
-        <mat-form-field class="exemple-container test">
+          <mat-form-field class="exemple-container test" name="title" [formControl]="addBook.get('title')" ngDefaultControl>
           <input matInput placeholder="Title">
         </mat-form-field>
       </div>
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input matInput placeholder="Author">
-        </mat-form-field>
+          <input matInput placeholder="Author" name="author" [formControl]="addBook.get('author')" ngDefaultControl>
+        </mat-form-field> 
       </div>
     </div>
     <!-- al doilea rand -->
     <div class="form-row">
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input matInput placeholder="ISBN">
+          <input matInput placeholder="ISBN" name="isbn" [formControl]="addBook.get('isbn')" ngDefaultControl>
         </mat-form-field>
       </div>
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input matInput placeholder="Number of pages">
+          <input type="number" matInput placeholder="Number of pages" name="number_of_page" [formControl]="addBook.get('number_of_page')" ngDefaultControl>
         </mat-form-field>
       </div>
     </div>
@@ -40,14 +39,14 @@
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
             <mat-select placeholder="Category">
-              <mat-option value="option">Category</mat-option>
+              <mat-option value="option" name="category" [formControl]="addBook.get('category')" ngDefaultControl>Category</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <mat-select placeholder="Status">
-              <mat-option value="option">Status</mat-option>
+            <mat-select placeholder="Status" >
+              <mat-option value="option" name="status" [formControl]="addBook.get('status')" ngDefaultControl>Status</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -57,7 +56,7 @@
 
     <div class="form-group description">
       <mat-form-field class="test">
-        <input matInput id="inputDescription" placeholder="Desription">
+        <input matInput id="inputDescription" placeholder="Desription" name="description" [formControl]="addBook.get('description')" ngDefaultControl>
       </mat-form-field>
     </div>
 
@@ -68,7 +67,7 @@
     <div class="form-row radio-buttons" class="form-group col-6" class="distance-check" class="container_css">
 
       <div class="radio-item">
-        <input type="radio" id="ritema" name="bookType" value="VirtualBook" (click)="bookType='VirtualBook'" ngModel>
+        <input type="radio" id="ritema" name="bookType" value="VirtualBook" (click)="bookType='VirtualBook'" ngModel name="virtual_book" [formControlName]="addBook.get('virtual_book')" ngDefaultControl>
         <label for="ritema">Virtual book</label>
       </div>
 
@@ -90,7 +89,6 @@
 
     <p *ngIf="bookType ==='VirtualBook'">
       <input class="inputFile" type="file" name="pic" accept="pdf/*">
-
     </p>
 
   </form>
@@ -110,3 +108,5 @@
 
     </div>
   </div>
+
+  <pre>{{ addBook.value | json }}</pre>
