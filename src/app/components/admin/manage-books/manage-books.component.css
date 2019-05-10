@@ -1,0 +1,244 @@
+.containter 
+{
+    position: relative;
+width: 1440px;
+height: 1804px;
+
+background: #FFFFFF;
+}
+
+.Buton
+{
+    padding-top:14px;
+    padding-right:24px;
+    padding-left:46px;
+    padding-bottom: 14px;
+    margin-top:192px;
+margin-bottom:64px;
+
+    /* secondary-turquoise */
+    background: #1CD4D4;
+    box-shadow: 0px 4px 9px rgba(28, 212, 212, 0.2);
+    border-radius: 5px;
+    width: 168px;
+    height: 46px;
+}
+
+.Buton>.Add-Book {
+    
+   
+    height: 14px;
+    left: 24px;
+    right: 24px;
+    top: 14px;
+    width: 120px;
+    height:18px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 17px;
+display: flex;
+align-items: center;
+text-align: center;
+
+
+color: #FFFFFF;
+}
+
+.w-100 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+.Books 
+{ 
+
+    width: 255px;
+    height: 46px;
+    left: 165px;
+    top: 302px;
+    margin-bottom: 24px;
+    box-shadow: 0px 2px 3px rgba(28, 212, 212, 0.2);
+    border-radius: 5px;
+    color: #9AA5B1;
+    padding-top: 12px;
+    padding-left: 20px;
+    padding-right:18px;
+    padding-bottom: 12px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 11px;
+    display: flex;
+    align-items: center;
+    
+}
+
+
+
+
+.Books>.Borrowed-Books 
+{ 
+color: #9AA5B1;
+}
+
+
+
+.Overdue
+    {width: 315px;
+height: 46px;
+left: 168px;
+right:957px;
+top: 872px;
+padding-top:92px;
+padding-bottom:24px;
+
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 11px;/* or 46% */
+display: flex;
+align-items: center;
+
+color: #9AA5B1;
+}
+
+
+
+
+.row
+{
+    
+    
+    padding-top:13px;
+    padding-bottom:12px;
+    width: 1110px;
+height: 90px;
+left: 168px;
+top: 372px;
+text-align:center;
+
+background: #F5F7FA;
+border-radius: 5px;
+}
+
+regular-row
+{
+    width: 1110px;
+    height: 90px;
+    left: 168px;
+    top: 420px;
+    padding-top:19px;
+    padding-bottom:19px;
+    
+    background: #FFFFFF;
+    border-radius: 5px;
+
+}
+
+
+.row regular-row-1>.img
+{
+    position: absolute;
+left: 13.75%;
+right: 82.71%;
+top: 23.95%;
+bottom: 72.39%;
+padding-top:12px;
+padding-bottom:12px;
+padding-left: 30px;
+padding-right:1029px;
+border-radius: 5px;
+}
+
+.row regular-row-1>.X1
+{
+    width: 157px;
+height: 48px;
+left: 358px;
+top: 441px;
+padding-top:21px;
+padding-bottom:21px;
+padding-left:190;
+padding-right:763px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 15px;
+display: flex;
+align-items: center;
+
+color: #9AA5B1;
+}
+.col>.Title {
+    
+width: 157px;
+height: 48px;
+left: 358px;
+top: 942px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 10px;
+line-height: 11px;/* or 110% */
+display: flex;
+align-items: center;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+
+color: #9AA5B1;
+}
+
+.Footer 
+{
+    position: absolute;
+width: 1440px;
+height: 95px;
+left: 0px;
+top: 1709px;
+padding-top: 179px;
+
+background: #FFFFFF;
+}
+div.h1
+{
+    width: 127px;
+height: 30px;
+left: 164px;
+top: 1742px;
+padding-top:33px;
+padding-bottom:43px;
+padding-left:164px;
+padding-right:1149px;
+}
+p 
+{
+    
+    padding-top:39px;
+    padding-bottom:38px;
+    width: 247px;
+    height: 50px;
+    padding-left: 1028px;
+    padding-right:165px;
+    top: 1740px;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    
+    color: #9AA5B1;
+    
+}
