@@ -5,7 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireDatabaseModule, AngularFireDatabase} from '@angular/fire/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { appRoutes } from './app.routes';
@@ -23,6 +23,18 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { FormsModule } from '@angular/forms'
+import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from "@angular/material"
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material'
+import 'hammerjs';
+import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -38,19 +50,30 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
     MyBooksComponent,
     MyAccountComponent,
     HeaderBarComponent,
+    EditBookComponent,
   ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
+    FormsModule,
+    MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule,
+    NoopAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
-    AngularFireDatabaseModule
+    //AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+   // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    //AngularFireStorageModule, // imports firebase/storage only needed for storage features,
 
   ],
-  providers: [],
+  providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
