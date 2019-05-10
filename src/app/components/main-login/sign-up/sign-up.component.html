@@ -25,7 +25,7 @@
                     <div class="login-rectangle vector vector2">
                       <div class="padd-txt-left">
                         <div class="input-title">Full Name</div>
-                        <input class="input-text" type="email">
+                        <input class="input-text" type="fullname" (keyup)="onKeyFullName($event)">
                       </div>
                     </div>
               </div>
@@ -35,7 +35,7 @@
                     <div class="login-rectangle vector vector2">
                       <div class="padd-txt-left">
                         <div class="input-title">Email Adress</div>
-                        <input class="input-text" type="email">
+                        <input class="input-text" type="email" (keyup)="onKeyEmail($event)">
                       </div>
                     </div>
               </div>
@@ -45,7 +45,7 @@
                   <div class="login-rectangle vector vector2">
                     <div class="padd-txt-left">
                       <div class="input-title">Password</div>
-                      <input class="input-text" type="password">
+                      <input class="input-text" type="password" (keyup)="onKeyPassword($event)">
                     </div>
                   </div>
             </div>
@@ -65,11 +65,21 @@
      
            </div>
          </div>
+
+
+         <div class="row alert alert-danger" role="alert" *ngIf="alertError">
+            {{errMessage}} <a href="login">Login!</a>
+          </div>
+
+          <div class="row alert alert-success" role="alert" *ngIf="succValue">
+              You succesfully signed up! :D
+            </div>
+
            <div class="row abc">
              
                <!-- <div class ="abc"> -->
                  
-                       <div class ="col btn-padding">
+                       <div class ="col btn-padding ">
      
                            <div class = "register-border">
      
@@ -89,12 +99,12 @@
                    <div class = "login-border">
                    
                          
-                       <div class ="login-button">
+                       <button class ="login-button" (click)="createUserWithEmailAndPassword()">
                
                       Sign Up
                
                       
-                       </div>
+                       </button>
                        </div>
                      </div>
      
