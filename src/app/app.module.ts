@@ -20,6 +20,8 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { DashboardBookComponent } from './components/dashboard/dashboard-book/dashboard-book.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 
@@ -50,6 +52,7 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
     MyBooksComponent,
     MyAccountComponent,
     HeaderBarComponent,
+    DashboardBookComponent,
     EditBookComponent,
   ],
   imports: [
@@ -68,6 +71,11 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
+    AngularFireDatabaseModule,
+    AngularFontAwesomeModule,
     //AngularFirestoreModule, // imports firebase/firestore, only needed for database features
    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     //AngularFireStorageModule, // imports firebase/storage only needed for storage features,

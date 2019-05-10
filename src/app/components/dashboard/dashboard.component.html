@@ -1,3 +1,43 @@
-<p>
-  dashboard works!
-</p>
+<app-header-bar></app-header-bar>
+
+<body>
+
+  <div class="header">
+    <div class="container">
+      <h1>Search and discover books you love.</h1>
+        <div class="input-icon-wrap searchBox">
+            <span class="input-icon"><span class="fa fa-search"></span></span>
+            <input type="text" class="input-with-icon" id="form-name" placeholder="Search by Title, Author or IBAN">
+        </div>
+    </div>
+  </div>
+
+  <div class="container bookContainer">
+
+    <div class="row">
+
+      <app-dashboard-book
+        *ngFor="let book of [1,2,3,4,5]"
+        [inputBook]="book"
+        class="col-6 bookRow"
+      ></app-dashboard-book>
+    </div>
+
+    <div class="loadButton">
+      <button id="loadMore" class="btn btn-primary">Load More</button>
+    </div>
+
+  </div>
+</body>
+
+<footer>
+
+  <div class="container logo">
+    <p class="footerLeft">bookcase<span class="dot">.</span></p>
+    <small class="footerRight">Terms & Conditions | Privacy Policy</small>
+  </div>
+
+</footer>
+
+
+

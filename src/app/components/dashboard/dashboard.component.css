@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+@import url("https://fonts.googleapis.com/css?family=Helvetica:500,700");
+
+body{
+  background-color: #F5F7FA;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.header{
+  position: relative;
+  background: #19216C;
+  height: 437px;
+}
+
+footer {
+  background-color: #FFFFFF;
+  height: 95px;
+  display: flex;
+  align-items: center;
+
+}
+
+.footerLeft{
+  float: left;
+}
+
+.footerRight{
+  float: right;
+}
+
+.logo p{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+
+  color: #19216C;
+}
+
+.logo small{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.dot{
+  color: #1CD4D4;
+}
+
+.header h1{
+  width: 900px;
+  height: 132px;
+  padding-top: 75px;
+  padding-right: 100px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 65px;
+
+  color: #FFFFFF;
+}
+
+::placeholder{
+  font-family: Helvetica;
+  font-size: 12px;
+  line-height: 12px;
+
+  color: #9AA5B1;
+}
+
+.bookContainer{
+  margin-top: 63px;
+}
+
+.loadButton{
+  display: flex;
+  justify-content: center;
+}
+
+#loadMore{
+  width: 185px;
+  height: 46px;
+  margin-bottom: 65px;
+  margin-top: 36px;
+
+  border: 1px solid #9AA5B1;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #9AA5B1;
+}
+
+.bookRow{
+  margin-top: 27px;
+}
+
+.sIcon{
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 175px;
+  top: 275px;
+
+  color: #9AA5B1;
+}
+
+
+.input-icon-wrap {
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+
+  font-family: Helvetica;
+  font-size: 14px;
+
+}
+
+.input-icon {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon {
+  border: none;
+  flex: 1;
+}
+
+.input-icon, .input-with-icon {
+  padding: 10px;
+}
+
+.searchBox{
+  width: 540px;
+  height: 56px;
+  border-radius: 5px;
+  margin-top: 125px;
+}
+
+
+
+
+
+
+
