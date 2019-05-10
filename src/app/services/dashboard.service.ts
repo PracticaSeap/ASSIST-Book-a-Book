@@ -15,4 +15,5 @@ export class DashboardService {
     this.bookList = this.db.list('/books');
     return this.bookList.valueChanges();
   }
+
 }

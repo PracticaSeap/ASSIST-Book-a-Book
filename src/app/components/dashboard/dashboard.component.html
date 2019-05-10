@@ -7,7 +7,7 @@
       <h1>Search and discover books you love.</h1>
         <div class="input-icon-wrap searchBox">
             <span class="input-icon"><span class="fa fa-search"></span></span>
-            <input type="text" class="input-with-icon" id="form-name" placeholder="Search by Title, Author or IBAN">
+            <input (input)="filterBooks($event.target.value)" type="text" class="input-with-icon" id="form-name" placeholder="Search by Title, Author or IBAN">
         </div>
     </div>
   </div>
@@ -16,8 +16,9 @@
 
     <div class="row">
 
+
       <app-dashboard-book
-        *ngFor="let book of books"
+        *ngFor="let book of filteredBooks"
         [inputBook]=book
         class="col-6 bookRow"
       ></app-dashboard-book>

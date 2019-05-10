@@ -11,9 +11,12 @@ export class DashboardBookComponent implements OnInit {
 
   @Input() inputBook: Book;
 
+
   constructor() { }
 
   ngOnInit() {
+
+    this.inputBook.is_borrowed = false;
 
   }
 }

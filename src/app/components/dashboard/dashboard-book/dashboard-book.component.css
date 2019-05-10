@@ -27,7 +27,7 @@
   border-radius: 3.91304px;
 }
 
-#borrowButton{
+.borrowButton{
   height: 36px;
   width: 131px;
 
@@ -44,7 +44,7 @@
   text-align: center;
 }
 
-#previewButton{
+.previewButton{
   height: 36px;
   width: 131px;
 

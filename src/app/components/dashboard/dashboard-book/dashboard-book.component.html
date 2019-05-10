@@ -9,8 +9,12 @@
     <p class="card-text">{{inputBook.description}}</p>
 
     <div class="btn-group px-2" role="group" aria-label="Basic example">
-      <button id="borrowButton" class="btn btn-primary">Borrow</button>
-      <button id="previewButton" class="btn btn-primary ml-3">Preview</button>
+      <button *ngIf="inputBook.is_borrowed == false" class="btn btn-primary borrowButton mr-3">Borrow</button>
+      <button class="btn btn-primary previewButton" [ngClass]="{'borrowButton':inputBook.is_borrowed}">Preview</button>
+      <div *ngIf="inputBook.is_borrowed == true" class="row">
+        <p class="return">Return due date</p>
+        <p class="returnDate">April 20, 2019</p>
+      </div>
     </div>
 
     <hr>

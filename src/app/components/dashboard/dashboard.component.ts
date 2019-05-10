@@ -1,6 +1,7 @@
+import { Book } from './../../models/book.model';
 import { DashboardService } from './../../services/dashboard.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,12 +11,26 @@ import { Observable } from 'rxjs';
 export class DashboardComponent implements OnInit {
 
   constructor(public dashboardService: DashboardService) { }
-  books;
+
+  books: Book[];
+  filteredBooks: Book[];
+
   ngOnInit() {
     this.dashboardService.getBooks().subscribe( list => {
       this.books = list;
-      console.log(this.books);
+      this.filteredBooks = this.books;
     });
   }
 
+  filterBooks(value: string) {
+    this.filteredBooks = this.books.filter(book =>
+       book.title.toLowerCase().includes(value.toLowerCase()) ||
+       book.author.toLowerCase().includes(value.toLowerCase()) ||
+       book.isbn.toLowerCase().includes(value.toLowerCase())
+  );
+
+    if(this.filteredBooks.length == 0){
+      this.filteredBooks = [];
+    }
+  }
 }
