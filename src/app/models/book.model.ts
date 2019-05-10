@@ -8,5 +8,5 @@ export interface Book {
     tag: string;
     image: string;
     number_of_pages: number;
-    virtual_book: string;
+    virtual_book: string;   
 }
