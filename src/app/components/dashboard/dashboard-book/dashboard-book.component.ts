@@ -16,7 +16,5 @@ export class DashboardBookComponent implements OnInit {
 
   ngOnInit() {
 
-    this.inputBook.is_borrowed = false;
-
   }
 }

@@ -1,3 +1,7 @@
+p {
+  margin-bottom: 0 !important;
+}
+
 .card-title{
   display: flex;
   font-family: Montserrat;
@@ -79,7 +83,6 @@ hr {
   font-style: normal;
   font-weight: bold;
   font-size: 8px;
-  line-height: 10px;
   display: flex;
   align-items: center;
 
@@ -92,11 +95,13 @@ hr {
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
-  line-height: 17px;
   display: flex;
 
   color: #19216C;
+}
 
+.viewReturn{
+  line-height: 17px;
 }
 
 .fa{
