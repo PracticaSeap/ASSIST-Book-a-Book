@@ -1,3 +1,28 @@
-<p>
-  my-books works!
-</p>
+<app-header-bar></app-header-bar>
+<body>
+  <div class="container">
+    <div class="text-right pb-2">
+      <span class="sortby px-3">SORT BY </span>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Last readed
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item py-2">Last readed</a>
+          <a class="dropdown-item py-2" href="#">A to Z</a>
+          <a class="dropdown-item py-2" href="#">Z to A</a>
+          <a class="dropdown-item py-2" href="#">Date borrowed</a>
+        </div>
+    </div>
+
+    <app-book
+      *ngFor="let book of books"
+      [inputBook]=book>
+    </app-book>
+  </div>
+
+  <div class="loadButton">
+    <button id="loadMore" class="btn btn-primary">Load More</button>
+  </div>
+</body>
+
+<app-footer-bar></app-footer-bar>

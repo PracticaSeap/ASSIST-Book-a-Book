@@ -37,6 +37,8 @@ import {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material'
 import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
+import { BookComponent } from './components/my-books/book/book.component';
+import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
     HeaderBarComponent,
     DashboardBookComponent,
     EditBookComponent,
+    BookComponent,
+    FooterBarComponent,
   ],
   imports: [
     MatDatepickerModule,
