@@ -7,6 +7,7 @@ export interface Book {
     category: string;
     tag: string;
     image: string;
+    is_borrowed: boolean;
     number_of_pages: number;
     virtual_book: string;
 }

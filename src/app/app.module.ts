@@ -38,6 +38,7 @@ import { MatNativeDateModule } from '@angular/material'
 import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FirebaseService } from './services/firebase.service';
 
 
 @NgModule({
@@ -84,7 +85,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     //AngularFireStorageModule, // imports firebase/storage only needed for storage features,
 
   ],
-  providers: [MatNativeDateModule],
+  providers: [MatNativeDateModule, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
