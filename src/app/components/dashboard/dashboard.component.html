@@ -20,6 +20,7 @@
         *ngFor="let book of filteredBooks"
         [inputBook]=book
         class="col-6 bookRow"
+        (click)="onSelect(book)"
       ></app-dashboard-book>
 
     </div>

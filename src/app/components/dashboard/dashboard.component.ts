@@ -2,6 +2,7 @@ import { Book } from './../../models/book.model';
 import { DashboardService } from './../../services/dashboard.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public dashboardService: DashboardService) { }
+  constructor(public dashboardService: DashboardService, private router: Router) { }
 
   books: Book[];
   filteredBooks: Book[];
@@ -32,5 +33,9 @@ export class DashboardComponent implements OnInit {
     if(this.filteredBooks.length == 0){
       this.filteredBooks = [];
     }
+  }
+
+  onSelect(book){
+    this.router.navigate(['/book-details', book.id]);
   }
 }

@@ -1,6 +1,7 @@
 import { Book } from './../../../models/book.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { DashboardService } from 'src/app/services/dashboard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-book',
