@@ -9,4 +9,5 @@ export interface Book {
     image: string;
     number_of_pages: number;
     virtual_book: string;
+    is_borrowed: string;
 }
