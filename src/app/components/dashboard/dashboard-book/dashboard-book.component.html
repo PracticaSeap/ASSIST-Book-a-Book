@@ -6,7 +6,7 @@
 
   <div class="card-block px-3 col-lg-7">
     <h4 class="card-title px-2">{{inputBook.title}}</h4>
-    <p class="card-text">{{inputBook.description}}</p>
+    <p class="card-text">{{inputBook.description | limitTo: 140}}</p>
 
     <div class="btn-group px-2" role="group" aria-label="Basic example">
       <button *ngIf="inputBook.is_borrowed == false" class="btn btn-primary borrowButton mr-3">Borrow</button>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="cardFooter col-md-">
-        <p><i class="fa fa-bookmark-o fa-0.5x pr-1"></i>250 pages</p>
+        <p><i class="fa fa-bookmark-o fa-0.5x pr-1"></i>{{inputBook.number_of_pages}} pages</p>
       </div>
     </div>
   </div>

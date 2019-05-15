@@ -16,6 +16,20 @@
   color: #1CD4D4;
 }
 
+small > a{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 11px;
+
+  color: #1CD4D4;
+}
+
+small > a:hover{
+  color: #19216C;
+}
+
 .description_container{
   margin-top: 100px;
   background-color: #F5F7FA;

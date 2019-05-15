@@ -7,7 +7,7 @@
     <div class="card-block px-4 col-6">
       <h4 class="card-title px-2 pt-2">{{inputBook.title}}</h4>
       <small class="pl-2">{{inputBook.author}} • {{inputBook.category}}</small>
-      <p class="card-text mt-4">{{inputBook.description}}</p>
+      <p class="card-text mt-4">{{inputBook.description | limitTo: 150}}</p>
     </div>
 
     <div class="col-md-4 py-5">

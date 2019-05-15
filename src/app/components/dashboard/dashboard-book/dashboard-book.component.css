@@ -2,6 +2,10 @@ p {
   margin-bottom: 0 !important;
 }
 
+.card{
+  max-height: 300px;
+}
+
 .card-title{
   display: flex;
   font-family: Montserrat;
@@ -24,6 +28,7 @@ p {
 
   color: #9AA5B1;
 }
+
 
 .book_borrow{
   background: #1CD4D4;

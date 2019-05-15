@@ -3,7 +3,7 @@
 <div class="container">
 
   <div class="main_info_container">
-      <small>Home > Books > BookName</small>
+      <small><a href="/dashboard">Home</a> > <a href="/my-books">Books</a> > {{books[bookId].title}}</small>
 
       <div class="row info_row">
         <div class="col-4">
@@ -36,7 +36,7 @@
 
     <div class="book-description col-10">
       <p>{{books[bookId].description}}</p>
-      <p id="book-details" class="pt-4">Total Pages: 520</p>
+      <p id="book-details" class="pt-4">Total Pages: {{books[bookId].number_of_pages}}</p>
       <p id="book-details">ISBN: {{books[bookId].isbn}}</p>
     </div>
 

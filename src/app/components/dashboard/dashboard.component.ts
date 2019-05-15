@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getBooks().subscribe( list => {
       this.books = list;
       this.filteredBooks = this.books;
+      console.log(this.books);
     });
   }
 

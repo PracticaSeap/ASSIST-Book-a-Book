@@ -39,6 +39,7 @@ import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
 import { BookComponent } from './components/my-books/book/book.component';
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { FooterBarComponent } from './components/footer-bar/footer-bar.component
     EditBookComponent,
     BookComponent,
     FooterBarComponent,
+    FilterPipe,
   ],
   imports: [
     MatDatepickerModule,

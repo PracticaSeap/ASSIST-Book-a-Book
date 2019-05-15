@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
 @import url("https://fonts.googleapis.com/css?family=Helvetica:500,700");
+
 .card-title{
     display: flex;
     font-family: Montserrat;
@@ -11,6 +12,7 @@
 
     color: #19216C;
 }
+
 .card-block small{
     font-family: Montserrat;
     font-style: normal;
@@ -19,6 +21,16 @@
     line-height: 11px;
     color: #A8A8C3;
 }
+
+.card-block p{
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+}
+
 .card-text{
     padding-left: 10px;
     font-family: Montserrat;
@@ -28,11 +40,14 @@
     line-height: 20px;
     color: #9AA5B1;
 }
+
 .card{
     padding-left: 19px;
     padding-top: 16px;
     padding-bottom: 16px;
+    max-height: 175px;
 }
+
 .btnView{
     border: 1px solid #1CD4D4;
     box-sizing: border-box;
