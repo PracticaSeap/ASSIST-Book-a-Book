@@ -7,8 +7,7 @@
   </div>
 
   <!-- mijloc -->
-  <!-- #f="ngForm" langa form group a fost -->
-  <form [formGroup]="addBook" novalidate (ngSubmit)="onSubmit(addBook.value)">
+  <form [formGroup]="addBookForm" novalidate (ngSubmit)="onSubmit(addBookForm.value)">
       <div class="form-row">
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
@@ -42,14 +41,18 @@
           <div class="form-group col-6">
             <mat-form-field class="exemple-container test">
               <mat-select formControlName="category"    placeholder="Category" name="category">
-                <mat-option value="category">Category</mat-option>
+                <mat-option value="business">Business</mat-option>
+                <mat-option value="finance">Finance</mat-option>
+                <mat-option value="adventure">Adventure</mat-option>
+                <mat-option value="comics">Comics</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
           <div class="form-group col-6">
             <mat-form-field class="exemple-container test">
-              <mat-select formControlName="status" placeholder="Status" name="status">
-                <mat-option value="status" >Status</mat-option>
+              <mat-select formControlName="is_borrowed" placeholder="Status" name="is_borrowed">
+                <mat-option value="false" >Available</mat-option>
+                <mat-option value="true" >Borrowed</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -93,7 +96,7 @@
         <button type="cancel" class="btn cancel">
           <div class="buttonsCancel">Cancel</div>
         </button>
-        <button type="submit" class="btn submit">
+        <button type="submit" class="btn submit" [disabled]="addBookForm.invalid">
           <div class="buttonsSubmit">Submit</div>
         </button>
         <!-- <input type="submit" value="Trimite"> -->
@@ -101,4 +104,4 @@
     </div>
 
   </form>
-  <pre>{{ addBook.value | json }}</pre>
+  <pre>{{ addBookForm.value | json }}</pre>

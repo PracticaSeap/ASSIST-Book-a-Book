@@ -17,71 +17,38 @@ export class AddBookComponent implements OnInit {
   public addBookApi: AddBookService;
 
   virtual_book = 'PhisicalBook';
-  // bookType = 'PhisicalBook';
   public book: Book;
-  addBook: FormGroup;
-  // form: FormGroup;
-  private books;
+  addBookForm: FormGroup;
+  private booksLength;
   allBooks: any;
-  constructor(public db: AngularFireDatabase,
-    private fb: FormBuilder) {
+  constructor(public db: AngularFireDatabase, private fb: FormBuilder) {
     this.db.list('/books').valueChanges().subscribe(books => {
-      this.books = books;
-      this.book = {
-        id: this.books.length,
-        title: '',
-        author: '',
-        isbn: '',
-        description: '',
-        category: '',
-        tag: '',
-        image: '',
-        is_borrowed: false,
-        number_of_pages: 0,
-        virtual_book: '',
-      }
+      this.booksLength = books.length;
     });
 
-    this.addBook = this.fb.group({
+    this.addBookForm = this.fb.group({
+      id: this.fb.control(''),
       title: this.fb.control('', Validators.required),
       author: this.fb.control('', Validators.required),
       isbn: this.fb.control('', Validators.required),
       description: this.fb.control('', Validators.required),
       category: this.fb.control('', Validators.required),
-      tag: this.fb.control('', Validators.required),
+      tag: this.fb.control(''),
       virtual_book: this.fb.control('', Validators.required),
-      status: this.fb.control('', Validators.required),
-      image: this.fb.control('', Validators.required),
-      is_borrowed: this.fb.control('', Validators.required) ,
+      is_borrowed: this.fb.control(false, Validators.required),
+      image: this.fb.control(''),
       number_of_pages: this.fb.control('', Validators.required),
     });
 
-    //o alta metoda a celei precedente
-
-    // this.addBook = new FormGroup({
-    //   title: new FormControl('', Validators.required),
-    //   author: new FormControl('', Validators.required),
-    //   isbn: new FormControl('', Validators.required),
-    //   number_of_pages: new FormControl('', Validators.required),
-    //   category: new FormControl('', Validators.required),
-    //   tag: new FormControl('', Validators.required),
-    //   virtual_book: new FormControl('', Validators.required),
-    //   status: new FormControl('', Validators.required),
-    //   image: new FormControl('', Validators.required),
-    //   description: new FormControl('', Validators.required),
-    // });
-
   }
 
-  ngOnInit() {
-    // this.addBookApi.GetBookList();
-    this.addBook;
-  }
+  ngOnInit() { }
 
-  onSubmit(value) {
-    console.log("form book :", this.addBook.value)
-    console.log("Books :", this.books.value)
-    this.books.push(this.addBook)
+  onSubmit(value: Book) {
+    console.log('form book :', this.addBookForm.value);
+    console.log('Books :', this.booksLength.value);
+    this.addBookForm.value.id = this.booksLength;
+    this.db.list('/books').push(value);
   }
 }
 
