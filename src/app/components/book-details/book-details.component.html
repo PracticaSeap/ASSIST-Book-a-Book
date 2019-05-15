@@ -1,53 +1,48 @@
 <app-header-bar></app-header-bar>
-
 <div class="container">
-
-  <div class="main_info_container">
-      <small>Home > Books > BookName</small>
-
-      <div class="row info_row">
-        <div class="col-4">
-            <img src="assets/book_cover.png" alt="" height="490" width="100%">
-        </div>
-
-        <div class="col-6 description_col">
-          <h4 class="card-title px-2">The Indispensable UX Designer</h4>
-          <p class="card-author">James Arthur • Design</p>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan nisl luctus sollicitudin egestas. Nulla hendrerit cursus ullamcorper. Cras elit velit, porta at maximus non, vestibulum non ex. Donec vehicula ante in velit eleifend, sed auctor magna ultrices. Suspendisse quam mi, cursus eu mauris ac, facilisis dignissim purus.</p>
-
-            <div class="btn-group px-2" role="group" aria-label="Basic example">
-              <button class="btn btn-primary borrowButton mr-3">Borrow</button>
-              <button class="btn btn-primary recommendButton">Recommend</button>
-            </div>
+  <div class="row header-row align-items-center">
+    <div class="col-sm-4">
+      <div class="col-md-12">
+        <img src="assets/book_cover.png" alt="" height="490" width="350">
+      </div>
+    </div>
+    <div class="col-sm-7 ml-auto">
+      <div class="col-md-12">
+        <h1 class="bookTitle">The Indispensable <br> UX Designer</h1>
+        <p class="bookWriter">James Arthur &bull; Design</p>
+        <p class="boolSmallDescription">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae mollitia eos consequatur veritatis neque totam eveniet fuga! Cupiditate quo asperiores, explicabo, expedita, voluptates dolorum atque ad nihil laborum adipisci magnam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est assumenda blanditiis reiciendis unde vero nesciunt iste libero! Eos, aliquam minus.
+        </p>
+        <div class="buttons">
+          <button type="submit" class="btn borrow">
+            <div class="borrowButtonText">Borrow</div>
+          </button>
         </div>
       </div>
+    </div>
   </div>
 </div>
-
-<div class="description_container">
+<div class="bookFullDescription">
   <div class="container">
-    <div class="menu">
-      <ul>
-          <li><a href="">Description</a></li>
-          <li><a href="">Recommendation (21)</a></li>
-      </ul>
+    <div class="col-md-12">
+        <button class="btn descriptionBtn">Description</button>
+        <hr>
+        <p class="bookDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam debitis, corrupti laudantium tenetur quia nostrum tempore ea necessitatibus quae pariatur, commodi eveniet velit enim maxime numquam. Dolorum explicabo consequuntur quas?Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ad voluptas accusamus ducimus, iste magnam nulla suscipit saepe eum provident?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, cum. Tenetur unde commodi modi repellat iste sapiente rerum, sed amet?</p>
+        <p class="bookDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam debitis, corrupti laudantium tenetur quia nostrum tempore ea necessitatibus quae pariatur, commodi eveniet velit enim maxime numquam. Dolorum explicabo consequuntur quas?Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ad voluptas accusamus ducimus, iste magnam nulla suscipit saepe eum provident?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim, cum. Tenetur unde commodi modi repellat iste sapiente rerum, sed amet?</p>
+        <p class="bookDetails">Total Pages: 520</p>
+        <p class="bookDetails">ISBN: 929-123542312</p>
+        <div class="bookCategories">
+          <div class="bookCategory">
+            <p>&bull; BUSINESS</p>
+          </div>
+          <div class="bookCategory">
+            <p>&bull; INSPIRATION</p>
+          </div>
+          <div class="bookCategory">
+            <p>&bull; FANTASY</p>
+          </div>
+        </div>
     </div>
-    <hr>
-
-    <div class="book-description col-10">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan nisl luctus sollicitudin egestas. Nulla hendrerit cursus ullamcorper. Cras elit velit, porta at maximus non, vestibulum non ex. Donec vehicula ante in velit eleifend, sed auctor magna ultrices. Suspendisse quam mi, cursus eu mauris ac, facilisis dignissim purus. Etiam suscipit ipsum non orci tempor faucibus.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan nisl luctus sollicitudin egestas. Nulla hendrerit cursus ullamcorper. Cras elit velit, porta at maximus non, vestibulum non ex. Donec vehicula ante in velit eleifend, sed auctor magna ultrices. Suspendisse quam mi, cursus eu mauris ac, facilisis dignissim purus. Etiam suscipit ipsum non orci tempor faucibus.</p>
-      <p id="book-details" class="pt-4">Total Pages: 520</p>
-      <p id="book-details">ISBN: 978-1119020752</p>
-    </div>
-
-    <div class="tags">
-        <ul id="tag-list">
-          <li><h5><i class="fa fa-circle pr-2" aria-hidden="true"></i>BUSINESS</h5></li>
-          <li><h5><i class="fa fa-circle pr-2" aria-hidden="true"></i>INSPIRATION</h5></li>
-          <li><h5><i class="fa fa-circle pr-2" aria-hidden="true"></i>MONEY</h5></li>
-        </ul>
-      </div>
   </div>
 </div>
 
