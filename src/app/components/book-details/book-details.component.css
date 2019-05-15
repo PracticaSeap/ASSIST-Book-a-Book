@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+@import url("https://fonts.googleapis.com/css?family=Helvetica:500,700");
+
+div {
+  font-family: Montserrat;
+}
+
+.header-row {
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+.bookTitle {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 59px;
+  color: #19216C;
+}
+
+.bookWriter {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 11px;
+  color: #A8A8C3;
+}
+
+.boolSmallDescription {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23px;
+  color: #5A5A7F;
+  margin-bottom: 60px;
+}
+
+.borrow {
+  width: 168px;
+  height: 46px;
+  background: #1CD4D4;
+  box-shadow: 0px 4px 9px rgba(28, 212, 212, 0.2);
+  border-radius: 5px;
+}
+
+.borrowButtonText {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.bookFullDescription {
+  background: #F5F7FA;
+}
+
+.bookFullDescription > .container {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.descriptionBtn {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 11px;
+  color: #19216C;
+  padding: 0px;
+}
+
+.bookDescription {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23px;
+  color: #5A5A7F;
+  margin-bottom: 35px;
+}
+
+.bookDetails {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 11px;
+  color: #9AA5B1;
+}
+
+.bookCategories {
+  display: flex;
+  margin-top: 30px;
+}
+
+.bookCategory {
+  background: #CBD2D9;
+  border-radius: 2px;
+  width: 61px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+.bookCategory > p {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 7px;
+  line-height: 11px;
+  color: #F5F7FA;
+  margin: 0px;
+}
