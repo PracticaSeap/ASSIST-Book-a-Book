@@ -6,18 +6,18 @@
     <h1 class="title_form">Add Book</h1>
   </div>
 
-  <!-- mijloc -->
-  <form [formGroup]="addBookForm" novalidate (ngSubmit)="onSubmit(addBookForm.value)">
+  <!-- mijloc ng-disabled="addBookForm.$invalid"-->
+  <form [formGroup]="addBookForm"  novalidate  (ngSubmit)="onSubmit(addBookForm.value)">
       <div class="form-row">
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <input formControlName="title" matInput placeholder="Title" name="title">
+            <input formControlName="title" matInput required placeholder="Title" name="title">
           </mat-form-field>
         </div>
 
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <input formControlName="author"  matInput placeholder="Author" name="author">
+            <input formControlName="author"  matInput required placeholder="Author" name="author">
           </mat-form-field>
         </div>
       </div>
@@ -25,12 +25,12 @@
       <div class="form-row">
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <input formControlName="isbn"  matInput placeholder="ISBN" name="isbn">
+            <input formControlName="isbn"  matInput required placeholder="ISBN" name="isbn">
           </mat-form-field>
         </div>
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <input formControlName="number_of_pages"   type="number" matInput placeholder="Number of pages"
+            <input formControlName="number_of_pages"   type="number" matInput required placeholder="Number of pages"
               name="number_of_pages">
           </mat-form-field>
         </div>
@@ -40,17 +40,18 @@
         <div class="form-row">
           <div class="form-group col-6">
             <mat-form-field class="exemple-container test">
-              <mat-select formControlName="category"    placeholder="Category" name="category">
+              <mat-select formControlName="category"    required placeholder="Category" name="category">
                 <mat-option value="business">Business</mat-option>
                 <mat-option value="finance">Finance</mat-option>
                 <mat-option value="adventure">Adventure</mat-option>
                 <mat-option value="comics">Comics</mat-option>
+                <mat-option value="nuvela">Nuvela</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
           <div class="form-group col-6">
             <mat-form-field class="exemple-container test">
-              <mat-select formControlName="is_borrowed" placeholder="Status" name="is_borrowed">
+              <mat-select formControlName="is_borrowed" required placeholder="Status" name="is_borrowed">
                 <mat-option value="false" >Available</mat-option>
                 <mat-option value="true" >Borrowed</mat-option>
               </mat-select>
@@ -61,7 +62,7 @@
     <!-- al patrulea rand-->
       <div class="form-group description">
         <mat-form-field class="test">
-          <input formControlName="description" matInput id="inputDescription" placeholder="Desription"
+          <input formControlName="description" matInput id="inputDescription" required placeholder="Desription"
             name="description">
         </mat-form-field>
       </div>
@@ -77,7 +78,7 @@
       </div>
 
       <div class="radio-item">
-        <input type="radio" id="ritemb" formControlName="virtual_book" value="PhisicalBook" name="virtual_book" (click)="virtual_book='PhisicalBook'">
+        <input type="radio" id="ritemb" formControlName="virtual_book" required value="PhisicalBook" name="virtual_book" (click)="virtual_book='PhisicalBook'">
         <label for="ritemb">Physical book</label>
       </div>
     </div>
@@ -96,7 +97,7 @@
         <button type="cancel" class="btn cancel">
           <div class="buttonsCancel">Cancel</div>
         </button>
-        <button type="submit" class="btn submit" [disabled]="addBookForm.invalid">
+        <button type="submit" class="btn submit"  [disabled]="addBookForm.invalid">
           <div class="buttonsSubmit">Submit</div>
         </button>
         <!-- <input type="submit" value="Trimite"> -->
@@ -104,4 +105,4 @@
     </div>
 
   </form>
-  <pre>{{ addBookForm.value | json }}</pre>
+  <!-- <pre>{{ addBookForm.value | json }}</pre> -->

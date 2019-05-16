@@ -12,7 +12,6 @@ import { AddBookService } from 'src/app/services/add-book.service';
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.css']
 })
-// export class FormFieldOverviewExample {}
 export class AddBookComponent implements OnInit {
   public addBookApi: AddBookService;
 
@@ -39,16 +38,23 @@ export class AddBookComponent implements OnInit {
       image: this.fb.control(''),
       number_of_pages: this.fb.control('', Validators.required),
     });
-
+    
   }
 
   ngOnInit() { }
 
-  onSubmit(value: Book) {
+  onSubmit(value: Book):void {
     console.log('form book :', this.addBookForm.value);
     console.log('Books :', this.booksLength.value);
     this.addBookForm.value.id = this.booksLength;
     this.db.list('/books').push(value);
+    this.addBookForm.reset();
+    // this.addBookForm.resetForm();
+    // this.addBookForm.markAsPristine({ onlySelf: false});
+    // this.addBookForm.markAsUntouched({ onlySelf: false})
+    // this.addBookForm.updateValueAndValidity({ onlySelf: false});
+    // this.addBookForm.markAsUntouched({ onlySelf: true})
+    // console.log( this.addBookForm.dirty, this.addBookForm.valid, this.addBookForm.touched);
   }
 }
 
