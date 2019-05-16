@@ -6,7 +6,7 @@
     <h1 class="title_form">Add Book</h1>
   </div>
 
-  <!-- mijloc ng-disabled="addBookForm.$invalid"-->
+  <!-- mijloc -->
   <form [formGroup]="addBookForm" #form="ngForm" novalidate  (ngSubmit)="onSubmit(addBookForm.value)">
       <div class="form-row">
         <div class="form-group col-6">
@@ -97,7 +97,7 @@
         <button type="cancel" class="btn cancel">
           <div class="buttonsCancel">Cancel</div>
         </button>
-        <button type="submit" class="btn submit"  [disabled]="addBookForm.invalid" ngForm.resetForm()>
+        <button type="submit" class="btn submit"  [disabled]="addBookForm.invalid">
           <div class="buttonsSubmit">Submit</div>
         </button>
         <!-- <input type="submit" value="Trimite"> -->

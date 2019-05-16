@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationModule } from '@angular/core';
 import { AddBookService } from 'src/app/services/add-book.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { Book } from 'src/app/models/book.model';
-
-
+// import { FirebaseObjectObservable } from 'angularfire2/database-deprecated'
+import { ActivatedRoute, Router } from "@angular/router";
+import { AngularFirestore } from '@angular/fire/firestore';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-edit-book',
@@ -12,41 +14,64 @@ import { Book } from 'src/app/models/book.model';
   styleUrls: ['./edit-book.component.css']
 })
 export class EditBookComponent implements OnInit {
-  virtual_book = 'PhisicalBook';
-  selected = 'Available'; // pentru a selecta o optiune directa
-  public book: Book;
-  editBookForm: FormGroup;
-  private booksLength;
-  allBooks: any;
-  constructor(public db: AngularFireDatabase, private fb: FormBuilder) {
-    this.db.list('/books').valueChanges().subscribe(books => {
-      this.booksLength = books.length;
-    });
-    
-    this.editBookForm = this.fb.group({
-      id: this.fb.control(''),
-      title: this.fb.control('', Validators.required),
-      author: this.fb.control('', Validators.required),
-      isbn: this.fb.control('', Validators.required),
-      description: this.fb.control('', Validators.required),
-      category: this.fb.control('', Validators.required),
-      tag: this.fb.control(''),
-      virtual_book: this.fb.control('', Validators.required),
-      is_borrowed: this.fb.control(false, Validators.required),
-      image: this.fb.control(''),
-      number_of_pages: this.fb.control('', Validators.required),
-    });
-    
+  id: number;
+  title: string;
+  author: string;
+  description: string;
+  isbn: string;
+  category: string;
+  tag: string;
+  image: string;
+  is_borrowed: boolean;
+  number_of_pages: number;
+  virtual_book: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private firebaseService: FirebaseService)
+
+    //  {  this.id = this.route.snapshot.params['id'];
+    // this.firebaseService.getBookDetails(this.id).valueChanges().subscribe(book => {
+    //   this.title = book.title;
+    //   this.author = book.author;
+    //   this.description = book.description;
+    //   this.isbn = book.isbn;
+    //   this.number_of_pages = book.number_of_pages;
+    //   this.category = book.category;
+    //   this.is_borrowed = book.is_borrowed;
+    //   this.virtual_book = book.virtual_book;
+    // }
+    {}
+
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.title = params.get("title")
+      console.log(this.title)
+    })
   }
 
-  ngOnInit() { }
+  // submitEdit() {
+  //   let book = {
+  //     author: this.author,
+  //     title: this.title,
+  //     description: this.description,
+  //     isbn: this.isbn,
+  //     category: this.category,
+  //     is_borrowed: this.is_borrowed,
+  //     number_of_pages: this.number_of_pages,
+  //     virtual_book: this.virtual_book,
+  //   }
 
-  onSubmit(value: Book):void {
-    console.log('form book :', this.editBookForm.value);
-    console.log('Books :', this.booksLength.value);
-    this.editBookForm.value.id = this.booksLength;
-    // this.db.list('/books').push(value);
-    // this.editBookForm.reset();
-  
-  }
+  //   this.firebaseService.updateBook(this.id, book);
+  //   this.router.navigate(['/books'])
+  //  }
+
+
+
+
 }
+
+
+

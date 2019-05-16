@@ -39,6 +39,7 @@ import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FirebaseService } from './services/firebase.service';
+import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { FirebaseService } from './services/firebase.service';
     HeaderBarComponent,
     DashboardBookComponent,
     EditBookComponent,
+    BorrowBookComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
+import { Book } from 'src/app/models/book.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
+  books: AngularFireList <any[]> ;
+  bookDetails: AngularFireObject <any>;
 
   constructor(public db: AngularFireDatabase) {
-    // TBD
-    // this.items = db.list('/users').valueChanges();
   }
-  addBook(value){
-    return this.db.list('test').push({
-      title: value.title,
-      author: value.author,
-      description: value.description,
-      isbn: value.isbn,
-    });
+  getBookDetails(id){
+    this.bookDetails = this.db.object('/books'+id) as AngularFireObject<Book>
+    return this.bookDetails
   }
+
+  updateBook(id, bookDetails){
+    var filteredBook = JSON.parse(JSON.stringify(bookDetails)); //removes the undefined fields
+    return this.books.update(id,filteredBook);
+  }
+
 }

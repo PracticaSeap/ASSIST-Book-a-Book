@@ -7,17 +7,17 @@
   </div>
 
   <!-- mijloc -->
-  <form [formGroup]="editBookForm" novalidate (ngSubmit)="onSubmit(editBookForm.value)">
-
+  <!-- <form #value="ngForm"  (ngSubmit)="submitEdit()"> -->
+    <form #value="ngForm" >
     <div class="form-row">
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input formControlName="title" matInput placeholder="Title" name="title">
+          <input [(ngModel)]="title" matInput placeholder="Title" name="title">
         </mat-form-field>
       </div>
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input formControlName="author" matInput placeholder="Author" name="author">
+          <input [(ngModel)]="author" matInput placeholder="Author" name="author">
         </mat-form-field>
       </div>
     </div>
@@ -25,12 +25,12 @@
     <div class="form-row">
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input formControlName="isbn" matInput placeholder="ISBN" name="isbn">
+          <input [(ngModel)]="isbn" matInput placeholder="ISBN" name="isbn">
         </mat-form-field>
       </div>
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input formControlName="number_of_pages" matInput placeholder="Number of pages" name="number_of_pages">
+          <input type="number" [(ngModel)]="number_of_pages" matInput placeholder="Number of pages" name="number_of_pages">
         </mat-form-field>
       </div>
     </div>
@@ -39,14 +39,14 @@
       <div class="form-row">
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <mat-select formControlName="category" placeholder="Category" name="category">
+            <mat-select [(ngModel)]="category" placeholder="Category" name="category">
               <mat-option value="category">Category</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <mat-select formControlName="is_borrowed" placeholder="Status" name="is_borrowed" [(value)]="selected">
+            <mat-select [(ngModel)]="is_borrowed" placeholder="Status" name="is_borrowed">
                 <mat-option value="false" >Available</mat-option>
                 <mat-option value="true" >Borrowed</mat-option>
             </mat-select>
@@ -60,7 +60,7 @@
     <!-- <div class="form-row">
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <mat-select formControlName="is_borrowed" placeholder="Current borrower" name="is_borrowed">
+          <mat-select [(ngModel)]="rrowed" placeholder="Current borrower" name="is_borrowed">
             <mat-option value="option">Current borrower</mat-option>
           </mat-select>
         </mat-form-field>
@@ -89,7 +89,7 @@
     <!-- al 4+1 rand -->
     <div class="form-group description">
       <mat-form-field class="test">
-        <input formControlName="description" matInput id="inputDescription" placeholder="Desription" name="description">
+        <input [(ngModel)]="description" matInput id="inputDescription" placeholder="Desription" name="description">
       </mat-form-field>
     </div>
 
@@ -100,13 +100,13 @@
     <div class="form-row radio-buttons" class="form-group col-6" class="distance-check" class="container_css">
 
       <div class="radio-item">
-        <input type="radio" formControlName="virtual_book" id="ritema" name="virtual_book" value="VirtualBook"
+        <input type="radio" [(ngModel)]="virtual_book" id="ritema" name="virtual_book" value="VirtualBook"
           (click)="virtual_book='VirtualBook'">
         <label for="ritema">Virtual book</label>
       </div>
 
       <div class="radio-item">
-        <input type="radio" formControlName="virtual_book" id="ritemb" name="virtual_book" value="PhisicalBook"
+        <input type="radio" [(ngModel)]="virtual_book" id="ritemb" name="virtual_book" value="PhisicalBook"
           (click)="virtual_book='PhisicalBook'">
         <label for="ritemb">Physical book</label>
       </div>
@@ -144,4 +144,4 @@
       </div>
     </div>
   </form>
-  <pre>{{ editBookForm.value | json }}</pre>
+  <!-- <pre>{{ editBookForm.value | json }}</pre> -->
