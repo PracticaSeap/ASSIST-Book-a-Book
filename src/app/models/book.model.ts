@@ -10,4 +10,6 @@ export interface Book {
     is_borrowed: boolean;
     number_of_pages: number;
     virtual_book: string;
+    // lend_date: Date;
+    // due_date: Date;
 }

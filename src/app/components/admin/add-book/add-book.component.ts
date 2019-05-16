@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Book } from 'src/app/models/book.model';
 import { FormControl } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -14,7 +14,7 @@ import { AddBookService } from 'src/app/services/add-book.service';
 })
 export class AddBookComponent implements OnInit {
   public addBookApi: AddBookService;
-
+  @ViewChild('form') form;  
   virtual_book = 'PhisicalBook';
   public book: Book;
   addBookForm: FormGroup;
@@ -48,7 +48,8 @@ export class AddBookComponent implements OnInit {
     console.log('Books :', this.booksLength.value);
     this.addBookForm.value.id = this.booksLength;
     this.db.list('/books').push(value);
-    this.addBookForm.reset();
+    this.form.resetForm();
+    
     // this.addBookForm.resetForm();
     // this.addBookForm.markAsPristine({ onlySelf: false});
     // this.addBookForm.markAsUntouched({ onlySelf: false})
