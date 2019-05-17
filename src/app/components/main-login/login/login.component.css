@@ -153,11 +153,14 @@ font-style: normal;
 font-weight: bold;
 font-size: 14px;
 line-height: 13px;
+border: none;
+background: none;
+padding: 0;
 display: flex;
 align-items: center;
 position: relative;
-  left: 60px;
-  top: -17px;
+  left: 30px;
+  top: -9px;
 color: #FFFFFF;
 
 }
@@ -198,6 +201,23 @@ padding-top: 35px;
 
 
 }
+.wrong{
+
+padding-top: 30px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .register-border{
 
 
