@@ -161,6 +161,9 @@
       left: 60px;
       top: -17px;
     color: #FFFFFF;
+    border: none;
+    background: none;
+    padding: 0;
     
     }
     
@@ -383,3 +386,7 @@ padding-top: 13px;
     .btn-padding{
         padding-left: 0px;
     }
+
+.success-padd{
+    padding-top: 100px;
+}
