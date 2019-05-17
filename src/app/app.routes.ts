@@ -14,7 +14,7 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
 export const appRoutes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'dashboard/:id', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'book-details/:id', component: BookDetailsComponent },
     { path: 'add-book', component: AddBookComponent },
     { path: 'edit-book', component: EditBookComponent },
