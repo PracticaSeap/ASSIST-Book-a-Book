@@ -40,6 +40,7 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { FirebaseService } from './services/firebase.service';
 import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -85,7 +86,7 @@ import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.
     //AngularFirestoreModule, // imports firebase/firestore, only needed for database features
    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     //AngularFireStorageModule, // imports firebase/storage only needed for storage features,
-
+    MatAutocompleteModule,
   ],
   providers: [MatNativeDateModule, FirebaseService],
   bootstrap: [AppComponent]

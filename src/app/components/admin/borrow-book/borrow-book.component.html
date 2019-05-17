@@ -3,31 +3,42 @@
 
   <!-- titlu -->
   <div class="header">
-    <h1 class="title_form">Edit Book</h1>
+    <h1 class="title_form">Borrow Book</h1>
   </div>
 
   <!-- mijloc -->
-  <form #value="ngForm">
+  <form #value="ngForm" [formGroup]="borrowbookForm" (ngSubmit)="onSubmit(borrowbookForm.value)">
+    <mat-form-field class="exemple-container test">
+      <mat-select matInput formControlName="book_id" placeholder="Book" name="book_id">
 
-        <mat-form-field class="exemple-container test">
-          <mat-select  placeholder="Current borrower" name="is_borrowed">
-            <mat-option value="option">Current borrower</mat-option>
-          </mat-select>
-        </mat-form-field>
-        
-        <br>
+      </mat-select>
+    </mat-form-field>
 
-          <mat-form-field class="mat1 test">
-            <input matInput [matDatepicker]="piker1" placeholder="Lend date">
-            <mat-datepicker-toggle matSuffix [for]="piker1"></mat-datepicker-toggle>
-            <mat-datepicker #piker1></mat-datepicker>
-          </mat-form-field>
-          <br>
-          <mat-form-field class="mat1 test">
-            <input matInput [matDatepicker]="piker2" placeholder="Due date">
-            <mat-datepicker-toggle matSuffix [for]="piker2"></mat-datepicker-toggle>
-            <mat-datepicker #piker2></mat-datepicker>
-          </mat-form-field>
+    <br>
+
+    <mat-form-field class="mat1 test">
+      <input type="text" placeholder="Borrow"  matInput formControlName="user_email" [matAutocomplete]="auto" name="user_email">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <br>
+    
+    <mat-form-field class="mat1 test">
+      <input matInput formControlName="initial_date" [matDatepicker]="piker1" placeholder="Lend date"
+        name="initial_date">
+      <mat-datepicker-toggle matSuffix [for]="piker1"></mat-datepicker-toggle>
+      <mat-datepicker #piker1></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="mat1 test">
+      <input matInput formControlName="due_date" [matDatepicker]="piker2" placeholder="Due date" name="due_date">
+      <mat-datepicker-toggle matSuffix [for]="piker2"></mat-datepicker-toggle>
+      <mat-datepicker #piker2></mat-datepicker>
+    </mat-form-field>
 
 
 
@@ -38,9 +49,9 @@
 
       <!-- buton submit and cancel -->
       <div class="buttons">
-        <button type="cancel" class="btn cancel">
+        <!-- <button type="cancel" class="btn cancel">
           <div class="buttonsCancel">Cancel</div>
-        </button>
+        </button> -->
         <button type="submit" class="btn submit">
           <div class="buttonsSubmit">Submit</div>
         </button>
