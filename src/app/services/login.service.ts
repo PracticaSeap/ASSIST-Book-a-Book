@@ -12,13 +12,16 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class LoginService {
-
+  
   constructor(public afAuth:AngularFireAuth,
     public router: Router){}
   alertError: boolean = false;
   errMessage: string= "";
+  isChecked: boolean = false;
 
   succValue:boolean = false;
+  
+  
   
   signInWithEmailAndPassword(email: string, pass: string){
 return this.afAuth.auth.signInWithEmailAndPassword(email, pass)
@@ -78,7 +81,7 @@ return this.afAuth.auth.signInWithEmailAndPassword(email, pass)
       // Handle Errors here.
        const errorCode = error.code;
        const errorMessage = error.message;
-       if(error.message.includes("Date de logare incorecte") == true)
+       if(error.message.includes("Date de logare incorecte. Incercati din nou!") == true)
       {
         this.alertError = true;
         this.errMessage = error.message;
@@ -103,7 +106,16 @@ if(this.succValue == true ) {
 
    }
 
+rememberMe(){
 
+
+
+
+
+
+
+
+}
   // logoutUser() {
   //   this.afAuth.auth.signOut()
   //   .then(logout =>  {
