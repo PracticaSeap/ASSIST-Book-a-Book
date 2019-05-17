@@ -1,5 +1,6 @@
 export interface Book {
     id: number;
+    key: string;
     title: string;
     author: string;
     description: string;
@@ -9,4 +10,12 @@ export interface Book {
     image: string;
     number_of_pages: number;
     virtual_book: string;
+}
+
+export interface BookHistory extends Book  {
+    initialDate: string;
+    returnDate: string;
+    dueDate: string;
+    userKey: string;
+    userFullName: string;
 }
