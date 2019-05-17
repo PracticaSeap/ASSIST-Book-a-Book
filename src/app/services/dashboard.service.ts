@@ -1,3 +1,4 @@
+import { Book } from 'src/app/models/book.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
@@ -13,12 +14,21 @@ export class DashboardService {
 
   getBooks(){
     this.bookList = this.db.list('/books');
-    return this.bookList.valueChanges();
-    // this.db.list('/books').snapshotChanges().map(actions => {
-    //   return actions.map(action => ({ key: action.key, ...action.payload.val() }));
-    // }).subscribe(items => {
-    //   return items.map(item => item.key);
-    // });
+    return this.bookList.snapshotChanges();
+  }
+
+  processBooksData(listOfBooks): Book[] {
+    const books: Book[] = [];
+    listOfBooks.forEach(book => {
+      const newBook = book.payload.val();
+      newBook.key = book.key;
+      books.push(newBook);
+    });
+    return books;
+  }
+
+  getBook(key){
+    return this.db.object('/books/' + key).valueChanges();
   }
 
 }

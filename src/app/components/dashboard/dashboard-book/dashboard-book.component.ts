@@ -1,6 +1,7 @@
 import { Book } from './../../../models/book.model';
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard-book',
@@ -12,13 +13,13 @@ export class DashboardBookComponent implements OnInit {
 
   @Input() inputBook: Book;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public dashboardService: DashboardService) { }
 
   ngOnInit() {
   }
 
   onSelect(){
-    this.router.navigate(['/book-details', this.inputBook.id]);
+    this.router.navigate(['/book-details/']);
   }
 
 

@@ -14,10 +14,13 @@ export class BookDetailsComponent implements OnInit {
 
   public bookId;
 
-  books: Book[];
+  book: Book;
 
   ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.bookId = id;
+    const key = this.route.snapshot.paramMap.get('id');
+
+    this.dashboardService.getBook(key).subscribe( book => {
+      this.book = book as Book;
+    });
   }
 }

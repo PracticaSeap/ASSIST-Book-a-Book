@@ -3,7 +3,7 @@
 <div class="container">
 
   <div class="main_info_container">
-      <small><a href="/dashboard">Home</a> > <a href="/my-books">Books</a> > {{books[bookId].title}}</small>
+      <small><a href="/dashboard">Home</a> > <a href="/my-books">Books</a> > {{book.title}}</small>
 
       <div class="row info_row">
         <div class="col-4">
@@ -11,9 +11,9 @@
         </div>
 
         <div class="col-6 description_col">
-          <h4 class="card-title px-2">{{books[bookId].title}}</h4>
-          <p class="card-author">{{books[bookId].author}} • {{books[bookId].category}}</p>
-          <p class="card-text">{{books[bookId].description}}</p>
+          <h4 class="card-title px-2">{{book.title}}</h4>
+          <p class="card-author">{{book.author}} • {{book.category}}</p>
+          <p class="card-text">{{book.description}}</p>
 
             <div class="btn-group px-2" role="group" aria-label="Basic example">
               <button class="btn btn-primary borrowButton mr-3">Borrow</button>
@@ -35,9 +35,9 @@
     <hr>
 
     <div class="book-description col-10">
-      <p>{{books[bookId].description}}</p>
-      <p id="book-details" class="pt-4">Total Pages: {{books[bookId].number_of_pages}}</p>
-      <p id="book-details">ISBN: {{books[bookId].isbn}}</p>
+      <p>{{book.description}}</p>
+      <p id="book-details" class="pt-4">Total Pages: {{book.number_of_pages}}</p>
+      <p id="book-details">ISBN: {{book.isbn}}</p>
     </div>
 
     <div class="tags">
