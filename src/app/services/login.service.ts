@@ -1,16 +1,20 @@
+import { appRoutes } from './../app.routes';
 import { ForgotPasswordComponent } from './../components/main-login/forgot-password/forgot-password.component';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase  } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import {Router} from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(public afAuth:AngularFireAuth){}
+  constructor(public afAuth:AngularFireAuth,
+    public router: Router){}
   alertError: boolean = false;
   errMessage: string= "";
 
@@ -65,8 +69,10 @@ return this.afAuth.auth.signInWithEmailAndPassword(email, pass)
    loginUser(email: string, pass: string) {
      this.afAuth.auth.signInWithEmailAndPassword(email, pass)
     .then(success => {
-      
-     alert('Successs login!!!! ' + success);
+
+      this.succValue = true;
+
+     
      })
      .catch(error =>  {
       // Handle Errors here.
@@ -80,6 +86,21 @@ return this.afAuth.auth.signInWithEmailAndPassword(email, pass)
        // ...
        alert(errorCode + ' ' + errorMessage);
      });
+   }
+
+   Redirect(){
+if(this.succValue == true ) {
+
+  setTimeout(()=>{
+    this.router.navigate(['dashboard'])
+  }, 3000)
+
+
+}
+
+
+
+
    }
 
 
