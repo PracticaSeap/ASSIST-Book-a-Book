@@ -25,7 +25,9 @@ return this.afAuth.auth.signInWithEmailAndPassword(email, pass)
     return this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
   }  
 
-  
+  // forgotPassword(email: string){
+  //   return this.afAuth.auth.
+  // }
 
   
 

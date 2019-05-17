@@ -4,6 +4,10 @@ import { LoginService } from 'src/app/services/login.service';
 import { StringFormat } from '@angular/fire/storage/interfaces';
 import { NgIf } from '@angular/common';
 import { strictEqual } from 'assert';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { User } from 'src/app/models/user.model';
+
+
 
 @Component({
   selector: 'app-sign-up',
@@ -21,7 +25,8 @@ export class SignUpComponent implements OnInit {
   errMessage: string= "";
 
   succValue:boolean = false;
-  constructor(public loginservice: LoginService){}
+  constructor(public loginservice: LoginService,
+    public db: AngularFireDatabase){}
   //constructor(public loginservice: LoginService) {}
 
   
@@ -31,28 +36,49 @@ export class SignUpComponent implements OnInit {
   }
 
   createUserWithEmailAndPassword(){
-    this.loginservice.createUserWithEmailAndPassword(this.email, this.password)
-    .then(sucess=>{
-      this.userCreatedSucess = 1;
-      this.succValue = true;
-    })
-    .catch(error =>  {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ...
-      //alert(errorCode + ' ' + errorMessage);
-      
-      if(error.message.includes("already in use") == true)
-      {
-        this.alertError = true;
-        this.errMessage = error.message;
-      }
+    if(this.email == null || this.password == null)
+    {
+      this.alertError = true;
+      this.errMessage = "Date incomplete ";
+    }
+    else
+    {
+      this.loginservice.createUserWithEmailAndPassword(this.email, this.password)
+      .then(sucess=>{
+        this.userCreatedSucess = 1;
+        this.succValue = true;
+        let user: User ={
+          email: this.email,
+          fullName: this.fullname,
+          userRole: "user",
+        }
+        ;
+        this.db.list('/users').push(user);
+        setTimeout(() =>{
+           this.db.list('/users').valueChanges().subscribe(results=>{
+            console.log(results)
+          });
+        },1000)
+             
 
-      this.userCreatedSucess = 2;
-    });
-    // console.log(this.email);
+      })
+      .catch(error =>  {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ...
+        //alert(errorCode + ' ' + errorMessage);
+        
+        if(error.message.includes("already in use") == true)
+        {
+          this.alertError = true;
+          this.errMessage = error.message;
+        }
 
+        this.userCreatedSucess = 2;
+      });
+      // console.log(this.email);
+    }
   }
 
   onKeyEmail(event: any) { // without type info
