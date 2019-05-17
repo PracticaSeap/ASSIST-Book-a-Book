@@ -62,7 +62,7 @@
                 <div class="login-rectangle vector vector2">
                   <div class="padd-txt-left">
                     <div class="input-title">Email Adress</div>
-                    <input class="input-text" type="email">
+                    <input class="input-text" type="email" (keyup)="onKeyEmail($event)">
                   </div>
                 </div>
           </div>
@@ -72,7 +72,7 @@
               <div class="login-rectangle vector vector2">
                 <div class="padd-txt-left">
                   <div class="input-title">Password</div>
-                  <input class="input-text" type="password">
+                  <input class="input-text" type="password" (keyup)="onKeyPassword($event)">
                 </div>
               </div>
         </div>
@@ -102,8 +102,9 @@
                
                      
                    <div class ="login-button">
-           
-                  Log in
+                  
+                    <button class ="login-button" (click)="loginUser()">Login</button>
+                    
            
                   
                    </div>
@@ -124,6 +125,7 @@
                        
                        
                    </div>
+                   
          
  
  
@@ -131,6 +133,20 @@
  
          <!-- </div> -->
        </div>
+       <div class = "wrong">
+       <div class="row alert alert-danger" role="alert" *ngIf="alertError">
+        Datele introduse sunt incorecte! Incercati din nou ! <a href="login"></a>
+      </div>
+      <div class = "success">
+      <div class="row alert alert-success" role="alert" *ngIf="succValue">
+          
+        V-ati logat cu succes ! 
+        <br>
+        Veti fi redirectionat catre pagina ! 
+      </div>
+      </div>
+        
+      </div>
      </div>
        
      <div class="col">
