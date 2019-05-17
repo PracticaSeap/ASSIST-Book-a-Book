@@ -13,4 +13,12 @@ export class ManageBooksService {
      return this.db.list('/books').valueChanges();
   }
 
+  getHistory() {
+    return this.db.list('/history').valueChanges();
+  }
+
+  getBookData(id:string){
+    this.db.list('/books/id').valueChanges();
+  };
+
 }
