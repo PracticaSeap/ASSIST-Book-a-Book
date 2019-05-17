@@ -14,6 +14,11 @@ export class DashboardService {
   getBooks(){
     this.bookList = this.db.list('/books');
     return this.bookList.valueChanges();
+    // this.db.list('/books').snapshotChanges().map(actions => {
+    //   return actions.map(action => ({ key: action.key, ...action.payload.val() }));
+    // }).subscribe(items => {
+    //   return items.map(item => item.key);
+    // });
   }
 
 }

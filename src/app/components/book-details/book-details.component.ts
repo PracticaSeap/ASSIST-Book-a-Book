@@ -19,10 +19,5 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit() {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.bookId = id;
-
-    this.dashboardService.getBooks().subscribe( list => {
-      this.books = list;
-    });
   }
-
 }
