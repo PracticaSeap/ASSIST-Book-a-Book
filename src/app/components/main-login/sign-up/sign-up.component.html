@@ -11,8 +11,15 @@
      
      
         </div>
+        
        <div class="row">
-         <div class="col">
+       <div class="col success-padd"  *ngIf="succValue">
+       
+          <div class="row alert alert-success" role="alert" *ngIf="succValue">
+              You succesfully signed up! :D
+            </div>
+          </div>
+         <div class="col" *ngIf="!succValue">
            <div class="row login-welcome">
              Let's create a new account.
              
@@ -71,9 +78,7 @@
             {{errMessage}} <a href="login">Login!</a>
           </div>
 
-          <div class="row alert alert-success" role="alert" *ngIf="succValue">
-              You succesfully signed up! :D
-            </div>
+          
 
            <div class="row abc">
              
