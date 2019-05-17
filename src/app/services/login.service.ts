@@ -14,12 +14,14 @@ export class LoginService {
   
 
   createUserWithEmailAndPassword(email: string, pass: string) {
-    console.log(email);
-    console.log(pass);
+    // console.log(email);
+    // console.log(pass);
     return this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
   }  
 
-  
+  // forgotPassword(email: string){
+  //   return this.afAuth.auth.
+  // }
 
   
 
