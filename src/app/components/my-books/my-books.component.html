@@ -15,13 +15,13 @@
     </div>
 
     <app-book
-      *ngFor="let book of books"
+      *ngFor="let book of books | slice:0:nr"
       [inputBook]=book>
     </app-book>
   </div>
 
   <div class="loadButton">
-    <button id="loadMore" class="btn btn-primary">Load More</button>
+    <button id="loadMore" class="btn btn-primary" (click)="loadMore()">Load More</button>
   </div>
 </body>
 

@@ -10,6 +10,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 export class MyBooksComponent implements OnInit {
 
   books: Book[];
+  nr = 10;
 
   constructor(public dashboardService: DashboardService) { }
 
@@ -17,6 +18,10 @@ export class MyBooksComponent implements OnInit {
     this.dashboardService.getBooks().subscribe( list => {
       this.books = list;
     });
+  }
+
+  loadMore(){
+    this.nr += 10;
   }
 
 }

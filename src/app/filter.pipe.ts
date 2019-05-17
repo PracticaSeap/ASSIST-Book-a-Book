@@ -6,8 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(value: string, args: string) : string {
-    // let limit = args.length > 0 ? parseInt(args[0], 10) : 10;
-    // let trail = args.length > 1 ? args[1] : '...';
+    if (!value) {
+      return
+    }
     let limit = args ? parseInt(args, 10) : 10;
     let trail = '...';
 

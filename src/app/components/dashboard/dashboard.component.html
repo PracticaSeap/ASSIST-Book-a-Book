@@ -17,16 +17,15 @@
     <div class="row">
 
       <app-dashboard-book
-        *ngFor="let book of filteredBooks"
+        *ngFor="let book of filteredBooks | slice:0: nr"
         [inputBook]=book
         class="col-6 bookRow"
-        (click)="onSelect(book)"
       ></app-dashboard-book>
 
     </div>
 
     <div class="loadButton">
-      <button id="loadMore" class="btn btn-primary">Load More</button>
+      <button id="loadMore" class="btn btn-primary" (click)="loadMore()">Load More</button>
     </div>
 
   </div>

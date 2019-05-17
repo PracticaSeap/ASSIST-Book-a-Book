@@ -11,10 +11,11 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public dashboardService: DashboardService, private router: Router) { }
+  constructor(public dashboardService: DashboardService) { }
 
   books: Book[];
   filteredBooks: Book[];
+  nr = 10;
 
   ngOnInit() {
     this.dashboardService.getBooks().subscribe( list => {
@@ -36,7 +37,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  onSelect(book){
-    this.router.navigate(['/book-details', book.id]);
+  loadMore(){
+    this.nr += 10;
   }
 }
