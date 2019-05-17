@@ -1,21 +1,31 @@
+import { appRoutes } from './../app.routes';
+import { ForgotPasswordComponent } from './../components/main-login/forgot-password/forgot-password.component';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase  } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import {Router} from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(public afAuth:AngularFireAuth){}
+  constructor(public afAuth:AngularFireAuth,
+    public router: Router){}
+  alertError: boolean = false;
+  errMessage: string= "";
 
+  succValue:boolean = false;
   
+  signInWithEmailAndPassword(email: string, pass: string){
+return this.afAuth.auth.signInWithEmailAndPassword(email, pass)
 
+  }
   createUserWithEmailAndPassword(email: string, pass: string) {
-    // console.log(email);
-    // console.log(pass);
+   
     return this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
   }  
 
@@ -56,19 +66,42 @@ export class LoginService {
   // }
 
 
-  // loginUser() {
-  //   this.afAuth.auth.signInWithEmailAndPassword('bossssssssssss@gmail.com', 'password12')
-  //   .then(success => {
-  //     alert('Successs login!!!! ' + success);
-  //   })
-  //   .catch(error =>  {
-  //     // Handle Errors here.
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //     // ...
-  //     alert(errorCode + ' ' + errorMessage);
-  //   });
-  // }
+   loginUser(email: string, pass: string) {
+     this.afAuth.auth.signInWithEmailAndPassword(email, pass)
+    .then(success => {
+
+      this.succValue = true;
+
+     
+     })
+     .catch(error =>  {
+      // Handle Errors here.
+       const errorCode = error.code;
+       const errorMessage = error.message;
+       if(error.message.includes("Date de logare incorecte") == true)
+      {
+        this.alertError = true;
+        this.errMessage = error.message;
+      }
+       // ...
+       alert(errorCode + ' ' + errorMessage);
+     });
+   }
+
+   Redirect(){
+if(this.succValue == true ) {
+
+  setTimeout(()=>{
+    this.router.navigate(['dashboard'])
+  }, 3000)
+
+
+}
+
+
+
+
+   }
 
 
   // logoutUser() {
