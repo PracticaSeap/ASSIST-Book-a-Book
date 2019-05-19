@@ -16,7 +16,7 @@ export class MyBooksComponent implements OnInit {
 
   ngOnInit() {
     this.dashboardService.getBooks().subscribe( list => {
-      this.books = list;
+      this.books = this.dashboardService.processBooksData(list);
     });
   }
 

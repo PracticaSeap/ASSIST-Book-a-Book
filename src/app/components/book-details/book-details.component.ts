@@ -16,6 +16,8 @@ export class BookDetailsComponent implements OnInit {
 
   book: Book;
 
+  descr = 1;
+
   ngOnInit() {
     const key = this.route.snapshot.paramMap.get('id');
 
@@ -23,4 +25,14 @@ export class BookDetailsComponent implements OnInit {
       this.book = book as Book;
     });
   }
+
+
+  Change_to_rec(){
+    if (this.descr == 1) this.descr += 1;
+  }
+
+  Change_to_desc(){
+    if (this.descr == 2) this.descr -= 1;
+  }
+
 }

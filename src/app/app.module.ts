@@ -40,6 +40,7 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
 import { BookComponent } from './components/my-books/book/book.component';
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
 import { FilterPipe } from './filter.pipe';
+import { RecommendationsComponent } from './components/book-details/recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { FilterPipe } from './filter.pipe';
     BookComponent,
     FooterBarComponent,
     FilterPipe,
+    RecommendationsComponent,
   ],
   imports: [
     MatDatepickerModule,
