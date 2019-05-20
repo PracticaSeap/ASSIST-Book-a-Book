@@ -1,6 +1,6 @@
 <app-header-bar></app-header-bar>
 
-<div class="container">
+<div *ngIf="book" class="container">
 
   <div class="main_info_container">
       <small><a href="/dashboard">Home</a> > <a href="/my-books">Books</a> > {{book.title}}</small>
@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<div class="description_container">
+<div *ngIf="book" class="description_container">
   <div class="container">
     <div class="menu">
       <ul>

@@ -1,6 +1,7 @@
 export interface Book {
     $key: string;
     id: number;
+    key: number;
     title: string;
     author: string;
     description: string;
