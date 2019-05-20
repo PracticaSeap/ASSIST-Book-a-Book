@@ -5,9 +5,13 @@ import { AngularFireDatabase } from '@angular/fire/database';
   providedIn: 'root'
 })
 export class FirebaseService {
+  constructor(public db: AngularFireDatabase) {}
 
-  constructor(db: AngularFireDatabase) {
-    // TBD
-    // this.items = db.list('/users').valueChanges();
+  getBookDetails(key) {
+    return this.db.object('/books/' + key).valueChanges();
+  }
+
+  updateBook(id, bookDetails) {
+    return this.db.list('/books').update(id, bookDetails);
   }
 }
