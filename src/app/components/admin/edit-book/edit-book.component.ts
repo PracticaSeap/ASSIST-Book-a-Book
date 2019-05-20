@@ -18,7 +18,7 @@ import { database } from 'firebase';
 })
 export class EditBookComponent implements OnInit {
   bookList: Book[];
-  bookId;
+  bookKey;
   id: number;
   title: string;
   author: string;
@@ -37,7 +37,6 @@ export class EditBookComponent implements OnInit {
     private router: Router,
     private firebaseService: FirebaseService,
     private fb: FormBuilder) {
-      
 
     this.addBookForm = this.fb.group({
       id: this.fb.control(''),
@@ -68,8 +67,8 @@ export class EditBookComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      const bookId = params.get("id");
-      this.firebaseService.getBookDetails(bookId).subscribe( item => {    
+      this.bookKey = params.get('id');
+      this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
         const book = item as Book;
         this.title = book.title;
         this.author = book.author;
@@ -79,17 +78,13 @@ export class EditBookComponent implements OnInit {
         this.category = book.category;
         this.is_borrowed = book.is_borrowed;
         this.virtual_book = book.virtual_book;
-      })
-    // -LeuO4OlhDR3ixe_SSLE
-    // //  console.log(bookId);
-    //   bookId = "3";
+      });
+      // -LeuO4OlhDR3ixe_SSLE
     });
-  
-    }
-
+  }
 
   submitEdit() {
-    let book = {
+    const book = {
       author: this.author,
       title: this.title,
       description: this.description,
@@ -98,10 +93,10 @@ export class EditBookComponent implements OnInit {
       is_borrowed: this.is_borrowed,
       number_of_pages: this.number_of_pages,
       virtual_book: this.virtual_book,
-    }
+    };
 
-    this.firebaseService.updateBook(this.bookId, book);
-    // this.router.navigate(['/books'])
-   }
-
-    }
+    this.firebaseService.updateBook(this.bookKey, book).then( result => {
+      alert('Update success');
+    });
+  }
+}
