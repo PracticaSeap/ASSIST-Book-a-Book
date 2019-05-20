@@ -20,7 +20,7 @@ export class DashboardBookComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(){
+  onSelect() {
     this.router.navigate(['/book-details/', this.inputBook.key]);
   }
 

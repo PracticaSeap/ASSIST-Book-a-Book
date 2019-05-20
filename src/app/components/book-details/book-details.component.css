@@ -150,22 +150,42 @@ li h5{
   line-height: 23px;
   color: #5A5A7F;
 }
+
 #comment{
   height: 140px;
   width: 100%;
   background: #FFFFFF;
   border-radius: 5px;
+  border: none;
 }
+
+::placeholder{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 11px;
+  padding: 15px;
+
+  color: #A8A8C3;
+}
+
 #btnsend{
   height: 46px;
   width: 168px;
   background: #CBD2D9;
   box-shadow: 0px 4px 9px rgba(203, 210, 217, 0.2);
   border-radius: 5px;
+  border: none;
 }
 .col-10{
   padding-left: 0px !important;
 }
+
+.col-6{
+  padding-left: 0px !important;
+}
+
 #book-details{
   font-family: Montserrat;
   font-style: normal;
