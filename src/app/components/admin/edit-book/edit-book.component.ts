@@ -85,9 +85,6 @@ export class EditBookComponent implements OnInit {
     //   bookId = "3";
     });
   
-       
-        
-    
     }
 
 
@@ -103,7 +100,7 @@ export class EditBookComponent implements OnInit {
       virtual_book: this.virtual_book,
     }
 
-    this.firebaseService.updateBook("0", book);
+    this.firebaseService.updateBook(this.bookId, book);
     // this.router.navigate(['/books'])
    }
 
