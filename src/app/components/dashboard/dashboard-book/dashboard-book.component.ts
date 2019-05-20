@@ -14,7 +14,6 @@ import { Key } from 'protractor';
 export class DashboardBookComponent implements OnInit {
 
   @Input() inputBook: Book;
-  @Input() key: BookDetailsComponent;
 
   constructor(private router: Router, public dashboardService: DashboardService, private route: ActivatedRoute) { }
 
@@ -22,7 +21,7 @@ export class DashboardBookComponent implements OnInit {
   }
 
   onSelect(){
-    this.router.navigate(['/book-details/', this.key]);
+    this.router.navigate(['/book-details/', this.inputBook.key]);
   }
 
 
