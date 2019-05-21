@@ -1,38 +1,4 @@
-<!-- 
 
-<div class="login-header-title">Book a book<div class="login-blue-point">.</div></div>
-<div class="login-welcome">Welcome to Book a book</div>
-<div class="login-description">We make it easy for everyone to borrow and read books inside the company.</div>
-
-<div class="login-text-input-filling">
-  <div class = "login-rectangle">
-    <div class = "vector"></div>
-    <div class="vector2"></div>
-    <div class="input-title">Email Adress</div>
-    <input class="input-text" type="email">
-  </div>
-</div>
-
-<div class="login-text-input-normal">
-  <div class = "login-rectangle">
-    <div class = "vector"></div>
-    <div class="vector2"></div>
-    <div class="input-title">Password</div>
-    <input class="input-text" type="password">
-  </div>
-</div>
-
-<div class="book-lover">
-<img src="">
-</div>
-
-<div class="checkbox">
-  <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-  <label class="custom-control-label" for="defaultUnchecked">Remember me</label>
-</div>
-
-
- -->
 
 
  <div class="container login">
@@ -62,7 +28,7 @@
                 <div class="login-rectangle vector vector2">
                   <div class="padd-txt-left">
                     <div class="input-title">Email Adress</div>
-                    <input class="input-text" type="email">
+                    <input class="input-text" type="email" (keyup)="onKeyEmail($event)">
                   </div>
                 </div>
           </div>
@@ -72,7 +38,7 @@
               <div class="login-rectangle vector vector2">
                 <div class="padd-txt-left">
                   <div class="input-title">Password</div>
-                  <input class="input-text" type="password">
+                  <input class="input-text" type="password" (keyup)="onKeyPassword($event)">
                 </div>
               </div>
         </div>
@@ -81,7 +47,7 @@
        <div class ="col">
         
          <div class="checkbox">
-           <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+           <input type="checkbox" class="custom-control-input" id="defaultUnchecked" (click)="checkRemeber($event)" checked={{this.ischecked}}>
            <label class="custom-control-label" for="defaultUnchecked">Remember me</label>
            </div>
          </div>
@@ -102,8 +68,9 @@
                
                      
                    <div class ="login-button">
-           
-                  Log in
+                  
+                    <button class ="login-button" (click)="loginUser()">Login</button>
+                    
            
                   
                    </div>
@@ -124,6 +91,7 @@
                        
                        
                    </div>
+                   
          
  
  
@@ -131,6 +99,20 @@
  
          <!-- </div> -->
        </div>
+       <div class = "wrong">
+       <div class="row alert alert-danger" role="alert" *ngIf="alertError">
+        Datele introduse sunt incorecte! Incercati din nou ! <a href="login"></a>
+      </div>
+      <div class = "success">
+      <div class="row alert alert-success" role="alert" *ngIf="succValue">
+          
+        V-ati logat cu succes ! 
+        <br>
+        Veti fi redirectionat catre pagina ! 
+      </div>
+      </div>
+        
+      </div>
      </div>
        
      <div class="col">
@@ -157,9 +139,5 @@
  
  
  </div>
- 
- 
- 
- 
  
  
