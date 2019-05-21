@@ -1,131 +1,58 @@
-import { appRoutes } from './../app.routes';
-import { ForgotPasswordComponent } from './../components/main-login/forgot-password/forgot-password.component';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { AngularFireDatabase  } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import {Router} from '@angular/router';
+import { User } from '../models/user.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  
-  constructor(public afAuth:AngularFireAuth,
-    public router: Router){}
-  alertError: boolean = false;
-  errMessage: string= "";
-  isChecked: boolean = false;
+  loggedUserEmail;
+  public users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  public loggedUser: BehaviorSubject<User> = new  BehaviorSubject<User>(null);
 
-  succValue:boolean = false;
-  
-  
-  
-  signInWithEmailAndPassword(email: string, pass: string){
-return this.afAuth.auth.signInWithEmailAndPassword(email, pass)
-
+  constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFireDatabase) {
+    this.afAuth.auth.onAuthStateChanged(user => {
+          if (user) {
+            // User is signed in.
+            this.loggedUserEmail = user.email;
+            this.getAllUsers();
+          } else {
+            // No user is signed in.
+            this.users.next([]);
+            this.loggedUser.next(null);
+          }
+    });
   }
+
+  signInWithEmailAndPassword(email: string, pass: string) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, pass);
+  }
+
   createUserWithEmailAndPassword(email: string, pass: string) {
-   
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
-  }  
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, pass);
+  }
 
-  // forgotPassword(email: string){
-  //   return this.afAuth.auth.
-  // }
+  logoutUser() {
+    this.afAuth.auth.signOut()
+    .then(logout =>  {
+      this.router.navigate(['login']);
+    }).catch(error =>  {
+      // An error happened.
+      alert('An error happened could not log out!!!! ' + error);
+    });
+  }
 
-  
-
-
-  // items: Observable<any[]>;
-
-  // constructor(
-  //   public db: AngularFireDatabase,
-  //   public afAuth: AngularFireAuth) {
-  //     console.log('here');
-  //     this.items = db.list('/users').valueChanges();
-  //     //this.test = db.list('/test');
-  //     this.afAuth.auth.onAuthStateChanged(user => {
-  //       if (user) {
-  //         // User is signed in.
-  //         alert('User is logged in!!!! ');
-  //       } else {
-  //         // No user is signed in.
-  //         alert('User is logged out!!!! ');
-  //         }
-  //     });
-  // }
-
-  // createUserWithEmailAndPassword() {
-  //   this.afAuth.auth.createUserWithEmailAndPassword('bossssssssssss@gmail.com', 'password12').catch(error =>  {
-  //     // Handle Errors here.
-  //     const errorCode = error.code;
-  //     const errorMessage = error.message;
-  //     // ...
-  //     alert(errorCode + ' ' + errorMessage);
-  //   });
-  // }
-
-
-   loginUser(email: string, pass: string) {
-     this.afAuth.auth.signInWithEmailAndPassword(email, pass)
-    .then(success => {
-
-      this.succValue = true;
-
-     
-     })
-     .catch(error =>  {
-      // Handle Errors here.
-       const errorCode = error.code;
-       const errorMessage = error.message;
-       if(error.message.includes("Date de logare incorecte. Incercati din nou!") == true)
-      {
-        this.alertError = true;
-        this.errMessage = error.message;
-      }
-       // ...
-       alert(errorCode + ' ' + errorMessage);
-     });
-   }
-
-   Redirect(){
-if(this.succValue == true ) {
-
-  setTimeout(()=>{
-    this.router.navigate(['dashboard'])
-  }, 3000)
-
-
-}
-
-
-
-
-   }
-
-rememberMe(){
-
-
-
-
-
-
-
-
-}
-  // logoutUser() {
-  //   this.afAuth.auth.signOut()
-  //   .then(logout =>  {
-  //     // Sign-out successful.
-  //     alert('Logout!!!! ' + logout);
-
-  //   }).catch(error =>  {
-  //     // An error happened.
-  //     alert('An error happened!!!! ' + error);
-  //   });
-  // }
- 
+  private getAllUsers() {
+    this.db.list('/users').valueChanges().subscribe( entries => {
+      const users = entries as User[];
+      this.users.next(users);
+      this.loggedUser.next(users.find(user => user.email === this.loggedUserEmail));
+      console.log('Users', entries);
+    });
+  }
 }
