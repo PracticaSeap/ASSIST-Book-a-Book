@@ -32,6 +32,9 @@ export class EditBookComponent implements OnInit {
   virtual_book: string;
   addBookForm: FormGroup;
   book: Book;
+
+  is_succeful: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -64,7 +67,7 @@ export class EditBookComponent implements OnInit {
     // }
     { }
   }
-
+  
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.bookKey = params.get('id');
@@ -96,7 +99,16 @@ export class EditBookComponent implements OnInit {
     };
 
     this.firebaseService.updateBook(this.bookKey, book).then( result => {
-      alert('Update success');
+      this.is_succeful = true;
+      this.redirect();
     });
+  }
+
+  redirect(){
+    if (this.is_succeful==true){
+    setTimeout(()=>{this.is_succeful=false}, 3000);
+    // setTimeout(()=>{this.router.navigate(['dashboard']);}, 3000);
+
+    }
   }
 }

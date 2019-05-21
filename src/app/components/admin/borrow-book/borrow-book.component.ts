@@ -3,12 +3,14 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Book } from 'src/app/models/book.model';
 import { AddBookService } from 'src/app/services/add-book.service';
-import { History } from 'src/app/models/history.mode';
+import { HistoryEntry } from 'src/app/models/history.mode';
 import {Observable} from 'rxjs';
 import {FormControl} from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
 import { User } from 'firebase';
 import { extractDirectiveDef } from '@angular/core/src/render3/definition';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { ActivatedRoute, Router } from '@angular/router';
 // import { userInfo } from 'os';
 
 @Component({
@@ -18,14 +20,24 @@ import { extractDirectiveDef } from '@angular/core/src/render3/definition';
 })
 export class BorrowBookComponent implements OnInit {
   public addBookApi: AddBookService;
-
-  userList: {}[];
+  private firebaseService: FirebaseService;
+  public route: ActivatedRoute;
+  private router: Router;
+  bookKey;
+  is_borrowed;
+  title;
+  author;
+  description;
+  
+  // userList: {}[];
   myControl = new FormControl;
-  options: string[] = ['One', 'Two', 'Three'];
+
+  // acest string ar trebui populat cu users
+  options: string[] = ['John Lee', 'Antonio Banderas', 'Van Damme'];
   filteredOptions: Observable <string[]>;
 
   // @ViewChild('form') form;
-  public borrow: History;
+  public borrow: HistoryEntry;
   borrowbookForm: FormGroup;
   // private booksLength;
   allBooks: any;
@@ -35,42 +47,48 @@ export class BorrowBookComponent implements OnInit {
     });
 
     this.borrowbookForm = this.fb.group({
-      lend_date: this.fb.control('', Validators.required),
-      due_date: this.fb.control('', Validators.required),
-      user_email: this.fb.control('', Validators.required),
-      initial_date: this.fb.control('', Validators.required),
-      book_id: this.fb.control('', Validators.required),
-
+      returnDate: this.fb.control('', Validators.required),
+      dueDate: this.fb.control('', Validators.required),
+      userKey: this.fb.control('', Validators.required),
+      initialDate: this.fb.control('', Validators.required),
+      bookKey: this.fb.control('', Validators.required),
+      title: this.fb.control('', Validators.required),
+      author: this.fb.control('', Validators.required),
+      description: this.fb.control('', Validators.required),
     });
 
   }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.bookKey = params.get('id');
+    this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
+      const book = item as Book;
+      this.title = book.title;
+      this.author = book.author;
+      this.description = book.description;
+      this.is_borrowed = book.is_borrowed;
+      })
+    })
+    //functie pentru imputBoox de cautat
     this.filteredOptions = this.myControl.valueChanges
     .pipe(
       startWith(''),
       map(value => this._filter(value))
     );
-    this.extract();
-   }
    
+  }
+
+  //functie folosita in inputBox pentru a cauta numele
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  const filterValue = value.toLowerCase();
+  return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  }
+ 
 
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
-  }
-  extract(){
-    this.getUsersDetails().subscribe(list => {
-      this.userList = list,
-      console.log("Trebuie sa mearga" + list)},
-      )
-      
-  }
-
-  getUsersDetails(){
-    let users = this.db.list('/users');
-    return users.valueChanges();
-  }
+  // getUsersDetails(){
+  //   return this.db.object('/books').valueChanges();
+  // }
 
   onSubmit(value: History): void {
     console.log('form book :', this.borrowbookForm.value);

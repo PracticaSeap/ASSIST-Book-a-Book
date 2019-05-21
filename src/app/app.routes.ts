@@ -18,7 +18,7 @@ export const appRoutes: Routes = [
     { path: 'book-details/:id', component: BookDetailsComponent },
     { path: 'add-book', component: AddBookComponent },
     { path: 'edit-book/:id', component: EditBookComponent },
-  { path: 'borrow-book', component: BorrowBookComponent },
+  { path: 'borrow-book/:id', component: BorrowBookComponent },
     { path: 'manage-books', component: ManageBooksComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent},
     {path: 'signup', component: SignUpComponent  }

@@ -125,7 +125,10 @@
       <input class="inputFile" type="file" name="pic" accept="pdf/*">
 
     </p>
-
+    <br>
+    <p *ngIf="is_succeful === true" class="text">
+      Am efectuat editul
+    </p>
 
 
 
@@ -142,6 +145,7 @@
         </button>
 
       </div>
+   
     </div>
   </form>
   <!-- <pre>{{ editBookForm.value | json }}</pre> -->
