@@ -7,21 +7,21 @@
   </div>
 
   <!-- mijloc -->
-  <form #value="ngForm" [formGroup]="borrowbookForm" (ngSubmit)="onSubmit(borrowbookForm.value)">
+  <form #value="ngForm"  (ngSubmit)="onSubmit(borrowbookForm.value)">
     <mat-form-field class="mat1 test">
-      <input formControlName="title" matInput placeholder="Title" name="title">
+      <input [(ngModel)]="title" matInput placeholder="Title" name="title" disabled>
     </mat-form-field>
     <br>
     <mat-form-field class="mat1 test">
-      <input formControlName="author" matInput placeholder="Author" name="author">
+      <input [(ngModel)]="author" matInput placeholder="Author" name="author" disabled>
     </mat-form-field>
     <br>
     <mat-form-field class="mat1 test">
-      <input formControlName="description" matInput placeholder="Description" name="description">
+      <input [(ngModel)]="description" matInput placeholder="Description" name="description" disabled>
     </mat-form-field>
     <br>
     <mat-form-field class="mat1 test">
-      <input type="text" placeholder="Borrow" matInput formControlName="userKey" [matAutocomplete]="auto"
+      <input type="text" placeholder="Borrow" matInput [(ngModel)]="userKey" [matAutocomplete]="auto"
         name="userKey">
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -31,13 +31,13 @@
     </mat-form-field>
     <br>
     <mat-form-field class="mat1 test">
-      <input matInput formControlName="initialDate" [matDatepicker]="piker1" placeholder="Lend date" name="initialDate">
+      <input matInput [(ngModel)]="initialDate" [matDatepicker]="piker1" placeholder="Lend date" name="initialDate">
       <mat-datepicker-toggle matSuffix [for]="piker1"></mat-datepicker-toggle>
       <mat-datepicker #piker1></mat-datepicker>
     </mat-form-field>
     <br>
     <mat-form-field class="mat1 test">
-      <input matInput formControlName="dueDate" [matDatepicker]="piker2" placeholder="Due date" name="dueDate">
+      <input matInput [(ngModel)]="dueDate" [matDatepicker]="piker2" placeholder="Due date" name="dueDate">
       <mat-datepicker-toggle matSuffix [for]="piker2"></mat-datepicker-toggle>
       <mat-datepicker #piker2></mat-datepicker>
     </mat-form-field>

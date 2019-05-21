@@ -20,14 +20,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BorrowBookComponent implements OnInit {
   public addBookApi: AddBookService;
-  private firebaseService: FirebaseService;
-  public route: ActivatedRoute;
-  private router: Router;
   bookKey;
   is_borrowed;
   title;
   author;
   description;
+  initialDate;
+  dueDate;
+  userKey;
   
   // userList: {}[];
   myControl = new FormControl;
@@ -41,11 +41,12 @@ export class BorrowBookComponent implements OnInit {
   borrowbookForm: FormGroup;
   // private booksLength;
   allBooks: any;
-  constructor(public db: AngularFireDatabase, private fb: FormBuilder) {
-    this.db.list('/books').valueChanges().subscribe(books => {
-      // this.booksLength = books.length;
-    });
-
+  constructor(
+    public db: AngularFireDatabase, 
+    private fb: FormBuilder,
+    private firebaseService: FirebaseService,
+    public route: ActivatedRoute,) {
+  
     this.borrowbookForm = this.fb.group({
       returnDate: this.fb.control('', Validators.required),
       dueDate: this.fb.control('', Validators.required),
@@ -65,11 +66,16 @@ export class BorrowBookComponent implements OnInit {
     this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
       const book = item as Book;
       this.title = book.title;
+      console.log(this.title);
       this.author = book.author;
+      console.log(this.author);
       this.description = book.description;
+      console.log(this.description);
       this.is_borrowed = book.is_borrowed;
-      })
-    })
+      console.log(this.is_borrowed);
+
+      });
+    });
     //functie pentru imputBoox de cautat
     this.filteredOptions = this.myControl.valueChanges
     .pipe(
