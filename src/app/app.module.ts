@@ -36,6 +36,11 @@ import {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FirebaseService } from './services/firebase.service';
+import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -53,8 +58,10 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
     HeaderBarComponent,
     DashboardBookComponent,
     EditBookComponent,
+    BorrowBookComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
@@ -75,12 +82,16 @@ import { EditBookComponent } from './components/admin/edit-book/edit-book.compon
     // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
     AngularFireDatabaseModule,
     AngularFontAwesomeModule,
+    //AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+   // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    //AngularFireStorageModule, // imports firebase/storage only needed for storage features,
+    MatAutocompleteModule,
     // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
 
   ],
-  providers: [MatNativeDateModule],
+  providers: [MatNativeDateModule, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
