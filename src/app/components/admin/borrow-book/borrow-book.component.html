@@ -7,12 +7,12 @@
   </div>
 
   <!-- mijloc -->
-  <div *ngIf='is_borrowed === true'>
+  <div *ngIf="is_borrowed === true">
     <p>
       Aceasta carte este imprumutata!
     </p>
   </div>
-  <div>
+  <div *ngIf="is_borrowed === false">
     <form #form="ngForm" (ngSubmit)="onSubmit(borrowbookForm.value)">
       <mat-form-field class="mat1 test">
         <input [(ngModel)]="title" matInput placeholder="Title" name="title" disabled>
@@ -48,7 +48,7 @@
       </mat-form-field>
 
 
-      <p *ngIf="is_succeful === true" class="text">
+      <p *ngIf="isSuccessful === true" class="text">
         The book was borrowed!
       </p>
 

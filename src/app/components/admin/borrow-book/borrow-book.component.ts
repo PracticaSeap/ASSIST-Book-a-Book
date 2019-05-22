@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Book } from 'src/app/models/book.model';
@@ -7,10 +7,9 @@ import { HistoryEntry } from 'src/app/models/history.mode';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
-import { User } from 'firebase';
-import { extractDirectiveDef } from '@angular/core/src/render3/definition';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ManageBooksService } from 'src/app/services/manage-books.service';
 // import { userInfo } from 'os';
 
 @Component({
@@ -21,18 +20,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BorrowBookComponent implements OnInit {
   public addBookApi: AddBookService;
   bookKey;
-  @ViewChild('form') form;  
-  is_borrowed: boolean = false;
-  title;
-  author;
-  description;
+  @ViewChild('form') form;
+  is_borrowed;
+  title = '';
+  author = '';
+  description = '';
   initialDate;
   dueDate;
   userKey;
 
-  is_succeful = false;
+  isSuccessful = false;
   history: HistoryEntry;
-  myControl = new FormControl;
+  myControl = new FormControl();
 
   // acest string ar trebui populat cu users
   options: string[] = ['John Lee', 'Antonio Banderas', 'Van Damme'];
@@ -45,7 +44,9 @@ export class BorrowBookComponent implements OnInit {
     public db: AngularFireDatabase,
     private fb: FormBuilder,
     private firebaseService: FirebaseService,
-    public route: ActivatedRoute, ) {
+    public route: ActivatedRoute,
+    public manageBooksService: ManageBooksService,
+    private ngZone: NgZone, ) {
 
     this.borrowbookForm = this.fb.group({
       returnDate: this.fb.control('', Validators.required),
@@ -63,20 +64,26 @@ export class BorrowBookComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.bookKey = params.get('id');
-      this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
-        const book = item as Book;
-        this.title = book.title;
-        console.log(this.title);
-        this.author = book.author;
-        console.log(this.author);
-        this.description = book.description;
-        console.log(this.description);
-        this.is_borrowed = book.is_borrowed;
-        console.log('Is borrowed: '+this.is_borrowed);
 
+      this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
+          console.log(item);
+          const book = item as Book;
+          this.title = book.title;
+          console.log(this.title);
+          this.author = book.author;
+          console.log(this.author);
+          this.description = book.description;
+          console.log(this.description);
+          console.log(book.is_borrowed);
+          if (book.is_borrowed.toString() === 'true') {
+            this.is_borrowed =  true;
+          } else {
+            this.is_borrowed = false;
+          }
       });
     });
-    //functie pentru imputBoox de cautat
+
+    // functie pentru imputBoox de cautat
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -85,7 +92,7 @@ export class BorrowBookComponent implements OnInit {
 
   }
 
-  //functie folosita in inputBox pentru a cauta numele
+  // functie folosita in inputBox pentru a cauta numele
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
@@ -107,16 +114,16 @@ export class BorrowBookComponent implements OnInit {
       dueDate: this.dateToString(this.dueDate),
       returnDate: '',
       userKey: this.userKey,
-    }
+    };
 
     this.db.list('/history').push(history).then(result => {
-      this.is_succeful = true;
+      this.isSuccessful = true;
       this.showMessage();
-    })
+    });
   }
-  showMessage(){
-    if (this.is_succeful==true){
-    setTimeout(()=>{this.is_succeful=false}, 3000);
+  showMessage() {
+    if (this.isSuccessful === true) {
+    setTimeout(() => {this.isSuccessful = false;}, 3000);
     }
   }
 }
