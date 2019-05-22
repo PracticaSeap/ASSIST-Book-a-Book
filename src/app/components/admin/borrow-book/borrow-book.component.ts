@@ -4,9 +4,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Book } from 'src/app/models/book.model';
 import { AddBookService } from 'src/app/services/add-book.service';
 import { HistoryEntry } from 'src/app/models/history.mode';
-import {Observable} from 'rxjs';
-import {FormControl} from '@angular/forms';
-import {map, startWith} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { map, startWith } from 'rxjs/operators';
 import { User } from 'firebase';
 import { extractDirectiveDef } from '@angular/core/src/render3/definition';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -21,32 +21,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BorrowBookComponent implements OnInit {
   public addBookApi: AddBookService;
   bookKey;
-  is_borrowed;
+  @ViewChild('form') form;  
+  is_borrowed: boolean = false;
   title;
   author;
   description;
   initialDate;
   dueDate;
   userKey;
-  
-  // userList: {}[];
+
+  is_succeful = false;
+  history: HistoryEntry;
   myControl = new FormControl;
 
   // acest string ar trebui populat cu users
   options: string[] = ['John Lee', 'Antonio Banderas', 'Van Damme'];
-  filteredOptions: Observable <string[]>;
+  filteredOptions: Observable<string[]>;
 
-  // @ViewChild('form') form;
   public borrow: HistoryEntry;
   borrowbookForm: FormGroup;
-  // private booksLength;
   allBooks: any;
   constructor(
-    public db: AngularFireDatabase, 
+    public db: AngularFireDatabase,
     private fb: FormBuilder,
     private firebaseService: FirebaseService,
-    public route: ActivatedRoute,) {
-  
+    public route: ActivatedRoute, ) {
+
     this.borrowbookForm = this.fb.group({
       returnDate: this.fb.control('', Validators.required),
       dueDate: this.fb.control('', Validators.required),
@@ -63,44 +63,60 @@ export class BorrowBookComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.bookKey = params.get('id');
-    this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
-      const book = item as Book;
-      this.title = book.title;
-      console.log(this.title);
-      this.author = book.author;
-      console.log(this.author);
-      this.description = book.description;
-      console.log(this.description);
-      this.is_borrowed = book.is_borrowed;
-      console.log(this.is_borrowed);
+      this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
+        const book = item as Book;
+        this.title = book.title;
+        console.log(this.title);
+        this.author = book.author;
+        console.log(this.author);
+        this.description = book.description;
+        console.log(this.description);
+        this.is_borrowed = book.is_borrowed;
+        console.log('Is borrowed: '+this.is_borrowed);
 
       });
     });
     //functie pentru imputBoox de cautat
     this.filteredOptions = this.myControl.valueChanges
-    .pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-   
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+
   }
 
   //functie folosita in inputBox pentru a cauta numele
   private _filter(value: string): string[] {
-  const filterValue = value.toLowerCase();
-  return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    const filterValue = value.toLowerCase();
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
- 
 
-  // getUsersDetails(){
-  //   return this.db.object('/books').valueChanges();
-  // }
+  dateToString(date) {
+    let month = (date.getMonth() + 1).toString();
+    let day = (date.getDate()).toString();
+    const year = date.getFullYear();
+    month = (month.length < 2 ? '0' + month : month);
+    day = (day.length < 2 ? '0' + day : day);
+    return `${day}/${month}/${year}`;
+  }
 
   onSubmit(value: History): void {
-    console.log('form book :', this.borrowbookForm.value);
-    // console.log('Books :', this.booksLength.value);
-    // this.borrowbookForm.value.id = this.booksLength;
-    this.db.list('/history').push(value);
-    // this.form.resetForm();
+    const history = {
+      bookKey: this.bookKey,
+      initialDate: this.dateToString(this.initialDate),
+      dueDate: this.dateToString(this.dueDate),
+      returnDate: '',
+      userKey: this.userKey,
+    }
+
+    this.db.list('/history').push(history).then(result => {
+      this.is_succeful = true;
+      this.showMessage();
+    })
+  }
+  showMessage(){
+    if (this.is_succeful==true){
+    setTimeout(()=>{this.is_succeful=false}, 3000);
+    }
   }
 }

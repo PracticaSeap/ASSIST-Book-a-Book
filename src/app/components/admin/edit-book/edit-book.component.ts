@@ -107,8 +107,6 @@ export class EditBookComponent implements OnInit {
   redirect(){
     if (this.is_succeful==true){
     setTimeout(()=>{this.is_succeful=false}, 3000);
-    // setTimeout(()=>{this.router.navigate(['dashboard']);}, 3000);
-
     }
   }
 }

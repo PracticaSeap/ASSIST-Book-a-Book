@@ -1,5 +1,6 @@
 export interface Book {
     id: number;
+    key: string;
     title: string;
     author: string;
     description: string;
@@ -10,6 +11,13 @@ export interface Book {
     is_borrowed: boolean;
     number_of_pages: number;
     virtual_book: string;
-    // lend_date: Date;
-    // due_date: Date;
+    // is_borrowed: string;
+}
+
+export interface BookHistory extends Book  {
+    initialDate: string;
+    returnDate: string;
+    dueDate: string;
+    userKey: string;
+    userFullName: string;
 }

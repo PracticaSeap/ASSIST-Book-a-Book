@@ -14,7 +14,7 @@ import { AddBookService } from 'src/app/services/add-book.service';
 })
 export class AddBookComponent implements OnInit {
   public addBookApi: AddBookService;
-  @ViewChild('form') form;  
+  @ViewChild('form') form;
   virtual_book = 'PhisicalBook';
   public book: Book;
   addBookForm: FormGroup;
@@ -38,24 +38,17 @@ export class AddBookComponent implements OnInit {
       image: this.fb.control(''),
       number_of_pages: this.fb.control('', Validators.required),
     });
-    
+
   }
 
   ngOnInit() { }
 
-  onSubmit(value: Book):void {
+  onSubmit(value: Book): void {
     console.log('form book :', this.addBookForm.value);
     console.log('Books :', this.booksLength.value);
     this.addBookForm.value.id = this.booksLength;
     this.db.list('/books').push(value);
     this.form.resetForm();
-    
-    // this.addBookForm.resetForm();
-    // this.addBookForm.markAsPristine({ onlySelf: false});
-    // this.addBookForm.markAsUntouched({ onlySelf: false})
-    // this.addBookForm.updateValueAndValidity({ onlySelf: false});
-    // this.addBookForm.markAsUntouched({ onlySelf: true})
-    // console.log( this.addBookForm.dirty, this.addBookForm.valid, this.addBookForm.touched);
   }
 }
 

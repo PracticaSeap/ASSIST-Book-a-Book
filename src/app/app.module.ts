@@ -22,19 +22,18 @@ import { MyAccountComponent } from './components/my-account/my-account.component
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DashboardBookComponent } from './components/dashboard/dashboard-book/dashboard-book.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import { FormsModule } from '@angular/forms'
-import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from "@angular/material"
+import { FormsModule } from '@angular/forms';
+import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material'
+import { MatNativeDateModule } from '@angular/material';
 import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -79,7 +78,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
     AngularFireDatabaseModule,
     AngularFontAwesomeModule,
@@ -87,6 +86,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     //AngularFireStorageModule, // imports firebase/storage only needed for storage features,
     MatAutocompleteModule,
+    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
+
   ],
   providers: [MatNativeDateModule, FirebaseService],
   bootstrap: [AppComponent]
