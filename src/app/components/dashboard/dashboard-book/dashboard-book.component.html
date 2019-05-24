@@ -1,23 +1,33 @@
 <div class="row">
-
   <div class="col-md-">
-    <img src="assets/book_cover.png" alt="" height="297" width="209">
+    <img src="assets/book_cover.png" alt="" height="297" width="209" />
   </div>
 
   <div class="px-3 col-6 bookRow">
-    <h4 class="card-title pl-3 pt-3">{{inputBook.title}}</h4>
-    <p class="card-text pl-3">{{inputBook.description | limitTo: 140}}</p>
+    <h4 class="card-title pl-3 pt-3">{{ inputBook.title }}</h4>
+    <p class="card-text pl-3">{{ inputBook.description | limitTo: 140 }}</p>
 
     <div class="btn-group pl-3" role="group" aria-label="Basic example">
-      <button *ngIf="inputBook.is_borrowed == false" class="btn btn-primary borrowButton mr-3">Borrow</button>
-      <button (click)="onSelect()" class="btn btn-primary previewButton" [ngClass]="{'borrowButton':inputBook.is_borrowed}">Preview</button>
-      <div *ngIf="inputBook.is_borrowed == true" class="viewReturn">
+      <button
+        *ngIf="inputBook.is_borrowed === 'false'"
+        class="btn btn-primary borrowButton mr-3"
+      >
+        Borrow
+      </button>
+      <button
+        (click)="onSelect()"
+        class="btn btn-primary previewButton"
+        [ngClass]="{ borrowButton : inputBook.is_borrowed }"     
+      >
+        Preview
+      </button>
+      <div *ngIf="inputBook.is_borrowed === 'true'" class="viewReturn">
         <p class="return">Return due date</p>
-        <p class="returnDate">April 20, 2019</p>
+        <p class="returnDate">{{dueDate}}</p>
       </div>
     </div>
 
-    <hr>
+    <hr />
 
     <div class="row pl-4">
       <div class="cardFooter col-md- pl-2 pr-2">
@@ -25,9 +35,11 @@
       </div>
 
       <div class="cardFooter col-md-">
-        <p><i class="fa fa-bookmark-o fa-0.5x pr-1"></i>{{inputBook.number_of_pages}} pages</p>
+        <p>
+          <i class="fa fa-bookmark-o fa-0.5x pr-1"></i
+          >{{ inputBook.number_of_pages }} pages
+        </p>
       </div>
     </div>
   </div>
 </div>
-
