@@ -54,17 +54,6 @@ export class EditBookComponent implements OnInit {
       image: this.fb.control(''),
       number_of_pages: this.fb.control('', Validators.required),
     });
-    //  {  this.id = this.route.snapshot.params['id'];
-    // this.firebaseService.getBookDetails(this.id).valueChanges().subscribe(book => {
-    //   this.title = book.title;
-    //   this.author = book.author;
-    //   this.description = book.description;
-    //   this.isbn = book.isbn;
-    //   this.number_of_pages = book.number_of_pages;
-    //   this.category = book.category;
-    //   this.is_borrowed = book.is_borrowed;
-    //   this.virtual_book = book.virtual_book;
-    // }
     { }
   }
   
@@ -82,7 +71,6 @@ export class EditBookComponent implements OnInit {
         this.is_borrowed = book.is_borrowed;
         this.virtual_book = book.virtual_book;
       });
-      // -LeuO4OlhDR3ixe_SSLE
     });
   }
 

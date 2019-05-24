@@ -92,13 +92,15 @@
 
     <!-- subsol -->
     <div class="footer">
-
+      <div *ngIf="is_succeful == true">
+        <p>Books was added with succesful</p>
+      </div>
       <!-- buton submit and cancel -->
-      <div class="buttons">
-        <button type="cancel" class="btn cancel">
+      <div class="buttons cursor ">
+        <button type="cancel" class="btn cancel ">
           <div class="buttonsCancel">Cancel</div>
         </button>
-        <button type="submit" class="btn submit" [disabled]="addBookForm.invalid">
+        <button type="submit" class="btn submit " [disabled]="addBookForm.invalid">
           <div class="buttonsSubmit">Submit</div>
         </button>
         <!-- <input type="submit" value="Trimite"> -->
