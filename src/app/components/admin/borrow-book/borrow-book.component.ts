@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Book } from 'src/app/models/book.model';
 import { AddBookService } from 'src/app/services/add-book.service';
 import { HistoryEntry } from 'src/app/models/history.mode';
@@ -10,6 +10,8 @@ import { map, startWith } from 'rxjs/operators';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ActivatedRoute } from '@angular/router';
 import { ManageBooksService } from 'src/app/services/manage-books.service';
+import { User } from 'src/app/models/user.model';
+
 // import { userInfo } from 'os';
 
 @Component({
@@ -31,10 +33,14 @@ export class BorrowBookComponent implements OnInit {
 
   isSuccessful = false;
   history: HistoryEntry;
+  user: User[];
+  filteredUsers: User[];
   myControl = new FormControl();
 
   // acest string ar trebui populat cu users
-  options: string[] = ['John Lee', 'Antonio Banderas', 'Van Damme'];
+  // options: string[] = ['John Lee', 'Antonio Banderas', 'Van Damme'];
+  options: string[] = [];
+
   filteredOptions: Observable<string[]>;
 
   public borrow: HistoryEntry;
@@ -66,15 +72,10 @@ export class BorrowBookComponent implements OnInit {
       this.bookKey = params.get('id');
 
       this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
-          console.log(item);
           const book = item as Book;
           this.title = book.title;
-          console.log(this.title);
           this.author = book.author;
-          console.log(this.author);
           this.description = book.description;
-          console.log(this.description);
-          console.log(book.is_borrowed);
           if (book.is_borrowed.toString() === 'true') {
             this.is_borrowed =  true;
           } else {
@@ -82,6 +83,20 @@ export class BorrowBookComponent implements OnInit {
           }
       });
     });
+
+
+    
+    //functie pentru users
+    this.getUsers().subscribe( list => {
+      this.user = this.processUserData(list);
+      this.filteredUsers = this.user;
+      // console.log(this.filteredUsers);
+      // this.options = this.filterUsers.map ( fullName => this.filterUser.name)
+      this.options = this.filteredUsers.map(user => user.fullName);
+      console.log(this.options);
+
+    });
+
 
     // functie pentru imputBoox de cautat
     this.filteredOptions = this.myControl.valueChanges
@@ -95,6 +110,7 @@ export class BorrowBookComponent implements OnInit {
   // functie folosita in inputBox pentru a cauta numele
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
+    // console.log(this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0))
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
@@ -125,5 +141,28 @@ export class BorrowBookComponent implements OnInit {
     if (this.isSuccessful === true) {
     setTimeout(() => {this.isSuccessful = false;}, 3000);
     }
+  }
+
+  // functie pentru a prelua lista de users
+  usersList: AngularFireList<any>;
+  getUsers(){
+    this.usersList = this.db.list('/users');
+    return this.usersList.snapshotChanges();
+  }
+  processUserData(listOfUsers): User[] {
+    const users: User[] = [];
+    listOfUsers.forEach(user => {
+      const newUser = user.payload.val();
+      newUser.key = user.key;
+      users.push(newUser);
+    });
+    return users;
+  }
+  filterUser(value: string) {
+    this.filteredUsers = this.user.filter(user =>
+       user.email.toLowerCase().includes(value.toLowerCase()) ||
+       user.fullName.toLowerCase().includes(value.toLowerCase())
+       );
+       
   }
 }
