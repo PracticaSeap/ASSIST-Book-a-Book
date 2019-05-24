@@ -45,13 +45,13 @@ p {
 .loadButton{
   display: flex;
   justify-content: center;
+  margin-top: 36px;
 }
 
 #loadMore{
   width: 185px;
   height: 46px;
   margin-bottom: 65px;
-  margin-top: 36px;
 
   border: 1px solid #9AA5B1;
   box-sizing: border-box;
