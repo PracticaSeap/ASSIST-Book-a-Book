@@ -16,11 +16,13 @@ export class DashboardComponent implements OnInit {
   books: Book[];
   filteredBooks: Book[];
   nr = 10;
+  count = 0;
 
   ngOnInit() {
     this.dashboardService.getBooks().subscribe( list => {
       this.books = this.dashboardService.processBooksData(list);
       this.filteredBooks = this.books;
+      
     });
   }
 
@@ -38,5 +40,6 @@ export class DashboardComponent implements OnInit {
 
   loadMore(){
     this.nr += 10;
+    this.count = this.books.length;
   }
 }

@@ -6,6 +6,16 @@ p {
   max-height: 300px;
 }
 
+.col-6{
+  padding-left: 0px !important;
+}
+
+.bookRow{
+  background-color: white;
+  min-width: 209px;
+  padding-left: 27px;
+}
+
 .card-title{
   display: flex;
   font-family: Montserrat;
