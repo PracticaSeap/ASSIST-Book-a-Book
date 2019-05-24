@@ -27,9 +27,9 @@
       </mat-form-field>
       <br>
       <mat-form-field class="mat1 test">
-        <input type="text" placeholder="Borrow" matInput [(ngModel)]="userKey" [matAutocomplete]="auto" name="userKey">
+        <input type="text" placeholder="Borrow" matInput [(ngModel)]="userKey" [matAutocomplete]="auto" name="userKey" (input)="filter($event.target)">
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          <mat-option *ngFor="let option of filteredOptions" [value]="option">
             {{option}}
           </mat-option>
         </mat-autocomplete>

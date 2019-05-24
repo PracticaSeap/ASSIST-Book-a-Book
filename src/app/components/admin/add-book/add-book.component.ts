@@ -20,6 +20,7 @@ export class AddBookComponent implements OnInit {
   addBookForm: FormGroup;
   private booksLength;
   allBooks: any;
+  is_succeful: boolean = false;
   constructor(public db: AngularFireDatabase, private fb: FormBuilder) {
     this.db.list('/books').valueChanges().subscribe(books => {
       this.booksLength = books.length;
@@ -49,6 +50,14 @@ export class AddBookComponent implements OnInit {
     this.addBookForm.value.id = this.booksLength;
     this.db.list('/books').push(value);
     this.form.resetForm();
+    this.is_succeful = true;
+    this.showMessage()
+  }
+
+  showMessage(){
+    if (this.is_succeful = true){
+    setTimeout(()=>{this.is_succeful=false}, 3000);
+    }
   }
 }
 
