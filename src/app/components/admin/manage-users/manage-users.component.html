@@ -1,3 +1,58 @@
-<p>
-  manage-users works!
-</p>
+<!-- <router-outlet></router-outlet> -->
+<div class="header">
+    <h1 class="title_form">All users ({{lungime}})</h1>
+</div>
+
+<!-- <table>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Date created</th>
+      </tr>
+      <tr>
+        <td *ngFor="let option of options">{{option}}</td>
+      </tr>
+    </table> -->
+
+<!-- <table>
+  <ng-container *ngFor="let option of user">
+    <tr>
+      <td>
+        <h2>Name</h2>
+        <h2>Role</h2>
+        <h2>Date created</h2>
+      </td>
+    </tr>
+    <tr *ngFor="let item of options1">
+      <td>{{item}}</td>
+    </tr>
+  </ng-container>
+</table> -->
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Date created</th>
+  </tr>
+  <tr *ngFor="let user of users" class="rowTabel">
+    <!-- <td>{{user.fullName}}</td>
+    <td>{{user.userRole}}</td>
+    <td>{{user.email}}</td> -->
+    <td>
+      <div class="col-data">
+          {{user.fullName}}
+      </div>
+    </td>
+    <td>
+      <div class="col-data">
+          {{user.userRole}}
+      </div>
+    </td>
+    <td>
+      <div class="col-data">
+          {{user.email}}
+      </div>
+    </td>
+  </tr>
+</table>
