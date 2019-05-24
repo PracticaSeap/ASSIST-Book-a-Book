@@ -1,3 +1,21 @@
+p {
+  margin-bottom: 0 !important;
+}
+
+.card{
+  max-height: 300px;
+}
+
+.col-6{
+  padding-left: 0px !important;
+}
+
+.bookRow{
+  background-color: white;
+  min-width: 209px;
+  padding-left: 27px;
+}
+
 .card-title{
   display: flex;
   font-family: Montserrat;
@@ -21,13 +39,14 @@
   color: #9AA5B1;
 }
 
+
 .book_borrow{
   background: #1CD4D4;
   box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
   border-radius: 3.91304px;
 }
 
-#borrowButton{
+.borrowButton{
   height: 36px;
   width: 131px;
 
@@ -44,7 +63,7 @@
   text-align: center;
 }
 
-#previewButton{
+.previewButton{
   height: 36px;
   width: 131px;
 
@@ -79,7 +98,6 @@ hr {
   font-style: normal;
   font-weight: bold;
   font-size: 8px;
-  line-height: 10px;
   display: flex;
   align-items: center;
 
@@ -92,11 +110,13 @@ hr {
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
-  line-height: 17px;
   display: flex;
 
   color: #19216C;
+}
 
+.viewReturn{
+  line-height: 17px;
 }
 
 .fa{

@@ -36,6 +36,10 @@ import {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
+import { BookComponent } from './components/my-books/book/book.component';
+import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
+import { FilterPipe } from './filter.pipe';
+import { RecommendationsComponent } from './components/book-details/recommendations/recommendations.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FirebaseService } from './services/firebase.service';
 import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.component';
@@ -58,6 +62,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     HeaderBarComponent,
     DashboardBookComponent,
     EditBookComponent,
+    BookComponent,
+    FooterBarComponent,
+    FilterPipe,
+    RecommendationsComponent,
     BorrowBookComponent,
   ],
   imports: [
