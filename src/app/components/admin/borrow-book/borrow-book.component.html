@@ -1,0 +1,72 @@
+<app-header-bar></app-header-bar>
+<div class="container">
+
+  <!-- titlu -->
+  <div class="header">
+    <h1 class="title_form">Borrow Book</h1>
+  </div>
+
+  <!-- mijloc -->
+  <div *ngIf="is_borrowed === true">
+    <p>
+      Aceasta carte este imprumutata!
+    </p>
+  </div>
+  <div *ngIf="is_borrowed === false">
+    <form #form="ngForm" (ngSubmit)="onSubmit(borrowbookForm.value)">
+      <mat-form-field class="mat1 test">
+        <input [(ngModel)]="title" matInput placeholder="Title" name="title" disabled>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="mat1 test">
+        <input [(ngModel)]="author" matInput placeholder="Author" name="author" disabled>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="mat1 test">
+        <input [(ngModel)]="description" matInput placeholder="Description" name="description" disabled>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="mat1 test">
+        <input type="text" placeholder="Borrow" matInput [(ngModel)]="userKey" [matAutocomplete]="auto" name="userKey">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="mat1 test">
+        <input matInput [(ngModel)]="initialDate" [matDatepicker]="piker1" placeholder="Lend date" name="initialDate">
+        <mat-datepicker-toggle matSuffix [for]="piker1"></mat-datepicker-toggle>
+        <mat-datepicker #piker1></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="mat1 test">
+        <input matInput [(ngModel)]="dueDate" [matDatepicker]="piker2" placeholder="Due date" name="dueDate">
+        <mat-datepicker-toggle matSuffix [for]="piker2"></mat-datepicker-toggle>
+        <mat-datepicker #piker2></mat-datepicker>
+      </mat-form-field>
+
+
+      <p *ngIf="isSuccessful === true" class="text">
+        The book was borrowed!
+      </p>
+
+
+      <!-- subsol -->
+      <div class="footer">
+
+        <!-- buton submit and cancel -->
+        <div class="buttons">
+          <!-- <button type="cancel" class="btn cancel">
+          <div class="buttonsCancel">Cancel</div>
+        </button> -->
+          <button type="submit" class="btn submit">
+            <div class="buttonsSubmit">Submit</div>
+          </button>
+
+        </div>
+      </div>
+    </form>
+    <!-- <pre>{{ editBookForm.value | json }}</pre> -->
+  </div>

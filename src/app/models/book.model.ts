@@ -8,7 +8,16 @@ export interface Book {
     category: string;
     tag: string;
     image: string;
+    is_borrowed: boolean;
     number_of_pages: number;
     virtual_book: string;
-    is_borrowed: boolean;
+    // is_borrowed: string;
+}
+
+export interface BookHistory extends Book  {
+    initialDate: string;
+    returnDate: string;
+    dueDate: string;
+    userKey: string;
+    userFullName: string;
 }
