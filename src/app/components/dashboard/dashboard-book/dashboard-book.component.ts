@@ -46,4 +46,8 @@ export class DashboardBookComponent implements OnInit {
   onSelect() {
     this.router.navigate(["/book-details/", this.inputBook.key]);
   }
+
+  onSelectBorrow() {
+    this.router.navigate(["/borrow-book/", this.inputBook.key]);
+  }
 }
