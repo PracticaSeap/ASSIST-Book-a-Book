@@ -36,6 +36,8 @@ export class SignUpComponent implements OnInit {
             email: this.email,
             fullName: this.fullname,
             userRole: 'user',
+            //era eroare
+            key: "" , 
           }
             ;
           this.db.list('/users').push(user);

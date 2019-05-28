@@ -45,6 +45,7 @@ import { FirebaseService } from './services/firebase.service';
 import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -85,18 +86,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
     AngularFireDatabaseModule,
     AngularFontAwesomeModule,
-    //AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-   // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    //AngularFireStorageModule, // imports firebase/storage only needed for storage features,
     MatAutocompleteModule,
-    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
+    MatDialogModule,
 
   ],
   providers: [MatNativeDateModule, FirebaseService],

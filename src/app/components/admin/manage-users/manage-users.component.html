@@ -1,58 +1,92 @@
 <!-- <router-outlet></router-outlet> -->
 <div class="header">
-    <h1 class="title_form">All users ({{lungime}})</h1>
+  <h1 class="title_form">All users ({{lungime}})</h1>
 </div>
 
-<!-- <table>
-      <tr>
-        <th>Name</th>
-        <th>Role</th>
-        <th>Date created</th>
-      </tr>
-      <tr>
-        <td *ngFor="let option of options">{{option}}</td>
-      </tr>
-    </table> -->
-
-<!-- <table>
-  <ng-container *ngFor="let option of user">
-    <tr>
-      <td>
-        <h2>Name</h2>
-        <h2>Role</h2>
-        <h2>Date created</h2>
-      </td>
-    </tr>
-    <tr *ngFor="let item of options1">
-      <td>{{item}}</td>
-    </tr>
-  </ng-container>
-</table> -->
 
 <table>
-  <tr>
+  <tr class="tableHead">
     <th>Name</th>
     <th>Role</th>
     <th>Date created</th>
+    <th></th>
   </tr>
   <tr *ngFor="let user of users" class="rowTabel">
-    <!-- <td>{{user.fullName}}</td>
-    <td>{{user.userRole}}</td>
-    <td>{{user.email}}</td> -->
     <td>
-      <div class="col-data">
-          {{user.fullName}}
+      <div class="col-data ">
+        {{user.fullName}}
       </div>
     </td>
     <td>
       <div class="col-data">
-          {{user.userRole}}
+        {{user.userRole}}
       </div>
     </td>
     <td>
       <div class="col-data">
-          {{user.email}}
+        {{user.email}}
       </div>
     </td>
+    <td>
+      <div *ngIf="user.userRole === 'admin'">
+        <a>Is already admin</a>
+        <!-- <a data-toggle="modal" data-target="#deletUser">Delete</a> -->
+      </div>
+      <div *ngIf="user.userRole === 'user'">
+        <a data-toggle="modal" data-target="#makeAdmin" class="forHover" (click)="setKey(user.key)">Make Admin</a>
+        <!-- <div class="dropdown" style="float:left;">
+          <button class="dropbtn">...</button>
+          <div class="dropdown-content">
+            <a data-toggle="modal" data-target="#makeAdmin" (click)="setKey(user.key)">Make Admin</a>
+          </div>
+        </div> -->
+      </div>
+    </td>
+    <!-- <td>
+      <div class="col-data">
+        {{user.key}}
+      </div>
+    </td> -->
   </tr>
 </table>
+
+
+<div class="modal fade" id="makeAdmin" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="textModal">Are you sure you want to make this user admin?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-succeful" data-dismiss="modal" (click)="makeAdmin()">Admin</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal custom fade" id="deletUser" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="textModal">Are you sure you want to delete the user?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-succeful" data-dismiss="modal" (click)="deletUser()">Delete</button>
+      </div>
+    </div>
+
+  </div>
+</div>

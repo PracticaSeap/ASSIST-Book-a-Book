@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-users',
@@ -8,32 +10,25 @@ import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
   styleUrls: ['./manage-users.component.css']
 })
 export class ManageUsersComponent implements OnInit {
+
   filteredUsers: User[];
-  // user: User[];
+  // firebaseService: FirebaseService;
   users: User[];
-  // options: string[] = [];
-  // options1: string[] = [];
-  // options2: string[] = [];
   filteredOptions: string[] = [];  
   lungime: number;
+  userKey: string;
+
   constructor(
     public db: AngularFireDatabase,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.getUsers().subscribe( list => {
       this.users = this.processUserData(list);
-      this.filteredUsers = this.users;
-      // this.users = this.user;
+ 
       this.lungime = this.users.length
-      // this.options = this.filteredUsers.map(user => user.fullName);
-      // // this.filteredOptions = this.options;
-      // this.options1 = this.filteredUsers.map(user => user.email);
-      // this.options2 = this.filteredUsers.map(user => user.userRole);
 
-      // console.log(this.options)
-      // console.log(this.options1)
-      // console.log(this.options2)
 
     });
   }
@@ -49,9 +44,31 @@ export class ManageUsersComponent implements OnInit {
     listOfUsers.forEach(user => {
       const newUser = user.payload.val();
       newUser.key = user.key;
+      this.userKey = user.key;
+      // console.log(user.key)
+
+      //aveam o eroare in fiserul cu sign-up.component.ts
       users.push(newUser);
     });
     return users;
   }
+  
+  makeAdmin(){
+    const user = {
+      userRole: "admin",
+    }
+    this.updateUser(this.userKey, user);
+  }
 
+  updateUser(id, userDetails) {
+    return this.db.list('/users').update(id, userDetails);
+  }
+
+  deletUser(){
+    const id = this.userKey; 
+    return this.db.list('/users').remove(id);
+  }
+ setKey(key){
+   this.userKey = key;
+ }
 }
