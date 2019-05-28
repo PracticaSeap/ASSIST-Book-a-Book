@@ -9,15 +9,6 @@ import { ConditionalExpr } from '@angular/compiler';
 export class FirebaseService {
   constructor(public db: AngularFireDatabase) {}
 
-  // constructor(public db: AngularFireDatabase) {}
-
-  // getBookDetails(key) {
-  //   return this.db.object('/books/' + key).valueChanges();
-  // }
-
-  // updateBook(id, bookDetails) {
-  //   return this.db.list('/books').update(id, bookDetails);
-  // }
   getBookDetails(key) {
     return this.db.object('/books/' + key).valueChanges();
   }
@@ -25,4 +16,8 @@ export class FirebaseService {
   updateBook(id, bookDetails) {
     return this.db.list('/books').update(id, bookDetails);
   }
+
+  // updateUser(id, userDetails) {
+  //   return this.db.list('/users').update(id, userDetails);
+  // }
 }
