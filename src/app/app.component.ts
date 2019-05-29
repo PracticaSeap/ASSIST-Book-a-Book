@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase  } from '@angular/fire/database';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,5 @@ import { AngularFireDatabase  } from '@angular/fire/database';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  items: Observable<any[]>;
-  constructor(db: AngularFireDatabase) {
-    console.log('here');
-    this.items = db.list('/users').valueChanges();
-  }
+  constructor() {}
 }

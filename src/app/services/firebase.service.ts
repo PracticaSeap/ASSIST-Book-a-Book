@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
+import { Book } from 'src/app/models/book.model';
+import { ConditionalExpr } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
+  constructor(public db: AngularFireDatabase) {}
 
-  constructor(db: AngularFireDatabase) {
-    // TBD
-    // this.items = db.list('/users').valueChanges();
+  getBookDetails(key) {
+    return this.db.object('/books/' + key).valueChanges();
+  }
+
+  updateBook(id, bookDetails) {
+    return this.db.list('/books').update(id, bookDetails);
   }
 }

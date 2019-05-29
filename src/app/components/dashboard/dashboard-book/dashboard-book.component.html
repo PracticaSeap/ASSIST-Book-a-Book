@@ -1,29 +1,46 @@
-<div class="card flex-row flex-wrap">
-
+<div class="row">
   <div class="col-md-">
-    <img src="assets/book_cover.png" alt="" height="297" width="209">
+    <img src="assets/book_cover.png" alt="" height="297" width="209" />
   </div>
 
-  <div class="card-block px-3 col-lg-7">
-    <h4 class="card-title px-2">The Indispensable UX Designer</h4>
-    <p class="card-text">The Gunslinger is a fantasy novel by American author Stephen King, the first volume in the Dark Tower series...</p>
+  <div class="px-3 col-6 bookRow">
+    <h4 class="card-title pl-3 pt-3">{{ inputBook.title }}</h4>
+    <p class="card-text pl-3">{{ inputBook.description | limitTo: 140 }}</p>
 
-    <div class="btn-group px-2" role="group" aria-label="Basic example">
-      <button id="borrowButton" class="btn btn-primary">Borrow</button>
-      <button id="previewButton" class="btn btn-primary ml-3">Preview</button>
+    <div class="btn-group pl-3" role="group" aria-label="Basic example">
+      <button
+      (click) = "onSelectBorrow()"
+        *ngIf="inputBook.is_borrowed === 'false'"
+        class="btn btn-primary borrowButton mr-3"
+      >
+        Borrow
+      </button>
+      <button
+        (click)="onSelect()"
+        class="btn btn-primary previewButton"
+        [ngClass]="{ borrowButton : inputBook.is_borrowed }"     
+      >
+        Preview
+      </button>
+      <div *ngIf="inputBook.is_borrowed === 'true'" class="viewReturn">
+        <p class="return">Return due date</p>
+        <p class="returnDate">{{dueDate}}</p>
+      </div>
     </div>
 
-    <hr>
+    <hr />
 
     <div class="row pl-4">
-      <div class="cardFooter col-md- pr-2">
+      <div class="cardFooter col-md- pl-2 pr-2">
         <p><i class="fa fa-thumbs-o-up fa-0.5x pr-1"></i>10 recommendations</p>
       </div>
 
       <div class="cardFooter col-md-">
-        <p><i class="fa fa-bookmark-o fa-0.5x pr-1"></i>250 pages</p>
+        <p>
+          <i class="fa fa-bookmark-o fa-0.5x pr-1"></i
+          >{{ inputBook.number_of_pages }} pages
+        </p>
       </div>
     </div>
   </div>
 </div>
-

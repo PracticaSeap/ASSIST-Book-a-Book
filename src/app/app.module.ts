@@ -22,7 +22,6 @@ import { MyAccountComponent } from './components/my-account/my-account.component
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DashboardBookComponent } from './components/dashboard/dashboard-book/dashboard-book.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
@@ -36,7 +35,17 @@ import {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import 'hammerjs';
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
+import { BookComponent } from './components/my-books/book/book.component';
+import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
+import { FilterPipe } from './filter.pipe';
+import { RecommendationsComponent } from './components/book-details/recommendations/recommendations.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FirebaseService } from './services/firebase.service';
+import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -56,8 +65,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HeaderBarComponent,
     DashboardBookComponent,
     EditBookComponent,
+    BookComponent,
+    FooterBarComponent,
+    FilterPipe,
+    RecommendationsComponent,
+    BorrowBookComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
@@ -73,17 +88,19 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    // AngularFireStorageModule, // imports firebase/storage only needed for storage features,
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireDatabaseModule,
     AngularFontAwesomeModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+
     NgbModule,
     BsDropdownModule.forRoot(),
    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
   ],
+  providers: [MatNativeDateModule, FirebaseService],
   exports: [BsDropdownModule],
-  providers: [MatNativeDateModule],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
