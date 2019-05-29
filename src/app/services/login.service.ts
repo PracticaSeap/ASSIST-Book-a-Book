@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { AngularFireDatabase  } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
@@ -13,6 +13,8 @@ import { User } from '../models/user.model';
 export class LoginService {
   loggedUserEmail;
   public users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  public usersByKey: Subject<any> = new Subject<any>();
+  usersKeyValue: {[ key: string ]: User} = {};
   public loggedUser: BehaviorSubject<User> = new  BehaviorSubject<User>(null);
 
   constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFireDatabase) {
@@ -48,11 +50,16 @@ export class LoginService {
   }
 
   private getAllUsers() {
-    this.db.list('/users').valueChanges().subscribe( entries => {
-      const users = entries as User[];
+    this.db.list('/users').snapshotChanges().subscribe( entries => {
+      const users: User[] = [];
+      entries.forEach(entry => {
+        const newUser = entry.payload.val() as User;
+        users.push(newUser);
+        this.usersKeyValue[entry.key] = newUser;
+      });
       this.users.next(users);
+      this.usersByKey.next(this.usersKeyValue);
       this.loggedUser.next(users.find(user => user.email === this.loggedUserEmail));
-      console.log('Users', entries);
     });
   }
 }
