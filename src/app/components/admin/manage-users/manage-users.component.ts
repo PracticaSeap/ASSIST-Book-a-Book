@@ -63,12 +63,19 @@ export class ManageUsersComponent implements OnInit {
   updateUser(id, userDetails) {
     return this.db.list('/users').update(id, userDetails);
   }
+  regularUser(){
+    const user = {
+      userRole: "user",
+    }
+    this.updateUser(this.userKey, user);
+  }
 
   deletUser(){
     const id = this.userKey; 
     return this.db.list('/users').remove(id);
   }
- setKey(key){
+
+  setKey(key){
    this.userKey = key;
  }
 }
