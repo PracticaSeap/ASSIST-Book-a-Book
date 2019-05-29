@@ -88,13 +88,17 @@ export class EditBookComponent implements OnInit {
 
     this.firebaseService.updateBook(this.bookKey, book).then( result => {
       this.is_succeful = true;
-      this.redirect();
+      this.showMessage();
     });
   }
 
-  redirect(){
+  showMessage(){
     if (this.is_succeful==true){
     setTimeout(()=>{this.is_succeful=false}, 3000);
     }
+  }
+
+  redirect(){
+    this.router.navigate(['/dashboard'])
   }
 }
