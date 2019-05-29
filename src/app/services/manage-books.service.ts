@@ -45,4 +45,12 @@ export class ManageBooksService {
     return books;
   }
 
+  getHistory() {
+    return this.db.list('/history').valueChanges();
+  }
+
+  getBookData(id:string){
+    this.db.list('/books/id').valueChanges();
+  };
+
 }

@@ -23,7 +23,6 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DashboardBookComponent } from './components/dashboard/dashboard-book/dashboard-book.component';
 
-
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
@@ -44,8 +43,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FirebaseService } from './services/firebase.service';
 import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import {MatDialogModule} from '@angular/material/dialog';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -92,8 +94,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatAutocompleteModule,
     MatDialogModule,
 
+    NgbModule,
+    BsDropdownModule.forRoot(),
+   // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
   ],
   providers: [MatNativeDateModule, FirebaseService],
+  exports: [BsDropdownModule],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
