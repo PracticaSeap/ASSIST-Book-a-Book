@@ -1,4 +1,3 @@
-<app-header-bar></app-header-bar>
 <div class="container">
 
   <!-- titlu -->
@@ -7,7 +6,7 @@
   </div>
 
   <!-- mijloc -->
-  <form [formGroup]="addBookForm" #form="ngForm" novalidate (ngSubmit)="onSubmit(addBookForm.value)">
+  <form [formGroup]="addBookForm" #form="ngForm" novalidate>
     <div class="form-row">
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
@@ -51,9 +50,9 @@
         </div>
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <mat-select formControlName="is_borrowed" placeholder="Status" name="is_borrowed">
-              <mat-option value="false">Available</mat-option>
-              <mat-option value="true">Borrowed</mat-option>
+            <mat-select formControlName="is_borrowed" placeholder="Available" name="is_borrowed" disabled>
+              <!-- <mat-option value="false" selected="selected">Available</mat-option>
+              <mat-option value="true">Borrowed</mat-option> -->
             </mat-select>
           </mat-form-field>
         </div>
@@ -88,18 +87,21 @@
       <input class="inputFile" type="file" name="pic" accept="pdf/*">
     </p>
     <!-- a fost aici form -->
-
+    <div *ngIf="is_succeful == true">
+      <p class="alert alert-success" role="alert">Book successfully added</p>
+    </div>
 
     <!-- subsol -->
     <div class="footer">
 
       <!-- buton submit and cancel -->
-      <div class="buttons">
-        <button type="cancel" class="btn cancel">
+      <div class="buttons cursor ">
+        <button type="cancel" class="btn cancel" (click)="redirect()">
           <div class="buttonsCancel">Cancel</div>
         </button>
-        <button type="submit" class="btn submit" [disabled]="addBookForm.invalid">
-          <div class="buttonsSubmit">Submit</div>
+        <button type="submit" class="btn submit " [disabled]="addBookForm.invalid"
+          (click)="onSubmit(addBookForm.value)">
+          <div class="buttonsSubmit">Add-book</div>
         </button>
         <!-- <input type="submit" value="Trimite"> -->
       </div>

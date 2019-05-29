@@ -1,4 +1,4 @@
-<app-header-bar></app-header-bar>
+
 <div class="container">
 
   <!-- titlu -->
@@ -6,9 +6,9 @@
     <h1 class="title_form">Edit Book</h1>
   </div>
 
-  <!-- mijloc -->
-  <!-- <form #value="ngForm"  [formGroup]="addBookForm"  (ngSubmit)="submitEdit()"> -->
-    <form #value="ngForm" (ngSubmit) = "submitEdit()">
+
+  <!-- <form #value="ngForm" (ngSubmit)="submitEdit()"> -->
+  <form #value="ngForm">
     <div class="form-row">
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
@@ -30,7 +30,8 @@
       </div>
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input type="number" [(ngModel)]="number_of_pages" matInput placeholder="Number of pages" name="number_of_pages">
+          <input type="number" [(ngModel)]="number_of_pages" matInput placeholder="Number of pages"
+            name="number_of_pages">
         </mat-form-field>
       </div>
     </div>
@@ -40,15 +41,20 @@
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
             <mat-select [(ngModel)]="category" placeholder="Category" name="category">
-              <mat-option value="category">Category</mat-option>
+              <mat-option value="business">Business</mat-option>
+              <mat-option value="finance">Finance</mat-option>
+              <mat-option value="adventure">Adventure</mat-option>
+              <mat-option value="comics">Comics</mat-option>
+              <mat-option value="nuvela">Nuvela</mat-option>
             </mat-select>
           </mat-form-field>
+
         </div>
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <mat-select [(ngModel)]="is_borrowed" placeholder="Status" name="is_borrowed">
-                <mat-option value="false" >Available</mat-option>
-                <mat-option value="true" >Borrowed</mat-option>
+            <mat-select [(ngModel)]="is_borrowed" placeholder="Status" name="is_borrowed" disabled>
+              <mat-option value="false">Available</mat-option>
+              <mat-option value="true">Borrowed</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -126,8 +132,8 @@
 
     </p>
     <br>
-    <p *ngIf="is_succeful === true" class="text">
-      Am efectuat editul
+    <p *ngIf="is_succeful === true" class="alert alert-success" role="alert">
+      Book successfully updated
     </p>
 
 
@@ -137,15 +143,15 @@
 
       <!-- buton submit and cancel -->
       <div class="buttons">
-        <button type="cancel" class="btn cancel">
+        <button type="cancel" class="btn cancel" (click)="redirect()">
           <div class="buttonsCancel">Cancel</div>
         </button>
-        <button type="submit" class="btn submit">
+        <button type="submit" class="btn submit" (click)="submitEdit()">
           <div class="buttonsSubmit">Submit</div>
         </button>
 
       </div>
-   
+
     </div>
   </form>
   <!-- <pre>{{ editBookForm.value | json }}</pre> -->

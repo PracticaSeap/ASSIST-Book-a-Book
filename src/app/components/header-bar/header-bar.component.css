@@ -10,7 +10,7 @@
     font-size: 24px;
     color: #FFFFFF;
     }
-  
+
 .dot{
     color: #1CD4D4;
   }
@@ -43,4 +43,12 @@ color:white;
 
 .mb-1, .my-1 {
     margin-bottom: 0rem !important;
+}
+
+.nav-flex-icons {
+  align-items: center;
+}
+
+.dropdown-toggle::after {
+  vertical-align: 0 !important;
 }

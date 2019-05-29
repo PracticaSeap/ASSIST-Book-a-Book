@@ -1,6 +1,4 @@
-<app-header-bar></app-header-bar>
 <div class="container">
-
   <!-- titlu -->
   <div class="header">
     <h1 class="title_form">Borrow Book</h1>
@@ -29,15 +27,20 @@
       <mat-form-field class="mat1 test">
         <input type="text" placeholder="Borrow" matInput [(ngModel)]="userKey" [matAutocomplete]="auto" name="userKey" (input)="filter($event.target)">
         <mat-autocomplete #auto="matAutocomplete">
+<<<<<<< HEAD
           <mat-option *ngFor="let option of filteredOptions" [value]="option">
             {{option}}
+=======
+          <mat-option *ngFor="let option of filteredOptions" [value]="option.key">
+            {{option.fullName}}
+>>>>>>> 0ecb8c7cea308caf4a0d430feb9d6c2c3e5a3b86
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
       <br>
       <mat-form-field class="mat1 test">
         <input matInput [(ngModel)]="initialDate" [matDatepicker]="piker1" placeholder="Lend date" name="initialDate">
-        <mat-datepicker-toggle matSuffix [for]="piker1"></mat-datepicker-toggle>
+        <mat-datepicker-toggle  matSuffix [for]="piker1"></mat-datepicker-toggle>
         <mat-datepicker #piker1></mat-datepicker>
       </mat-form-field>
       <br>
