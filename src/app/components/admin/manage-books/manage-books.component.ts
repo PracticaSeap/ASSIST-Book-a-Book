@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ManageBooksService } from 'src/app/services/manage-books.service';
-import { browser } from 'protractor';
 import { HistoryEntry } from 'src/app/models/history.model';
 import { Book, BookHistory } from 'src/app/models/book.model';
 

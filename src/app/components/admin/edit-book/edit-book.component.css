@@ -239,11 +239,3 @@
 .hide {
     display: none;
 }
-
-.text {
-    color: blue;
-    text-align: right;
-    font-family: Montserrat;
-    font-style: normal;
-    font-size: 14px;
-}

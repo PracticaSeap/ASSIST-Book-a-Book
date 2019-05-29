@@ -22,7 +22,8 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getBooks().subscribe( list => {
       this.books = this.dashboardService.processBooksData(list);
       this.filteredBooks = this.books;
-      
+      this.count = this.books.length;
+      console.log(this.books)
     });
   }
 
@@ -40,6 +41,8 @@ export class DashboardComponent implements OnInit {
 
   loadMore(){
     this.nr += 10;
-    this.count = this.books.length;
+    if(this.nr > this.count){
+      this.count = this.nr;
+    }
   }
 }

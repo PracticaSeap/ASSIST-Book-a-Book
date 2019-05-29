@@ -45,4 +45,8 @@ export class ManageBooksService {
     return books;
   }
 
+  getBookData(id: string) {
+    this.db.list('/books/id').valueChanges();
+  }
+
 }

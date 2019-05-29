@@ -1,5 +1,4 @@
 <div class="container">
-
   <!-- titlu -->
   <div class="header">
     <h1 class="title_form">Borrow Book</h1>
@@ -28,8 +27,8 @@
       <mat-form-field class="mat1 test">
         <input type="text" placeholder="Borrow" matInput [(ngModel)]="userKey" [matAutocomplete]="auto" name="userKey" (input)="filter($event.target)">
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions" [value]="option">
-            {{option}}
+          <mat-option *ngFor="let option of filteredOptions" [value]="option.key">
+            {{option.fullName}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>

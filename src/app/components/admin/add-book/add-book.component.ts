@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { AddBookService } from 'src/app/services/add-book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-book',
@@ -21,7 +22,10 @@ export class AddBookComponent implements OnInit {
   private booksLength;
   allBooks: any;
   is_succeful: boolean = false;
-  constructor(public db: AngularFireDatabase, private fb: FormBuilder) {
+  constructor(
+    public db: AngularFireDatabase, 
+    private fb: FormBuilder,
+    private router: Router) {
     this.db.list('/books').valueChanges().subscribe(books => {
       this.booksLength = books.length;
     });
@@ -35,7 +39,7 @@ export class AddBookComponent implements OnInit {
       category: this.fb.control('', Validators.required),
       tag: this.fb.control(''),
       virtual_book: this.fb.control('', Validators.required),
-      is_borrowed: this.fb.control(false, Validators.required),
+      is_borrowed: 'false',
       image: this.fb.control(''),
       number_of_pages: this.fb.control('', Validators.required),
     });
@@ -58,6 +62,10 @@ export class AddBookComponent implements OnInit {
     if (this.is_succeful = true){
     setTimeout(()=>{this.is_succeful=false}, 3000);
     }
+  }
+  
+  redirect(){
+    this.router.navigate(['/dashboard'])
   }
 }
 

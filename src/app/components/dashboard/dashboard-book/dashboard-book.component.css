@@ -12,8 +12,7 @@ p {
 
 .bookRow{
   background-color: white;
-  min-width: 209px;
-  padding-left: 27px;
+  min-width: 332px !important;
 }
 
 .card-title{
