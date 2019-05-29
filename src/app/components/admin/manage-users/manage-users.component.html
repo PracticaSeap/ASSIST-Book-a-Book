@@ -1,3 +1,95 @@
-<p>
-  manage-users works!
-</p>
+<!-- <router-outlet></router-outlet> -->
+<div class="header">
+  <h1 class="title_form">All users ({{lungime}})</h1>
+</div>
+
+
+<table>
+  <tr class="tableHead">
+    <th>Name</th>
+    <th style="align-items: center">Role</th>
+    <th>User email</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let user of users" class="rowTabel">
+    <td>
+      <div class="col-data ">
+        {{user.fullName}}
+      </div>
+    </td>
+    <td>
+      <div *ngIf="user.userRole === 'admin'" class="col-data alert alert-success">
+        {{user.userRole}}
+      </div>
+      <div *ngIf="user.userRole === 'user'" class="col-data alert alert-danger">
+        {{user.userRole}}
+      </div>
+    </td>
+    <td>
+      <div class="col-data">
+        {{user.email}}
+      </div>
+    </td>
+    <td>
+      <div *ngIf="user.userRole === 'admin'">
+          <button data-toggle="modal" data-target="#makeUser" class="btn btn-success forHover" (click)="setKey(user.key)">Make regular user</button>
+        <!-- <a data-toggle="modal" data-target="#deletUser">Delete</a> -->
+      </div>
+      <div *ngIf="user.userRole === 'user'">
+        <button data-toggle="modal" data-target="#makeAdmin" class="btn btn-success forHover" (click)="setKey(user.key)">Make Admin</button>
+        <!-- <div class="dropdown" style="float:left;">
+          <button class="dropbtn">...</button>
+          <div class="dropdown-content">
+            <a data-toggle="modal" data-target="#makeAdmin" (click)="setKey(user.key)">Make Admin</a>
+          </div>
+        </div> -->
+      </div>
+    </td>
+    <!-- <td>
+      <div class="col-data">
+        {{user.key}}
+      </div>
+    </td> -->
+  </tr>
+</table>
+
+
+<div class="modal fade" id="makeAdmin" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="textModal">Are you sure you want to make this user admin?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-succeful" data-dismiss="modal" (click)="makeAdmin()">Admin</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal custom fade" id="makeUser" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="textModal">Are you sure you want to make regular user?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-succeful" data-dismiss="modal" (click)="regularUser()">Yes</button>
+      </div>
+    </div>
+
+  </div>
+</div>
