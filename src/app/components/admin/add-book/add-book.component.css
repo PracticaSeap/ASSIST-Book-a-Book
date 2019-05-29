@@ -239,3 +239,6 @@
 .hide {
     display: none;
 }
+.cursor :hover{
+    cursor: pointer;
+}
