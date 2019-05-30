@@ -1,4 +1,3 @@
-
 <div *ngIf="book" class="container">
   <div class="main_info_container">
     <small
@@ -8,7 +7,7 @@
 
     <div class="row info_row">
       <div class="col-4">
-        <img src="assets/book_cover.png" alt="" height="100%" width="100%" />
+        <img src="assets/bookCover1.png" alt="" height="100%" width="100%" />
       </div>
 
       <div class="col-6 description_col">
@@ -17,43 +16,69 @@
         <p class="card-text">{{ book.description }}</p>
 
         <div class="btn-group px-2" role="group" aria-label="Basic example">
-          <div *ngIf="book.is_borrowed == false; else return">
-          <button
-            (click)="borrowBook()"
-            class="btn btn-primary borrowButton mr-3"
-          >
-            Borrow
-          </button>
+          <div *ngIf="book.is_borrowed == 'false'; else return">
+            <button
+              (click)="borrowBook()"
+              class="btn btn-primary borrowButton mr-3"
+            >
+              Borrow
+            </button>
           </div>
           <ng-template #return>
-            <button *ngIf="user.userRole == 'admin'" type="button" data-target="#return_book" class="btn btn-primary borrowButton" data-toggle="modal">
+            <button
+              *ngIf="user.userRole == 'admin'"
+              type="button"
+              data-target="#return_book"
+              class="btn btn-primary borrowButton"
+              data-toggle="modal"
+            >
               Return
             </button>
 
-            <p class="pt-2" style="color: white;" [ngClass]="{ borrowButton: user.userRole == 'user' }">Not avaible!</p>
+            <p
+              class="pt-2"
+              style="color: white;"
+              [ngClass]="{ borrowButton: user.userRole == 'user' }"
+            >
+              Not avaible!
+            </p>
 
             <div class="modal fade" id="return_book" role="dialog">
-                <div class="modal-dialog">
-              
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                      <p class="textModal">Are you sure you want to return this book?</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-succeful" data-dismiss="modal" (click)="returnBook()">Return</button>
-                    </div>
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
                   </div>
-              
+                  <div class="modal-body">
+                    <p class="textModal">
+                      Are you sure you want to return this book?
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-default"
+                      data-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-succeful"
+                      data-dismiss="modal"
+                      (click)="returnBook()"
+                    >
+                      Return
+                    </button>
+                  </div>
                 </div>
               </div>
+            </div>
           </ng-template>
         </div>
-
       </div>
     </div>
   </div>
