@@ -20,6 +20,7 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     MyBooksComponent,
     MyAccountComponent,
     HeaderBarComponent,
+    MyProfileComponent,
   ],
   imports: [
     BrowserModule,
