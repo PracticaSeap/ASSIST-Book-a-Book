@@ -5,24 +5,28 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 import { ManageBooksService } from 'src/app/services/manage-books.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { HistoryEntry } from 'src/app/models/history.model';
+import { User } from 'firebase';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
-  selector: 'app-dashboard-book',
-  templateUrl: './dashboard-book.component.html',
-  styleUrls: ['./dashboard-book.component.css']
+  selector: "app-dashboard-book",
+  templateUrl: "./dashboard-book.component.html",
+  styleUrls: ["./dashboard-book.component.css"]
 })
 export class DashboardBookComponent implements OnInit {
   @Input() inputBook: Book;
   booksHistory: History[];
   books: Book[];
   dueDate;
+  user;
 
   constructor(
     private router: Router,
     public dashboardService: DashboardService,
     private route: ActivatedRoute,
     public bookManagerService: ManageBooksService,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private loginService: LoginService
   ) {}
 
   ngOnInit() {
@@ -40,10 +44,14 @@ export class DashboardBookComponent implements OnInit {
           console.log(this.dueDate);
         }
       });
+
+      this.loginService.loggedUser.subscribe( currentUser => {
+          this.user = currentUser;
+      });
   }
 
   onSelect() {
-    this.router.navigate(['/book-details/', this.inputBook.key]);
+    this.router.navigate(["/book-details/", this.inputBook.key]);
   }
 
   onSelectBorrow() {
