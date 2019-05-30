@@ -1,50 +1,50 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
 @import url("https://fonts.googleapis.com/css?family=Helvetica:500,700");
-.main_info_container{
+.main_info_container {
   padding-top: 36px;
   background-color: white;
 }
-.main_info_container small{
+.main_info_container small {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
   line-height: 11px;
-  color: #1CD4D4;
+  color: #1cd4d4;
 }
-small > a{
+small > a {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
   line-height: 11px;
-  color: #1CD4D4;
+  color: #1cd4d4;
 }
-small > a:hover{
-  color: #19216C;
+small > a:hover {
+  color: #19216c;
 }
-.description_container{
+.description_container {
   margin-top: 100px;
-  background-color: #F5F7FA;
+  background-color: #f5f7fa;
   width: 100%;
 }
-.info_row{
+.info_row {
   padding-top: 60px;
 }
-.description_col{
+.description_col {
   margin-top: 70px;
   margin-left: 90px;
 }
-.card-title{
+.card-title {
   display: flex;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
   line-height: 59px;
-  color: #19216C;
+  color: #19216c;
 }
-.card-text{
+.card-text {
   padding-left: 10px;
   padding-top: 20px;
   font-family: Montserrat;
@@ -52,23 +52,23 @@ small > a:hover{
   font-weight: normal;
   font-size: 14px;
   line-height: 23px;
-  color: #5A5A7F;
+  color: #5a5a7f;
 }
-.card-author{
+.card-author {
   padding-left: 10px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 11px;
-  color: #9AA5B1;
+  color: #9aa5b1;
 }
-.borrowButton{
+.borrowButton {
   height: 36px;
   width: 131px;
-  background: #1CD4D4;
+  background: #1cd4d4;
   box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
-  border-color: #1CD4D4;
+  border-color: #1cd4d4;
   border-radius: 3.91304px;
   font-family: Montserrat;
   font-style: normal;
@@ -77,12 +77,12 @@ small > a:hover{
   line-height: 17px;
   text-align: center;
 }
-.recommendButton{
+.recommendButton {
   height: 36px;
   width: 131px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
-  border-color: #1CD4D4;
+  border-color: #1cd4d4;
   border-radius: 3.91304px;
   font-family: Montserrat;
   font-style: normal;
@@ -90,9 +90,9 @@ small > a:hover{
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #1CD4D4;
+  color: #1cd4d4;
 }
-.btn-group{
+.btn-group {
   margin-top: 50px;
 }
 hr {
@@ -100,8 +100,8 @@ hr {
   height: 1px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #CBD2D9;
-  background-color: #CBD2D9;
+  border: 1px solid #cbd2d9;
+  background-color: #cbd2d9;
 }
 ul {
   list-style-type: none;
@@ -121,9 +121,9 @@ li > a {
   font-size: 12px;
   line-height: 11px;
   text-decoration: none;
-  color: #A8A8C3;
+  color: #a8a8c3;
 }
-li h5{
+li h5 {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -131,35 +131,35 @@ li h5{
   line-height: 11px;
   display: flex;
   align-items: center;
-  color: #F5F7FA;
-  background: #CBD2D9;
+  color: #f5f7fa;
+  background: #cbd2d9;
   border-radius: 2px;
   padding: 8px;
 }
-.menu{
+.menu {
   padding-top: 30px;
 }
-.book-description{
+.book-description {
   padding-top: 30px;
 }
-.book-description p{
+.book-description p {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 23px;
-  color: #5A5A7F;
+  color: #5a5a7f;
 }
 
-#comment{
+#comment {
   height: 140px;
   width: 100%;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 5px;
   border: none;
 }
 
-::placeholder{
+::placeholder {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -167,34 +167,122 @@ li h5{
   line-height: 11px;
   padding: 15px;
 
-  color: #A8A8C3;
+  color: #a8a8c3;
 }
 
-#btnsend{
+#btnsend {
   height: 46px;
   width: 168px;
-  background: #CBD2D9;
+  background: #cbd2d9;
   box-shadow: 0px 4px 9px rgba(203, 210, 217, 0.2);
   border-radius: 5px;
   border: none;
 }
-.col-10{
+.col-10 {
   padding-left: 0px !important;
 }
 
-.col-6{
+.col-6 {
   padding-left: 0px !important;
 }
 
-#book-details{
+#book-details {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
   line-height: 11px;
-  color: #9AA5B1;
+  color: #9aa5b1;
 }
-.tags{
+.tags {
   padding-top: 30px;
   padding-bottom: 150px;
+}
+
+.modal.custom .modal-dialog {
+  width: 50%;
+  margin: 0 auto;
+  background-color: red;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-footer {
+  border-top: none;
+  display: -webkit-box;
+  /* align-items: center; */
+}
+
+.modal-footer > :not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+button.btn.btn-succeful {
+  background: #1cd4d4;
+  border-radius: 5px;
+  color: #ffffff;
+  border: none;
+  font: inherit;
+  border-radius: 5px;
+  width: 92px;
+  left: 24px;
+  right: 24px;
+  top: 14px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+button.btn.btn-default {
+  display: -webkit-box;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  margin-left: 156px;
+  width: 92px;
+  left: 24px;
+  right: 24px;
+  top: 14px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #c4c4c4;
+}
+
+.modal-footer[_ngcontent-lod-c3] {
+  border-top: none;
+  display: inherit;
+}
+
+.modal-body {
+  box-align: center;
+}
+
+.textModal {
+  font-family: Montserrat;
+  color: #9aa5b1;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /* color: rgb(188, 197, 206); */
+}
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  width: 154px;
+}
+
+.alert {
+  margin-bottom: 0;
 }

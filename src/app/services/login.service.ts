@@ -54,6 +54,7 @@ export class LoginService {
       const users: User[] = [];
       entries.forEach(entry => {
         const newUser = entry.payload.val() as User;
+        newUser.key = entry.key;
         users.push(newUser);
         this.usersKeyValue[entry.key] = newUser;
       });
