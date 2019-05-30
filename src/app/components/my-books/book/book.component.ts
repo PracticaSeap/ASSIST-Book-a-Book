@@ -17,7 +17,7 @@ export class BookComponent implements OnInit {
   }
 
   onSelect(){
-    this.router.navigate(['/book-details', this.inputBook.id]);
+    this.router.navigate(['/book-details', this.inputBook.key]);
   }
 
 }

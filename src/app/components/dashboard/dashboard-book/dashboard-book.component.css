@@ -13,6 +13,9 @@ p {
 .bookRow{
   background-color: white;
   min-width: 332px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-title{

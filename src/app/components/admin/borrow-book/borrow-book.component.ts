@@ -116,6 +116,7 @@ export class BorrowBookComponent implements OnInit {
       returnDate: '',
       userKey: this.userKey,
     };
+   
 
     this.db.list('/history').push(history).then(result => {
       this.isSuccessful = true;
