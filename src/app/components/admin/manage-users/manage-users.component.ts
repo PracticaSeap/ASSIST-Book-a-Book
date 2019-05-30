@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user.model';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-manage-users',
@@ -17,19 +18,27 @@ export class ManageUsersComponent implements OnInit {
   filteredOptions: string[] = [];  
   lungime: number;
   userKey: string;
-
+  // loggedUser: User;
   constructor(
     public db: AngularFireDatabase,
     private router: Router,
+    public loginService: LoginService,
   ) { }
 
   ngOnInit() {
     this.getUsers().subscribe( list => {
       this.users = this.processUserData(list);
- 
       this.lungime = this.users.length
+    });
 
-
+    this.loginService.loggedUser.subscribe(loggedUser =>{
+       loggedUser;
+      if (!loggedUser){
+        this.router.navigate(['/login']);
+      }
+      if (loggedUser.userRole != 'admin'){
+        this.router.navigate(['/dashboard']);
+      }
     });
   }
 

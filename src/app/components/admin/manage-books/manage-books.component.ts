@@ -69,7 +69,7 @@ export class ManageBooksComponent implements OnInit {
       book.userFullName = entry.userKey
       console.log("FullName" + book.userFullName);
 
-      debugger;
+      //debugger;
       if (entry.userKey && this.allUsersByKey[entry.userKey]) { 
         book.userFullName = this.allUsersByKey[entry.userKey].fullName;
       } else {
