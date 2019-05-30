@@ -1,4 +1,3 @@
-<app-header-bar></app-header-bar>
 
 <div *ngIf="book" class="container">
   <div class="main_info_container">
@@ -18,7 +17,7 @@
         <p class="card-text">{{ book.description }}</p>
 
         <div class="btn-group px-2" role="group" aria-label="Basic example">
-          <div *ngIf="book.is_borrowed == 'false'; else return">
+          <div *ngIf="book.is_borrowed == false; else return">
           <button
             (click)="borrowBook()"
             class="btn btn-primary borrowButton mr-3"
@@ -92,5 +91,3 @@
     </ng-template>
   </div>
 </div>
-
-<app-footer-bar></app-footer-bar>

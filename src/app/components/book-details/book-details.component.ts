@@ -34,7 +34,7 @@ export class BookDetailsComponent implements OnInit {
 
   returnBook(){
     const book = {
-      is_borrowed: 'false',
+      is_borrowed: false,
     }
     this.firebaseService.updateBook(this.key, book);
   }

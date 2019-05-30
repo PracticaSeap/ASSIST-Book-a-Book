@@ -27,13 +27,8 @@
       <mat-form-field class="mat1 test">
         <input type="text" placeholder="Borrow" matInput [(ngModel)]="userKey" [matAutocomplete]="auto" name="userKey" (input)="filter($event.target)">
         <mat-autocomplete #auto="matAutocomplete">
-<<<<<<< HEAD
-          <mat-option *ngFor="let option of filteredOptions" [value]="option">
-            {{option}}
-=======
           <mat-option *ngFor="let option of filteredOptions" [value]="option.key">
             {{option.fullName}}
->>>>>>> 0ecb8c7cea308caf4a0d430feb9d6c2c3e5a3b86
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>

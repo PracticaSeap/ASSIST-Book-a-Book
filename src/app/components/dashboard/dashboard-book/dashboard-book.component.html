@@ -10,7 +10,7 @@
     <div class="btn-group pl-3" role="group" aria-label="Basic example">
       <button
       (click) = "onSelectBorrow()"
-        *ngIf="inputBook.is_borrowed === 'false'"
+        *ngIf="inputBook.is_borrowed === false"
         class="btn btn-primary borrowButton mr-3"
       >
         Borrow
@@ -22,7 +22,7 @@
       >
         Preview
       </button>
-      <div *ngIf="inputBook.is_borrowed === 'true'" class="viewReturn">
+      <div *ngIf="inputBook.is_borrowed === true" class="viewReturn">
         <p class="return">Return due date</p>
         <p class="returnDate">{{dueDate}}</p>
       </div>
