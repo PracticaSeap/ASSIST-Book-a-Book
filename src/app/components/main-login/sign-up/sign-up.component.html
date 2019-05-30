@@ -13,6 +13,14 @@
       <div class="row alert alert-success" role="alert" *ngIf="succValue">
         You succesfully signed up! :D
       </div>
+
+      <div class="row btn-padding ">
+          <div class="register-border">
+            <div class="register-button">
+              <a href="login">
+                Log in!</a> 
+              </div> </div> </div>
+
     </div>
     <div class="col" *ngIf="!succValue">
       <div class="row login-welcome">
@@ -52,7 +60,7 @@
           <div class="login-rectangle vector2">
             <div class="padd-txt-left">
                 <mat-form-field class="exemple-container test">
-                    <input matInput placeholder="Password" (keyup)="onKeyPassword($event)">
+                    <input matInput placeholder="Password" (keyup)="onKeyPassword($event)" type="password">
                   </mat-form-field>
               <!-- <div class="input-title">Password</div>
               <input class="input-text" type="password" (keyup)="onKeyPassword($event)"> -->
@@ -61,8 +69,9 @@
         </div>
       </div>
       <div class="row checkbox">
-        <div class="col"> </div>
+        <!-- <div class="col"> </div> -->
         <div class="col">
+          <br>
           <div class="Forgot-password">
             Have an account? <a href="login">Login!</a>
           </div>
