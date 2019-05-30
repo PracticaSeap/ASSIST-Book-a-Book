@@ -20,7 +20,7 @@
   </div>
 
   <div class="row regular-row-1" *ngFor="let book of borrowedBooks">
-    <div class="col"><img src="assets/book.png"></div>
+    <div class="col" style="cursor: pointer" (click)="goToDetails(book.key)"><img src="assets/bookCover1.png" width="52px" height="66px"></div>
     <div class="col">{{book.title}}</div>
     <div class="col">{{book.author}}</div>
     <div class="col">{{book.initialDate}}</div>
@@ -40,7 +40,7 @@
   </div>
 
   <div class="row regular-row-1" *ngFor="let book of overdueBooks">
-    <div class="col"><img src="assets/book.png"></div>
+    <div class="col" style="cursor: pointer" (click)="goToDetails(book.key)"><img src="assets/bookCover1.png" width="52px" height="66px"></div>
     <div class="col">{{book.title}}</div>
     <div class="col">{{book.author}}</div>
     <div class="col">{{book.initialDate}}</div>

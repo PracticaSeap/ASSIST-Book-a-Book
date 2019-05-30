@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ManageBooksService } from 'src/app/services/manage-books.service';
 import { HistoryEntry } from 'src/app/models/history.model';
 import { Book, BookHistory } from 'src/app/models/book.model';
-import { User } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/login.service';
-import { debug } from 'util';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-books',
@@ -12,17 +12,23 @@ import { debug } from 'util';
   styleUrls: ['./manage-books.component.css']
 })
 export class ManageBooksComponent implements OnInit {
+
   booksHistory: HistoryEntry[];
   allBooksByKey: Book[];
   overdueBooks = [];
   borrowedBooks = [];
   allUsersByKey = {};
-  constructor(public bookManagerService: ManageBooksService, public loginService: LoginService) { }
+  history: History[];
+  constructor(
+    private router: Router,
+    public bookManagerService: ManageBooksService,
+    public loginService: LoginService,
+    public db: AngularFireDatabase) { }
 
   ngOnInit() {
     this.loginService.usersByKey.subscribe(usersByKey => {
       this.allUsersByKey = usersByKey;
-      console.log(usersByKey);
+      // console.log(usersByKey);
       this.getBooksHistory();
     } );
     this.bookManagerService.booksByKey.subscribe(books => {
@@ -41,14 +47,15 @@ export class ManageBooksComponent implements OnInit {
     this.overdueBooks = [];
     this.borrowedBooks = [];
 
-    // get books that have no retrun date set - they were not returned
+    // get books that have no return date set - they were not returned
     const borrowedBooks = this.booksHistory.filter(book => !book.returnDate);
     borrowedBooks.forEach( entry => {
       const book: BookHistory = this.allBooksByKey[entry.bookKey];
       book.dueDate = entry.dueDate;
       book.initialDate = entry.initialDate;
       book.returnDate = entry.returnDate;
-      // debugger;
+
+
       if (entry.userKey && this.allUsersByKey[entry.userKey]) {
         book.userFullName = this.allUsersByKey[entry.userKey].fullName;
       } else {
@@ -56,17 +63,13 @@ export class ManageBooksComponent implements OnInit {
       }
 
       const todayDate = this.getTodayDate();
-      console.log(entry.dueDate);
-      if (this.getDateFromString(entry.dueDate) >= todayDate) {
+      if (this.getDateFromString(book.dueDate) >= todayDate) {
         this.borrowedBooks.push(book);
       } else {
         this.overdueBooks.push(book);
       }
     });
-    console.log('borrowedBooks', this.borrowedBooks);
-    console.log('overdueBooks', this.overdueBooks);
   }
-
 
   getDateFromString(date) {
     const from = date.split('/');
@@ -89,4 +92,9 @@ export class ManageBooksComponent implements OnInit {
     day = (day.length < 2 ? '0' + day : day);
     return `${day}/${month}/${year}`;
   }
+
+  goToDetails(bookKey) {
+    this.router.navigate(['/book-details/' + bookKey]);
+  }
+
 }
