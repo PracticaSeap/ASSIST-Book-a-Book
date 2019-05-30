@@ -60,7 +60,7 @@
           <div class="login-rectangle vector2">
             <div class="padd-txt-left">
                 <mat-form-field class="exemple-container test">
-                    <input matInput placeholder="Password" (keyup)="onKeyPassword($event)" type="password">
+                    <input matInput placeholder="Password" (keyup)="onKeyPassword($event)" type="password" minlength="8" required>
                   </mat-form-field>
               <!-- <div class="input-title">Password</div>
               <input class="input-text" type="password" (keyup)="onKeyPassword($event)"> -->
@@ -78,8 +78,11 @@
         </div>
       </div>
       <div class="row alert alert-danger" role="alert" *ngIf="alertError">
-        {{errMessage}} <a href="login">Login!</a>
+        {{errMessage}} <a href="login"> Login!</a>
       </div>
+      <div class="row alert alert-danger" role="alert" *ngIf="passNrVal">
+         Parola trebuie sa contina minim 8 caractere!
+        </div>
 
       <div class="row abc">
         <div class="col btn-padding ">
