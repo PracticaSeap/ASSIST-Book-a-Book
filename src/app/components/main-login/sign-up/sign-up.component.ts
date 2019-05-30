@@ -15,6 +15,8 @@ export class SignUpComponent implements OnInit {
   password: string;
   userCreatedSucess = 0;
 
+  passNrVal: boolean = false;
+
   alertError = false;
   errMessage = '';
 
@@ -24,6 +26,16 @@ export class SignUpComponent implements OnInit {
   ngOnInit() { }
 
   createUserWithEmailAndPassword() {
+    if (this.password.length >= 8){
+      this.passNrVal = false;
+    }
+    if (this.password.length < 8){
+      this.passNrVal = true;
+    }
+    if (this.password.length < 1){
+      this.passNrVal = false;
+    }
+
     if (this.email == null || this.password == null) {
       this.alertError = true;
       this.errMessage = 'Date incomplete';
@@ -64,12 +76,16 @@ export class SignUpComponent implements OnInit {
     this.email = event.target.value;
     this.alertError = false;
     this.succValue = false;
+    
   }
 
   onKeyPassword(event: any) { // without type info
     this.password = event.target.value;
     this.alertError = false;
-    this.succValue = false;
+    this.succValue = false; 
+    if (this.password.length == 0 ){
+      this.passNrVal = false;
+    }
   }
 
   onKeyFullName(event: any) { // without type info
