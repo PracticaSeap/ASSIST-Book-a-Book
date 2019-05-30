@@ -43,7 +43,7 @@ export class DashboardService {
       newhistory.key = history.key;
       this.historyKeyValue[history.key] = newhistory;
     });
-    console.log(this.historyKeyValue)
+    // console.log(this.historyKeyValue)
     return history;
   }
 

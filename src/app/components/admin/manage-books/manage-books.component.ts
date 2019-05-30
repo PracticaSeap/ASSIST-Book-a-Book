@@ -55,7 +55,6 @@ export class ManageBooksComponent implements OnInit {
       book.initialDate = entry.initialDate;
       book.returnDate = entry.returnDate;
 
-
       if (entry.userKey && this.allUsersByKey[entry.userKey]) {
         book.userFullName = this.allUsersByKey[entry.userKey].fullName;
       } else {
