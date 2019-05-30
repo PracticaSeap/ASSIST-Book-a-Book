@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+@import url("https://fonts.googleapis.com/css?family=Helvetica:500,700");
+
+.user-profile {
+    width: 350px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    margin: 40px;
+}
+
+.user-name {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #19216C;
+}
+
+.userCol {
+    display: flex !important;
+    justify-content: center !important;
+}
+.user-functie{
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #1CD4D4;
+}

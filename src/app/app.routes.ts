@@ -12,6 +12,7 @@ import { SignUpComponent} from './components/main-login/sign-up/sign-up.componen
 import { EditBookComponent } from './components/admin/edit-book/edit-book.component';
 import { BorrowBookComponent } from './components/admin/borrow-book/borrow-book.component';
 import { ManageUsersComponent } from './components/admin/manage-users/manage-users.component';
+import { MyAccountComponent } from './components/my-account/my-account.component';
 
 
 export const appRoutes: Routes = [
@@ -25,8 +26,8 @@ export const appRoutes: Routes = [
     { path: 'manage-users', component: ManageUsersComponent },
     { path: 'edit-book/:id', component: EditBookComponent },
     { path: 'borrow-book/:id', component: BorrowBookComponent },
-   
     { path: 'manage-books', component: ManageBooksComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent},
-    {path: 'signup', component: SignUpComponent  }
+    { path: 'my-account', component: MyAccountComponent  },
+    { path: 'signup', component: SignUpComponent  }
   ];
