@@ -35,7 +35,7 @@
           <div class="login-rectangle vector2">
             <div class="padd-txt-left">
                 <mat-form-field class="exemple-container test">
-                    <input matInput placeholder="Password" (change)="onKeyPassword($event)">
+                    <input matInput placeholder="Password" (change)="onKeyPassword($event)" type="password">
                   </mat-form-field>
               <!-- <div class="input-title">Password</div>
               <input class="input-text" type="password" (change)="onKeyPassword($event)"> -->
@@ -43,22 +43,27 @@
           </div>
         </div>
       </div>
+      <br>
       <div class="row checkbox">
+        
         <div class="col">
 
-          <div class="checkbox">
+          <div >
             <input type="checkbox" class="custom-control-input" id="defaultUnchecked" (click)="checkRemeber($event)"
               checked={{this.ischecked}}>
             <label class="custom-control-label" for="defaultUnchecked">Remember me</label>
           </div>
         </div>
+        
         <div class="col">
 
-          <div class="Forgot.password">
+          <div class="forgot.password forgot-password">
+
             <a href="forgot-password">Forgot password</a>
           </div>
 
         </div>
+       
       </div>
       <div class="row abc">
         <!-- <div class ="abc"> -->
