@@ -23,30 +23,39 @@
       </div>
       <div class="row">
         <div class="login-text-input-filling">
-          <div class="login-rectangle vector vector2">
+          <div class="login-rectangle vector2">
             <div class="padd-txt-left">
-              <div class="input-title">Full Name</div>
-              <input class="input-text" type="fullname" (keyup)="onKeyFullName($event)">
+                <mat-form-field class="exemple-container test">
+                    <input matInput placeholder="Full Name" (keyup)="onKeyFullName($event)">
+                  </mat-form-field>
+              <!-- <div class="input-title">Full Name</div>
+              <input class="input-text" type="fullname" (keyup)="onKeyFullName($event)"> -->
             </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="login-text-input-email">
-          <div class="login-rectangle vector vector2">
+          <div class="login-rectangle vector2">
             <div class="padd-txt-left">
-              <div class="input-title">Email Adress</div>
-              <input class="input-text" type="email" (keyup)="onKeyEmail($event)">
+                <mat-form-field class="exemple-container test">
+                    <input matInput placeholder="Email Adress" (keyup)="onKeyEmail($event)">
+                  </mat-form-field>
+              <!-- <div class="input-title">Email Adress</div>
+              <input class="input-text" type="email" (keyup)="onKeyEmail($event)"> -->
             </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="login-text-input-normal">
-          <div class="login-rectangle vector vector2">
+          <div class="login-rectangle vector2">
             <div class="padd-txt-left">
-              <div class="input-title">Password</div>
-              <input class="input-text" type="password" (keyup)="onKeyPassword($event)">
+                <mat-form-field class="exemple-container test">
+                    <input matInput placeholder="Password" (keyup)="onKeyPassword($event)">
+                  </mat-form-field>
+              <!-- <div class="input-title">Password</div>
+              <input class="input-text" type="password" (keyup)="onKeyPassword($event)"> -->
             </div>
           </div>
         </div>
