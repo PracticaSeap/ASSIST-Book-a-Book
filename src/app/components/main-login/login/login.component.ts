@@ -22,11 +22,24 @@ export class LoginComponent implements OnInit {
   succValue = false;
   ischecked = false;
 
-  constructor(public loginservice: LoginService, public afAuth: AngularFireAuth,  private router: Router) { }
+  constructor(public loginservice: LoginService, 
+    public afAuth: AngularFireAuth,  
+    private router: Router,
+    public loginService: LoginService) { 
+  }
 
   ngOnInit() {
-    this.loadingPage();
+    this.loginService.loggedUser.subscribe(loggedUser =>{
+      loggedUser;
+     if (loggedUser){
+       this.router.navigate(['/dashboard']);
+     }});
+
+     this.loadingPage();
+    
   }
+
+  
 
   loginUser() {
     this.checkedMethod();
