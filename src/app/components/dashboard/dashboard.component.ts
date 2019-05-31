@@ -3,6 +3,7 @@ import { DashboardService } from './../../services/dashboard.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,19 +12,30 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public dashboardService: DashboardService) { }
+  constructor(
+    private router: Router,
+    public dashboardService: DashboardService,
+    public loginService: LoginService
+  ) { }
 
   books: Book[];
   filteredBooks: Book[];
   nr = 10;
   count = 0;
+  user;
 
   ngOnInit() {
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if(!currentUser) {
+        this.router.navigate(["/login"]);
+      }
+      this.user = currentUser;
+    });
+
     this.dashboardService.getBooks().subscribe( list => {
       this.books = this.dashboardService.processBooksData(list);
       this.filteredBooks = this.books;
       this.count = this.books.length;
-      console.log(this.books)
     });
   }
 
