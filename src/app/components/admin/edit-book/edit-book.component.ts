@@ -93,9 +93,9 @@ export class EditBookComponent implements OnInit {
       description: this.description,
       isbn: this.isbn,
       category: this.category,
-      isBorrowed: this.isBorrowed,
-      numberOfPages: this.numberOfPages,
-      virtualBook: this.virtualBook,
+      is_borrowed: this.isBorrowed,
+      number_of_pages: this.numberOfPages,
+      virtual_book: this.virtualBook,
     };
 
     this.firebaseService.updateBook(this.bookKey, book).then(result => {
