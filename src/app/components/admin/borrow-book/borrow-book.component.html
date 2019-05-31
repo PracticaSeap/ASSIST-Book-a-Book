@@ -25,7 +25,7 @@
       </mat-form-field>
       <br>
       <mat-form-field class="mat1 test">
-        <input required type="text" placeholder="Borrow" matInput  [matAutocomplete]="auto" (input)="filter($event.target)">
+        <input required type="text" placeholder="Borrow To" matInput [matAutocomplete]="auto" (input)="filter($event.target)">
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)='getOption($event.option.value)' >
           <mat-option *ngFor="let option of filteredOptions" [value]="option">
             {{option.fullName}}
