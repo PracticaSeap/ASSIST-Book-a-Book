@@ -12,9 +12,10 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class BookDetailsComponent implements OnInit {
 
-  constructor(public dashboardService: DashboardService, 
-    private firebaseService: FirebaseService, 
-    private route: ActivatedRoute, 
+  constructor(
+    public dashboardService: DashboardService,
+    private firebaseService: FirebaseService,
+    private route: ActivatedRoute,
     private router: Router,
     private loginService: LoginService) { }
 
@@ -35,27 +36,34 @@ export class BookDetailsComponent implements OnInit {
 
     this.loginService.loggedUser.subscribe( currentUser => {
       this.user = currentUser;
-    })
+      if (!currentUser) {
+        this.router.navigate(['/login']);
+      }
+    });
+
   }
 
   borrowBook() {
-    this.router.navigate(["/borrow-book/", this.key]);
+    this.router.navigate(['/borrow-book/', this.key]);
   }
 
-  returnBook(){
+  returnBook() {
     const book = {
-      is_borrowed: false,
-    }
+      is_borrowed: 'false',
+    };
     this.firebaseService.updateBook(this.key, book);
   }
 
 
-  Change_to_rec(){
-    if (this.descr == 1) this.descr += 1;
+  Change_to_rec() {
+    if (this.descr === 1) {
+      this.descr += 1;
+    }
   }
 
-  Change_to_desc(){
-    if (this.descr == 2) this.descr -= 1;
+  Change_to_desc() {
+    if (this.descr === 2) {
+      this.descr -= 1;
+    }
   }
-
 }

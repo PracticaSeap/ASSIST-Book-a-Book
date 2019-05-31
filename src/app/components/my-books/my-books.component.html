@@ -21,7 +21,7 @@
   </div>
 
   <div class="loadButton">
-    <button id="loadMore" class="btn btn-primary" (click)="loadMore()">Load More</button>
+    <button *ngIf="books.length > 10" id="loadMore" class="btn btn-primary" (click)="loadMore()">Load More</button>
   </div>
 </body>
 
