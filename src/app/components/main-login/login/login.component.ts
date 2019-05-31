@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   succValue = false;
   ischecked = false;
 
+  user;
+  
   constructor(public loginservice: LoginService, 
     public afAuth: AngularFireAuth,  
     private router: Router,
@@ -29,11 +31,15 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginService.loggedUser.subscribe(loggedUser =>{
-      loggedUser;
-     if (loggedUser){
-       this.router.navigate(['/dashboard']);
-     }});
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.user = currentUser;
+        }
+      }
+    });
 
      this.loadingPage();
     
