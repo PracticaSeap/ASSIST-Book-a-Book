@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-">
-    <img src="assets/bookCover1.png" alt="" height="297" width="209" />
+    <img src="assets/book_cover.jpg" alt="" height="297" width="209" />
   </div>
 
   <div class="px-3 col-6 bookRow">
@@ -9,9 +9,10 @@
       <p class="card-text pl-3">{{ inputBook.description | limitTo: 140 }}</p>
 
       <div class="btn-group pl-3" role="group" aria-label="Basic example">
+        
         <button
           (click)="onSelectBorrow()"
-          *ngIf="inputBook.is_borrowed == 'false' && user.userRole == 'admin'"
+          *ngIf="inputBook.is_borrowed == 'false' && (user && user.userRole == 'admin')"
           class="btn btn-primary borrowButton mr-3"
         >
           Borrow

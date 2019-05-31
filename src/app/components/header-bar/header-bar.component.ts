@@ -15,7 +15,7 @@ export class HeaderBarComponent implements OnInit {
   ngOnInit() {
     this.loginService.loggedUser.subscribe(user => {
       this.loggedUser = user;
-    })
+    });
   }
 
   logOut() {
