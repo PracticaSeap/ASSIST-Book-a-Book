@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
 import { AddBookService } from 'src/app/services/add-book.service';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
@@ -17,12 +17,12 @@ import { LoginService } from 'src/app/services/login.service';
 export class AddBookComponent implements OnInit {
   public addBookApi: AddBookService;
   @ViewChild('form') form;
-  virtual_book = 'PhisicalBook';
+  virtualBook = 'PhisicalBook';
   public book: Book;
   addBookForm: FormGroup;
   private booksLength;
   allBooks: any;
-  is_succeful = false;
+  isSucceful = false;
   constructor(
     public db: AngularFireDatabase,
     private fb: FormBuilder,
@@ -67,17 +67,22 @@ export class AddBookComponent implements OnInit {
     this.addBookForm.value.id = this.booksLength;
     this.db.list('/books').push(value);
     this.form.resetForm();
-    this.is_succeful = true;
-    this.showMessage()
+    this.isSucceful = true;
+    this.showMessage();
   }
 
   showMessage() {
-    if (this.is_succeful === true) {
-      setTimeout(() => { this.is_succeful = false; }, 3000);
+    if (this.isSucceful === true) {
+      setTimeout(() => { this.isSucceful = false; }, 3000);
     }
   }
 
   redirect() {
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/dashboard']);
   }
 }
+
+
+
+
+

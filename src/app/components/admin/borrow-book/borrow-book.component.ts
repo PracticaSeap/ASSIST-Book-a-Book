@@ -9,6 +9,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ManageBooksService } from 'src/app/services/manage-books.service';
 import { User } from 'src/app/models/user.model';
+import { LoginService } from 'src/app/services/login.service';
 
 
 // import { userInfo } from 'os';
@@ -22,7 +23,7 @@ export class BorrowBookComponent implements OnInit {
   public addBookApi: AddBookService;
   bookKey;
   @ViewChild('form') form;
-  is_borrowed;
+  isBorrowed;
   title = '';
   author = '';
   description = '';
@@ -51,7 +52,8 @@ export class BorrowBookComponent implements OnInit {
     private firebaseService: FirebaseService,
     public route: ActivatedRoute,
     public manageBooksService: ManageBooksService,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService,
   ) {
     this.borrowbookForm = this.fb.group({
       returnDate: this.fb.control('', Validators.required),
@@ -75,9 +77,9 @@ export class BorrowBookComponent implements OnInit {
         this.author = book.author;
         this.description = book.description;
         if (book.is_borrowed.toString() === 'true') {
-          this.is_borrowed = true;
+          this.isBorrowed = true;
         } else {
-          this.is_borrowed = false;
+          this.isBorrowed = false;
         }
       });
     });
@@ -90,6 +92,17 @@ export class BorrowBookComponent implements OnInit {
       this.filteredOptions = this.options;
     });
 
+    // verificare daca este user sau nu
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        }
+        if (currentUser.userRole !== 'admin') {
+          this.router.navigate(['/dashboard']);
+        }
+      }
+    });
 
   }
   getOption(user) {
@@ -130,9 +143,9 @@ export class BorrowBookComponent implements OnInit {
       this.showMessage();
     });
 
-    // functie pentru editare is_borrowed
+    // functie pentru editare isBorrowed
     const book = {
-      is_borrowed: true,
+      isBorrowed: 'true',
     };
 
     this.firebaseService.updateBook(this.bookKey, book);
