@@ -9,6 +9,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ManageBooksService } from 'src/app/services/manage-books.service';
 import { User } from 'src/app/models/user.model';
+import { LoginService } from 'src/app/services/login.service';
 
 
 // import { userInfo } from 'os';
@@ -22,7 +23,7 @@ export class BorrowBookComponent implements OnInit {
   public addBookApi: AddBookService;
   bookKey;
   @ViewChild('form') form;
-  is_borrowed;
+  isBorrowed;
   title = '';
   author = '';
   description = '';
@@ -51,8 +52,9 @@ export class BorrowBookComponent implements OnInit {
     private firebaseService: FirebaseService,
     public route: ActivatedRoute,
     public manageBooksService: ManageBooksService,
-    private router: Router
-  ){
+    private router: Router,
+    private loginService: LoginService,
+  ) {
     this.borrowbookForm = this.fb.group({
       returnDate: this.fb.control('', Validators.required),
       dueDate: this.fb.control('', Validators.required),
@@ -70,29 +72,40 @@ export class BorrowBookComponent implements OnInit {
       this.bookKey = params.get('id');
 
       this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
-          const book = item as Book;
-          this.title = book.title;
-          this.author = book.author;
-          this.description = book.description;
-          if (book.is_borrowed.toString() === 'true') {
-            this.is_borrowed =  true;
-          } else {
-            this.is_borrowed = false;
-          }
+        const book = item as Book;
+        this.title = book.title;
+        this.author = book.author;
+        this.description = book.description;
+        if (book.is_borrowed.toString() === 'true') {
+          this.isBorrowed = true;
+        } else {
+          this.isBorrowed = false;
+        }
       });
     });
 
     // functie pentru users
-    this.getUsers().subscribe( list => {
+    this.getUsers().subscribe(list => {
       this.user = this.processUserData(list);
       this.filteredUsers = this.user;
       this.options = this.filteredUsers; // .map(user => user.fullName);
       this.filteredOptions = this.options;
     });
 
+    // verificare daca este user sau nu
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        }
+        if (currentUser.userRole !== 'admin') {
+          this.router.navigate(['/dashboard']);
+        }
+      }
+    });
 
   }
-  getOption(user){
+  getOption(user) {
     this.userKey = user.key;
     console.log(this.userKey);
   }
@@ -124,16 +137,15 @@ export class BorrowBookComponent implements OnInit {
       returnDate: '',
       userKey: this.userKey,
     };
-   
 
     this.db.list('/history').push(history).then(result => {
       this.isSuccessful = true;
       this.showMessage();
     });
 
-    // functie pentru editare is_borrowed
+    // functie pentru editare isBorrowed
     const book = {
-      is_borrowed: true,
+      is_borrowed: 'true',
     };
 
     this.firebaseService.updateBook(this.bookKey, book);
@@ -142,7 +154,7 @@ export class BorrowBookComponent implements OnInit {
 
   showMessage() {
     if (this.isSuccessful === true) {
-    setTimeout(() => {this.isSuccessful = false; }, 3000);
+      setTimeout(() => { this.isSuccessful = false; }, 3000);
     }
   }
 
@@ -162,8 +174,8 @@ export class BorrowBookComponent implements OnInit {
   }
   filterUser(value: string) {
     this.filteredUsers = this.user.filter(user =>
-       user.email.toLowerCase().includes(value.toLowerCase()) ||
-       user.fullName.toLowerCase().includes(value.toLowerCase())
-       );
+      user.email.toLowerCase().includes(value.toLowerCase()) ||
+      user.fullName.toLowerCase().includes(value.toLowerCase())
+    );
   }
 }
