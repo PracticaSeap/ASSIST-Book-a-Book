@@ -30,7 +30,7 @@ export class ManageBooksComponent implements OnInit {
       this.allUsersByKey = usersByKey;
       // console.log(usersByKey);
       this.getBooksHistory();
-    } );
+    });
     this.bookManagerService.booksByKey.subscribe(books => {
       this.allBooksByKey = books;
     });
@@ -49,23 +49,25 @@ export class ManageBooksComponent implements OnInit {
 
     // get books that have no return date set - they were not returned
     const borrowedBooks = this.booksHistory.filter(book => !book.returnDate);
-    borrowedBooks.forEach( entry => {
+    borrowedBooks.forEach(entry => {
       const book: BookHistory = this.allBooksByKey[entry.bookKey];
-      book.dueDate = entry.dueDate;
-      book.initialDate = entry.initialDate;
-      book.returnDate = entry.returnDate;
+      if (book) {
+        book.dueDate = entry.dueDate;
+        book.initialDate = entry.initialDate;
+        book.returnDate = entry.returnDate;
 
-      if (entry.userKey && this.allUsersByKey[entry.userKey]) {
-        book.userFullName = this.allUsersByKey[entry.userKey].fullName;
-      } else {
-        book.userFullName = 'User key missing in db';
-      }
+        if (entry.userKey && this.allUsersByKey[entry.userKey]) {
+          book.userFullName = this.allUsersByKey[entry.userKey].fullName;
+        } else {
+          book.userFullName = 'User key missing in db';
+        }
 
-      const todayDate = this.getTodayDate();
-      if (this.getDateFromString(book.dueDate) >= todayDate) {
-        this.borrowedBooks.push(book);
-      } else {
-        this.overdueBooks.push(book);
+        const todayDate = this.getTodayDate();
+        if (this.getDateFromString(book.dueDate) >= todayDate) {
+          this.borrowedBooks.push(book);
+        } else {
+          this.overdueBooks.push(book);
+        }
       }
     });
   }
