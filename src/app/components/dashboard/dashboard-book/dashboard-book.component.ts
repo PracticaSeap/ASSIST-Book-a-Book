@@ -15,10 +15,10 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class DashboardBookComponent implements OnInit {
   @Input() inputBook: Book;
+  @Input() user: User;
   booksHistory: History[];
   books: Book[];
   dueDate;
-  user;
 
   constructor(
     private router: Router,
@@ -34,19 +34,12 @@ export class DashboardBookComponent implements OnInit {
       .list('/history')
       .valueChanges()
       .subscribe(entries => {
-        console.log(entries);
         const histories = entries.filter(
           element => this.inputBook.key === (element as HistoryEntry).bookKey
         );
-        console.log('333', histories);
         if (histories.length > 0) {
           this.dueDate = (histories[histories.length - 1] as HistoryEntry).dueDate;
-          console.log(this.dueDate);
         }
-      });
-
-      this.loginService.loggedUser.subscribe( currentUser => {
-          this.user = currentUser;
       });
   }
 

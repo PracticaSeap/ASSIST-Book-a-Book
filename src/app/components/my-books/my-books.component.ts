@@ -3,6 +3,7 @@ import { Book } from 'src/app/models/book.model';
 import { ManageBooksService } from 'src/app/services/manage-books.service';
 import { HistoryEntry } from 'src/app/models/history.model';
 import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-books',
@@ -10,15 +11,17 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./my-books.component.css']
 })
 export class MyBooksComponent implements OnInit {
-
   allBooksByKey: Book[];
   booksHistory: HistoryEntry[];
   nr = 10;
   user;
   books: Book[] = [];
 
-  constructor(public bookManagerService: ManageBooksService,
-    public loginService: LoginService) { }
+  constructor(
+    private router: Router,
+    public bookManagerService: ManageBooksService,
+    public loginService: LoginService
+  ) {}
 
   ngOnInit() {
     this.bookManagerService.booksByKey.subscribe(books => {
@@ -29,10 +32,16 @@ export class MyBooksComponent implements OnInit {
       this.booksHistory = history;
       this.getBooksHistory();
     });
-    this.loginService.loggedUser.subscribe( currentUser => {
-      this.user = currentUser;
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        } else {
+          this.user = currentUser;
+        }
+      }
       this.getBooksHistory();
-    })
+    });
   }
 
   getBooksHistory() {
@@ -40,19 +49,17 @@ export class MyBooksComponent implements OnInit {
       return;
     }
 
-    const myBooks = this.booksHistory.filter(book => book.userKey == this.user.key);
+    const myBooks = this.booksHistory.filter(
+      book => book.userKey === this.user.key
+    );
 
-    
     myBooks.forEach(entry => {
       const book: Book = this.allBooksByKey[entry.bookKey];
       this.books.push(book);
-    })
-
-  
+    });
   }
 
-  loadMore(){
+  loadMore() {
     this.nr += 10;
   }
-
 }

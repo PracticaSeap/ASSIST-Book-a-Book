@@ -7,7 +7,7 @@
 
     <div class="row info_row">
       <div class="col-4">
-        <img src="assets/bookCover1.png" alt="" height="100%" width="100%" />
+        <img src="assets/book_cover.jpg" alt="" height="100%" width="100%" />
       </div>
 
       <div class="col-6 description_col">
@@ -16,7 +16,7 @@
         <p class="card-text">{{ book.description }}</p>
 
         <div class="btn-group px-2" role="group" aria-label="Basic example">
-          <div *ngIf="book.is_borrowed == 'false'; else return">
+          <div *ngIf="book.is_borrowed == 'false'">
             <button
               (click)="borrowBook()"
               class="btn btn-primary borrowButton mr-3"
@@ -24,13 +24,13 @@
               Borrow
             </button>
           </div>
-          <ng-template #return>
+          <div *ngIf="book.is_borrowed == 'true'">
             <button
-              *ngIf="user.userRole == 'admin'"
+              *ngIf="user && user.userRole == 'admin'"
               type="button"
-              data-target="#return_book"
               class="btn btn-primary borrowButton"
               data-toggle="modal"
+              (click)="returnBook()"
             >
               Return
             </button>
@@ -38,7 +38,7 @@
             <p
               class="pt-2"
               style="color: white;"
-              [ngClass]="{ borrowButton: user.userRole == 'user' }"
+              [ngClass]="{ borrowButton: user && user.userRole == 'user' }"
             >
               Not avaible!
             </p>
@@ -77,7 +77,7 @@
                 </div>
               </div>
             </div>
-          </ng-template>
+          </div>
         </div>
       </div>
     </div>
