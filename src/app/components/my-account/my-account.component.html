@@ -1,33 +1,23 @@
-<<<<<<< HEAD
-<div style="background-color: #e5e5e5">
-  <br>
-  <div class="container">
-    <div class="row justify-content-center" style="background-color: #ffffff">
-      <div class="col-md-6 userCol" style="text-align: center">
-        <div class="user-profile">
-=======
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-5 userCol mx-auto" style="text-align: center">
       <div class="user-profile">
->>>>>>> 78ad03589237162e77444b8b33d7bf0453fc289f
-          <img src="https://image.flaticon.com/icons/svg/61/61205.svg" width="136px" height="136px" alt="">
-          <div class="user-name">
-            <h1>{{ this.loggedUserProfile.fullName }}</h1>
-            <div class="user-functie">
-              <h2>User Role :</h2>
-              <h2 style="text-transform: uppercase;">{{ this.loggedUserProfile.userRole }}</h2>
-            </div>
+        <img src="https://image.flaticon.com/icons/svg/61/61205.svg" width="136px" height="136px" alt="">
+        <div class="user-name">
+          <h1>{{ this.loggedUserProfile.fullName }}</h1>
+          <div class="user-functie">
+            <h2>User Role :</h2>
+            <h2 style="text-transform: uppercase;">{{ this.loggedUserProfile.userRole }}</h2>
           </div>
         </div>
       </div>
       <div class="user-profile contact-info-card">
-          <p class="contact-info-title">Contact Info</p>
-          <div class="info-details">
-            <img src="assets/envelope-alt.png" alt="" class="emailImage" width="20px" height="14px">
-            <p class="email">{{ this.loggedUserProfile.email }}</p>
-          </div>
-          <button class="btn btn-danger log-out-btn" (click)="logOut()">Log Out</button>
+        <p class="contact-info-title">Contact Info</p>
+        <div class="info-details">
+          <img src="assets/envelope-alt.png" alt="" class="emailImage" width="20px" height="14px">
+          <p class="email">{{ this.loggedUserProfile.email }}</p>
+        </div>
+        <button class="btn btn-danger log-out-btn" (click)="logOut()">Log Out</button>
       </div>
     </div>
   </div>

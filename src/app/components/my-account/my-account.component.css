@@ -1,38 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
 @import url("https://fonts.googleapis.com/css?family=Helvetica:500,700");
-
-
-
-.containter {  
-    position:center;
-    width: 350px;
-    height: 298px;
-    left: 165px;
-    top: 218px;
-    padding-top:110px;
-    padding-bottom:14px;
-    
-    background: #FFFFFF;
-    border-radius: 5px;}
-
-    
-.casuta1 
-{
-    width: 350px;
-height: 298px;
-left: 165px;
-top: 218px;
-padding-top:110px;
-padding-bottom:14px;
-
-background: #FFFFFF;
-border-radius: 5px;
-}
-
-.petru{
-width:350px;
-height:298px;
-}
 .user-profile {
   /* width: 350px; */
   background: #FFFFFF;
