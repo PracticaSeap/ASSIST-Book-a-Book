@@ -76,5 +76,6 @@ export class BookDetailsComponent implements OnInit {
 
   deleteBook() {
     this.firebaseService.deleteBook(this.key);
+    this.router.navigate(['/dashboard']);
   }
 }
