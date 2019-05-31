@@ -9,9 +9,9 @@ import { User } from 'firebase';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
-  selector: "app-dashboard-book",
-  templateUrl: "./dashboard-book.component.html",
-  styleUrls: ["./dashboard-book.component.css"]
+  selector: 'app-dashboard-book',
+  templateUrl: './dashboard-book.component.html',
+  styleUrls: ['./dashboard-book.component.css']
 })
 export class DashboardBookComponent implements OnInit {
   @Input() inputBook: Book;
@@ -44,7 +44,7 @@ export class DashboardBookComponent implements OnInit {
   }
 
   onSelect() {
-    this.router.navigate(["/book-details/", this.inputBook.key]);
+    this.router.navigate(['/book-details/', this.inputBook.key]);
   }
 
   onSelectBorrow() {
