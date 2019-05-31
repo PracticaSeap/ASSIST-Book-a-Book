@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { Book } from 'src/app/models/book.model';
 // import { FirebaseObjectObservable } from 'angularfire2/database-deprecated'
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { BookDetailsComponent } from '../../book-details/book-details.component';
@@ -28,13 +28,13 @@ export class EditBookComponent implements OnInit {
   category: string;
   tag: string;
   image: string;
-  is_borrowed: boolean;
-  number_of_pages: number;
-  virtual_book: string;
+  isBorrowed: boolean;
+  numberOfPages: number;
+  virtualBook: string;
   addBookForm: FormGroup;
   book: Book;
 
-  is_succeful: boolean = false;
+  isSucceful = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -51,14 +51,14 @@ export class EditBookComponent implements OnInit {
       description: this.fb.control('', Validators.required),
       category: this.fb.control('', Validators.required),
       tag: this.fb.control(''),
-      virtual_book: this.fb.control('', Validators.required),
-      is_borrowed: this.fb.control(false, Validators.required),
+      virtualBook: this.fb.control('', Validators.required),
+      isBorrowed: this.fb.control(false, Validators.required),
       image: this.fb.control(''),
-      number_of_pages: this.fb.control('', Validators.required),
+      numberOfPages: this.fb.control('', Validators.required),
     });
     { }
   }
-  
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.bookKey = params.get('id');
@@ -68,21 +68,22 @@ export class EditBookComponent implements OnInit {
         this.author = book.author;
         this.description = book.description;
         this.isbn = book.isbn;
-        this.number_of_pages = book.number_of_pages;
+        this.numberOfPages = book.number_of_pages;
         this.category = book.category;
-        this.is_borrowed = book.is_borrowed;
-        this.virtual_book = book.virtual_book;
+        this.isBorrowed = book.is_borrowed;
+        this.virtualBook = book.virtual_book;
       });
     });
-    this.loginService.loggedUser.subscribe(loggedUser =>{
-      loggedUser;
-     if (!loggedUser){
-       this.router.navigate(['/login']);
-     }
-     if (loggedUser.userRole != 'admin'){
-       this.router.navigate(['/dashboard']);
-     }
-   });
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        }
+        if (currentUser.userRole !== 'admin') {
+          this.router.navigate(['/dashboard']);
+        }
+      }
+    });
   }
 
   submitEdit() {
@@ -92,24 +93,24 @@ export class EditBookComponent implements OnInit {
       description: this.description,
       isbn: this.isbn,
       category: this.category,
-      is_borrowed: this.is_borrowed,
-      number_of_pages: this.number_of_pages,
-      virtual_book: this.virtual_book,
+      isBorrowed: this.isBorrowed,
+      numberOfPages: this.numberOfPages,
+      virtualBook: this.virtualBook,
     };
 
-    this.firebaseService.updateBook(this.bookKey, book).then( result => {
-      this.is_succeful = true;
+    this.firebaseService.updateBook(this.bookKey, book).then(result => {
+      this.isSucceful = true;
       this.showMessage();
     });
   }
 
-  showMessage(){
-    if (this.is_succeful==true){
-    setTimeout(()=>{this.is_succeful=false}, 3000);
+  showMessage() {
+    if (this.isSucceful === true) {
+      setTimeout(() => { this.isSucceful = false; }, 3000);
     }
   }
 
-  redirect(){
-    this.router.navigate(['/dashboard'])
+  redirect() {
+    this.router.navigate(['/dashboard']);
   }
 }
