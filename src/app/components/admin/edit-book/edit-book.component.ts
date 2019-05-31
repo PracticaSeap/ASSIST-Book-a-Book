@@ -111,6 +111,6 @@ export class EditBookComponent implements OnInit {
   }
 
   redirect() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/book-details/', this.bookKey]);
   }
 }
