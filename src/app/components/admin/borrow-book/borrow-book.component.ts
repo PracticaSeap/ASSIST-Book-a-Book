@@ -145,7 +145,7 @@ export class BorrowBookComponent implements OnInit {
 
     // functie pentru editare isBorrowed
     const book = {
-      isBorrowed: 'true',
+      is_borrowed: 'true',
     };
 
     this.firebaseService.updateBook(this.bookKey, book);
