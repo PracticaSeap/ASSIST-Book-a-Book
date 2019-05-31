@@ -1,3 +1,5 @@
+import { User } from 'src/app/models/user.model';
+import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyAccountComponent implements OnInit {
 
-  constructor() { }
+  loggedUserProfile: User;
+
+  constructor( public loginService: LoginService ) { }
 
   ngOnInit() {
+    this.loginService.loggedUser.subscribe(loggedUser => {
+      this.loggedUserProfile = loggedUser;
+    });
+  }
+
+  logOut() {
+    this.loginService.logoutUser();
   }
 
 }

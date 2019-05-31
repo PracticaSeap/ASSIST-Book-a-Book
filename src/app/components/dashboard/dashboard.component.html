@@ -1,36 +1,41 @@
-<!-- <app-header-bar></app-header-bar> -->
-
 <body>
-
   <div class="header">
     <div class="container">
       <h1>Search and discover books you love.</h1>
-        <div class="input-icon-wrap searchBox">
-            <span class="input-icon"><span class="fa fa-search"></span></span>
-            <input (input)="filterBooks($event.target.value)" type="text" class="input-with-icon" id="form-name" placeholder="Search by Title, Author or IBAN">
-        </div>
+      <div class="input-icon-wrap searchBox">
+        <span class="input-icon"><span class="fa fa-search"></span></span>
+        <input
+          (input)="filterBooks($event.target.value)"
+          type="text"
+          class="input-with-icon"
+          id="form-name"
+          placeholder="Search by Title, Author or IBAN"
+        />
+      </div>
     </div>
   </div>
 
   <div class="container bookContainer">
-
     <div class="row">
-
       <app-dashboard-book
-        *ngFor="let book of filteredBooks | slice:0: nr"
-        [inputBook]=book
+        *ngFor="let book of filteredBooks | slice: 0:nr"
+        [inputBook]="book"
+        [user]="user"
         class="col-6 bookRow"
       ></app-dashboard-book>
-
     </div>
 
-    <div class="loadButton">
-      <button *ngIf="nr != count" id="loadMore" class="btn btn-primary" (click)="loadMore()">Load More</button>
+    <div>
+      <div class="loadButton">
+        <button
+          *ngIf="filteredBooks && nr != count && filteredBooks.length > 10"
+          id="loadMore"
+          class="btn btn-primary"
+          (click)="loadMore()"
+        >
+          Load More
+        </button>
+      </div>
     </div>
-
   </div>
 </body>
-<app-footer-bar></app-footer-bar>
-
-
-

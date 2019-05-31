@@ -85,7 +85,12 @@
     opacity: 0.18;
     }
     
-    
+    .custom-control-label{
+        
+        padding-bottom: -10px;
+        /* background-color: #19216C; */
+    }
+
     .checkbox{
         
         font-family: Montserrat;
@@ -96,18 +101,29 @@
         display: flex;
         align-items: center;
         
+        padding-top: 5px;
+
         color: #9AA5B1;
     
         padding-left: 5px;
-    
+        
     }
     
     .login {
         padding-left: 165px;
-        background-color: rgb(245,247,250)
+        /* background-color: rgb(245,247,250) */
     }
+    .forgot-password{
+        margin-left: -8px;
+
+
+
+
+    }
+
+
     
-    .Forgot.password{
+    .forgot.password{
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
@@ -116,6 +132,7 @@
         display: flex;
         align-items: center;
         text-align: right;
+        
         
         color: #9AA5B1;
     }

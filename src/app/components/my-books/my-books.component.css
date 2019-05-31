@@ -75,3 +75,12 @@ a:active{
   line-height: 17px;
   color: #9AA5B1;
 }
+
+.no_borrowed p{
+  font-size: 48px;
+  font-weight: bold;
+  font-family: Montserrat;
+  color: #1CD4D4;
+  margin-bottom: 200px;
+  margin-top: 100px;
+}

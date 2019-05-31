@@ -39,7 +39,7 @@ export class BorrowBookComponent implements OnInit {
   // acest string ar trebui populat cu users
   // options: string[] = ['John Lee', 'Antonio Banderas', 'Van Damme'];
   options = [];
-  filteredOptions: string[] = [];
+  filteredOptions: User[] = [];
   usersList: AngularFireList<any>;
 
   public borrow: HistoryEntry;
@@ -52,7 +52,7 @@ export class BorrowBookComponent implements OnInit {
     public route: ActivatedRoute,
     public manageBooksService: ManageBooksService,
     private router: Router
-  ) {
+  ){
     this.borrowbookForm = this.fb.group({
       returnDate: this.fb.control('', Validators.required),
       dueDate: this.fb.control('', Validators.required),
@@ -92,6 +92,14 @@ export class BorrowBookComponent implements OnInit {
 
 
   }
+  getOption(user){
+    this.userKey = user.key;
+    console.log(this.userKey);
+  }
+
+  displayFn(user?: User): string | undefined {
+    return user ? user.fullName : undefined;
+  }
 
   // functie folosita in inputBox pentru a cauta numele
   public filter(event) {
@@ -116,6 +124,7 @@ export class BorrowBookComponent implements OnInit {
       returnDate: '',
       userKey: this.userKey,
     };
+   
 
     this.db.list('/history').push(history).then(result => {
       this.isSuccessful = true;

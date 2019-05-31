@@ -15,7 +15,7 @@ export class LoginService {
   public users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   public usersByKey: Subject<any> = new Subject<any>();
   usersKeyValue: {[ key: string ]: User} = {};
-  public loggedUser: BehaviorSubject<User> = new  BehaviorSubject<User>(null);
+  public loggedUser: BehaviorSubject<User> = new BehaviorSubject<User>(undefined);
 
   constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFireDatabase) {
     this.afAuth.auth.onAuthStateChanged(user => {
@@ -54,6 +54,7 @@ export class LoginService {
       const users: User[] = [];
       entries.forEach(entry => {
         const newUser = entry.payload.val() as User;
+        newUser.key = entry.key;
         users.push(newUser);
         this.usersKeyValue[entry.key] = newUser;
       });

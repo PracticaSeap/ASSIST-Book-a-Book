@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { User } from 'src/app/models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,15 +16,37 @@ export class SignUpComponent implements OnInit {
   password: string;
   userCreatedSucess = 0;
 
+  passNrVal: boolean = false;
+
   alertError = false;
   errMessage = '';
 
   succValue = false;
-  constructor(public loginservice: LoginService,  public db: AngularFireDatabase) { }
+  constructor(public loginservice: LoginService,  public db: AngularFireDatabase,
+    private router: Router,
+    public loginService: LoginService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser !== null) {
+          this.router.navigate(['/dashboard']);
+        } 
+      }
+    });
+  }
 
   createUserWithEmailAndPassword() {
+    if (this.password.length >= 8){
+      this.passNrVal = false;
+    }
+    if (this.password.length < 8){
+      this.passNrVal = true;
+    }
+    if (this.password.length < 1){
+      this.passNrVal = false;
+    }
+
     if (this.email == null || this.password == null) {
       this.alertError = true;
       this.errMessage = 'Date incomplete';
@@ -66,12 +89,16 @@ export class SignUpComponent implements OnInit {
     this.email = event.target.value;
     this.alertError = false;
     this.succValue = false;
+    
   }
 
   onKeyPassword(event: any) { // without type info
     this.password = event.target.value;
     this.alertError = false;
-    this.succValue = false;
+    this.succValue = false; 
+    if (this.password.length == 0 ){
+      this.passNrVal = false;
+    }
   }
 
   onKeyFullName(event: any) { // without type info

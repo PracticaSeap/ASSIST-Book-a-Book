@@ -12,19 +12,18 @@ p {
 .header{
   position: relative;
   background: #19216C;
-  height: 437px;
+  height: 300px;
 }
 
 .header h1{
   width: 900px;
   height: 132px;
-  padding-top: 75px;
-  padding-right: 100px;
+  padding-right: 300px;
 
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 40px;
   line-height: 65px;
 
   color: #FFFFFF;
@@ -88,7 +87,7 @@ p {
   flex-direction: row;
 
   font-family: Helvetica;
-  font-size: 14px;
+  font-size: 12px;
 
 }
 
@@ -111,7 +110,7 @@ p {
   width: 540px;
   height: 56px;
   border-radius: 5px;
-  margin-top: 125px;
+  margin-top: 50px;
 }
 
 

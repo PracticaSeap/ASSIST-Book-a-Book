@@ -104,7 +104,7 @@
     
     .login {
         padding-left: 165px;
-        background-color: rgb(245,247,250)
+        /* background-color: rgb(245,247,250) */
     }
     
     .Forgot-password{
@@ -117,7 +117,7 @@
         align-items: center;
         text-align: right;
         padding-left: -15px;
-
+        
         
         color: #9AA5B1;
     }

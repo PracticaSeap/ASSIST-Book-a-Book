@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="w-100">
+  <!-- <div class="w-100"> -->
     <div class="Buton">
-      <div class="Add-Book">Add Book</div>
+      <div class="Add-Book" (click)="goTo()">Add Book</div>
     </div>
-  </div>
+  <!-- </div> -->
 
   <div class="Books">
     <div class="Burrowed-Books">Borrowed Books</div>
@@ -11,7 +11,7 @@
   <div class="w-100>"></div>
 
   <div class="row regular-row">
-    <div class="col"> </div>
+    <div class="col "> </div>
     <div class="col">Title</div>
     <div class="col">Author</div>
     <div class="col">Start Date</div>
@@ -21,11 +21,11 @@
 
   <div class="row regular-row-1" *ngFor="let book of borrowedBooks">
     <div class="col" style="cursor: pointer" (click)="goToDetails(book.key)"><img src="assets/bookCover1.png" width="52px" height="66px"></div>
-    <div class="col">{{book.title}}</div>
-    <div class="col">{{book.author}}</div>
-    <div class="col">{{book.initialDate}}</div>
-    <div class="col">{{book.dueDate}}</div>
-    <div class="col">{{book.userFullName}}</div>
+    <div class="col alignText">{{book.title}}</div>
+    <div class="col alignText">{{book.author}}</div>
+    <div class="col alignText">{{book.initialDate}}</div>
+    <div class="col alignText">{{book.dueDate}}</div>
+    <div class="col alignText">{{book.userFullName}}</div>
   </div>
 
   <div class="Overdue">Overdue</div>
@@ -41,10 +41,10 @@
 
   <div class="row regular-row-1" *ngFor="let book of overdueBooks">
     <div class="col" style="cursor: pointer" (click)="goToDetails(book.key)"><img src="assets/bookCover1.png" width="52px" height="66px"></div>
-    <div class="col">{{book.title}}</div>
-    <div class="col">{{book.author}}</div>
-    <div class="col">{{book.initialDate}}</div>
-    <div class="col">{{book.dueDate}}</div>
-    <div class="col">{{book.userFullName}}</div>
+    <div class="col alignText">{{book.title}}</div>
+    <div class="col alignText">{{book.author}}</div>
+    <div class="col alignText">{{book.initialDate}}</div>
+    <div class="col alignText">{{book.dueDate}}</div>
+    <div class="col alignText">{{book.userFullName}}</div>
   </div>
 </div>
