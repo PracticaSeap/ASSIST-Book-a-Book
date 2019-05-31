@@ -10,6 +10,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { BookDetailsComponent } from '../../book-details/book-details.component';
 import { Title } from '@angular/platform-browser';
 import { database } from 'firebase';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-edit-book',
@@ -39,7 +40,8 @@ export class EditBookComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private firebaseService: FirebaseService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private loginService: LoginService) {
 
     this.addBookForm = this.fb.group({
       id: this.fb.control(''),
@@ -72,6 +74,15 @@ export class EditBookComponent implements OnInit {
         this.virtual_book = book.virtual_book;
       });
     });
+    this.loginService.loggedUser.subscribe(loggedUser =>{
+      loggedUser;
+     if (!loggedUser){
+       this.router.navigate(['/login']);
+     }
+     if (loggedUser.userRole != 'admin'){
+       this.router.navigate(['/dashboard']);
+     }
+   });
   }
 
   submitEdit() {
