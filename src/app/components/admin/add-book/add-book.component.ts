@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { AddBookService } from 'src/app/services/add-book.service';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-add-book',
@@ -25,7 +26,8 @@ export class AddBookComponent implements OnInit {
   constructor(
     public db: AngularFireDatabase, 
     private fb: FormBuilder,
-    private router: Router) {
+    private router: Router,
+    public loginService: LoginService,) {
     this.db.list('/books').valueChanges().subscribe(books => {
       this.booksLength = books.length;
     });
@@ -46,7 +48,17 @@ export class AddBookComponent implements OnInit {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loginService.loggedUser.subscribe(loggedUser =>{
+      loggedUser;
+     if (!loggedUser){
+       this.router.navigate(['/login']);
+     }
+     if (loggedUser.userRole != 'admin'){
+       this.router.navigate(['/dashboard']);
+     }
+   });
+   }
 
   onSubmit(value: Book): void {
     console.log('form book :', this.addBookForm.value);

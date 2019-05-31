@@ -1,8 +1,12 @@
 <!-- <router-outlet></router-outlet> -->
+<div class="input-icon-wrap position">
+    <input (input)="filterUsers($event.target.value)" type="text" class="input-with-icon input-lg" id="form-name"
+      placeholder="Search Name">
+  </div>
+  
 <div class="header">
   <h1 class="title_form">All users ({{lungime}})</h1>
 </div>
-
 
 <table>
   <tr class="tableHead">
@@ -11,7 +15,7 @@
     <th>User email</th>
     <th></th>
   </tr>
-  <tr *ngFor="let user of users" class="rowTabel">
+  <tr *ngFor="let user of filteredUsers" class="rowTabel">
     <td>
       <div class="col-data ">
         {{user.fullName}}
@@ -32,11 +36,13 @@
     </td>
     <td>
       <div *ngIf="user.userRole === 'admin'">
-          <button data-toggle="modal" data-target="#makeUser" class="btn btn-success forHover" (click)="setKey(user.key)">Make regular user</button>
+        <button data-toggle="modal" data-target="#makeUser" class="btn btn-success forHover"
+          (click)="setKey(user.key)">Make regular user</button>
         <!-- <a data-toggle="modal" data-target="#deletUser">Delete</a> -->
       </div>
       <div *ngIf="user.userRole === 'user'">
-        <button data-toggle="modal" data-target="#makeAdmin" class="btn btn-success forHover" (click)="setKey(user.key)">Make Admin</button>
+        <button data-toggle="modal" data-target="#makeAdmin" class="btn btn-success forHover"
+          (click)="setKey(user.key)">Make Admin</button>
         <!-- <div class="dropdown" style="float:left;">
           <button class="dropbtn">...</button>
           <div class="dropdown-content">

@@ -21,8 +21,8 @@
     display: flex !important;
     justify-content: center !important;
 }
-.user-functie{
-    
+
+.user-functie {
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -32,4 +32,30 @@
     align-items: center;
     text-align: center;
     color: #1CD4D4;
+}
+
+#contactInfo {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #19216C;
+}
+
+.adress {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #9aa5b1;
+}
+
+.body {
+    background-color: #e5e5e5!important;
 }
