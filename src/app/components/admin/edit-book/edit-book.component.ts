@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { Book } from 'src/app/models/book.model';
 // import { FirebaseObjectObservable } from 'angularfire2/database-deprecated'
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { BookDetailsComponent } from '../../book-details/book-details.component';
@@ -34,7 +34,7 @@ export class EditBookComponent implements OnInit {
   addBookForm: FormGroup;
   book: Book;
 
-  is_succeful: boolean = false;
+  is_succeful = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -58,7 +58,7 @@ export class EditBookComponent implements OnInit {
     });
     { }
   }
-  
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.bookKey = params.get('id');
@@ -74,15 +74,16 @@ export class EditBookComponent implements OnInit {
         this.virtual_book = book.virtual_book;
       });
     });
-    this.loginService.loggedUser.subscribe(loggedUser =>{
-      loggedUser;
-     if (!loggedUser){
-       this.router.navigate(['/login']);
-     }
-     if (loggedUser.userRole != 'admin'){
-       this.router.navigate(['/dashboard']);
-     }
-   });
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        }
+        if (currentUser.userRole !== 'admin') {
+          this.router.navigate(['/dashboard']);
+        }
+      }
+    });
   }
 
   submitEdit() {
@@ -97,19 +98,19 @@ export class EditBookComponent implements OnInit {
       virtual_book: this.virtual_book,
     };
 
-    this.firebaseService.updateBook(this.bookKey, book).then( result => {
+    this.firebaseService.updateBook(this.bookKey, book).then(result => {
       this.is_succeful = true;
       this.showMessage();
     });
   }
 
-  showMessage(){
-    if (this.is_succeful==true){
-    setTimeout(()=>{this.is_succeful=false}, 3000);
+  showMessage() {
+    if (this.is_succeful === true) {
+      setTimeout(() => { this.is_succeful = false; }, 3000);
     }
   }
 
-  redirect(){
-    this.router.navigate(['/dashboard'])
+  redirect() {
+    this.router.navigate(['/dashboard']);
   }
 }

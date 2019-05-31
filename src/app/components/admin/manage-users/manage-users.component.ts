@@ -31,12 +31,14 @@ export class ManageUsersComponent implements OnInit {
       this.lungime = this.users.length;
     });
 
-    this.loginService.loggedUser.subscribe(loggedUser => {
-      if (!loggedUser) {
-        this.router.navigate(['/login']);
-      }
-      if (loggedUser.userRole !== 'admin') {
-        this.router.navigate(['/dashboard']);
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        }
+        if (currentUser.userRole !== 'admin') {
+          this.router.navigate(['/dashboard']);
+        }
       }
     });
   }

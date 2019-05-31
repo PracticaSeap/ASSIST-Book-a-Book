@@ -22,12 +22,12 @@ export class AddBookComponent implements OnInit {
   addBookForm: FormGroup;
   private booksLength;
   allBooks: any;
-  is_succeful: boolean = false;
+  is_succeful = false;
   constructor(
-    public db: AngularFireDatabase, 
+    public db: AngularFireDatabase,
     private fb: FormBuilder,
     private router: Router,
-    public loginService: LoginService,) {
+    public loginService: LoginService, ) {
     this.db.list('/books').valueChanges().subscribe(books => {
       this.booksLength = books.length;
     });
@@ -49,16 +49,17 @@ export class AddBookComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginService.loggedUser.subscribe(loggedUser =>{
-      loggedUser;
-     if (!loggedUser){
-       this.router.navigate(['/login']);
-     }
-     if (loggedUser.userRole != 'admin'){
-       this.router.navigate(['/dashboard']);
-     }
-   });
-   }
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        }
+        if (currentUser.userRole !== 'admin') {
+          this.router.navigate(['/dashboard']);
+        }
+      }
+    });
+  }
 
   onSubmit(value: Book): void {
     console.log('form book :', this.addBookForm.value);
@@ -70,18 +71,13 @@ export class AddBookComponent implements OnInit {
     this.showMessage()
   }
 
-  showMessage(){
-    if (this.is_succeful = true){
-    setTimeout(()=>{this.is_succeful=false}, 3000);
+  showMessage() {
+    if (this.is_succeful === true) {
+      setTimeout(() => { this.is_succeful = false; }, 3000);
     }
   }
-  
-  redirect(){
+
+  redirect() {
     this.router.navigate(['/dashboard'])
   }
 }
-
-
-
-
-

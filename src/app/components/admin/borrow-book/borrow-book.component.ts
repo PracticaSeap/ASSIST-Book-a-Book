@@ -52,7 +52,7 @@ export class BorrowBookComponent implements OnInit {
     public route: ActivatedRoute,
     public manageBooksService: ManageBooksService,
     private router: Router
-  ){
+  ) {
     this.borrowbookForm = this.fb.group({
       returnDate: this.fb.control('', Validators.required),
       dueDate: this.fb.control('', Validators.required),
@@ -70,20 +70,20 @@ export class BorrowBookComponent implements OnInit {
       this.bookKey = params.get('id');
 
       this.firebaseService.getBookDetails(this.bookKey).subscribe(item => {
-          const book = item as Book;
-          this.title = book.title;
-          this.author = book.author;
-          this.description = book.description;
-          if (book.is_borrowed.toString() === 'true') {
-            this.is_borrowed =  true;
-          } else {
-            this.is_borrowed = false;
-          }
+        const book = item as Book;
+        this.title = book.title;
+        this.author = book.author;
+        this.description = book.description;
+        if (book.is_borrowed.toString() === 'true') {
+          this.is_borrowed = true;
+        } else {
+          this.is_borrowed = false;
+        }
       });
     });
 
     // functie pentru users
-    this.getUsers().subscribe( list => {
+    this.getUsers().subscribe(list => {
       this.user = this.processUserData(list);
       this.filteredUsers = this.user;
       this.options = this.filteredUsers; // .map(user => user.fullName);
@@ -92,7 +92,7 @@ export class BorrowBookComponent implements OnInit {
 
 
   }
-  getOption(user){
+  getOption(user) {
     this.userKey = user.key;
     console.log(this.userKey);
   }
@@ -124,7 +124,6 @@ export class BorrowBookComponent implements OnInit {
       returnDate: '',
       userKey: this.userKey,
     };
-   
 
     this.db.list('/history').push(history).then(result => {
       this.isSuccessful = true;
@@ -142,7 +141,7 @@ export class BorrowBookComponent implements OnInit {
 
   showMessage() {
     if (this.isSuccessful === true) {
-    setTimeout(() => {this.isSuccessful = false; }, 3000);
+      setTimeout(() => { this.isSuccessful = false; }, 3000);
     }
   }
 
@@ -162,8 +161,8 @@ export class BorrowBookComponent implements OnInit {
   }
   filterUser(value: string) {
     this.filteredUsers = this.user.filter(user =>
-       user.email.toLowerCase().includes(value.toLowerCase()) ||
-       user.fullName.toLowerCase().includes(value.toLowerCase())
-       );
+      user.email.toLowerCase().includes(value.toLowerCase()) ||
+      user.fullName.toLowerCase().includes(value.toLowerCase())
+    );
   }
 }
