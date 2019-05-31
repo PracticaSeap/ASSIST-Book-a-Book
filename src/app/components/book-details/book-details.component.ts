@@ -34,10 +34,13 @@ export class BookDetailsComponent implements OnInit {
       this.book = book as Book;
     });
 
-    this.loginService.loggedUser.subscribe( currentUser => {
-      this.user = currentUser;
-      if (!currentUser) {
-        this.router.navigate(['/login']);
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        } else {
+          this.user = currentUser;
+        }
       }
     });
 

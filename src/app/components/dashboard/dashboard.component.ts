@@ -49,14 +49,14 @@ export class DashboardComponent implements OnInit {
        book.isbn.toLowerCase().includes(value.toLowerCase())
   );
 
-    if(this.filteredBooks.length == 0){
+    if (this.filteredBooks.length === 0) {
       this.filteredBooks = [];
     }
   }
 
-  loadMore(){
+  loadMore() {
     this.nr += 10;
-    if(this.nr > this.count){
+    if (this.nr > this.count) {
       this.count = this.nr;
     }
   }
