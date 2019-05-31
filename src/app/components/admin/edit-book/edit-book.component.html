@@ -1,4 +1,3 @@
-
 <div class="container">
 
   <!-- titlu -->
@@ -30,7 +29,7 @@
       </div>
       <div class="form-group col-6">
         <mat-form-field class="exemple-container test">
-          <input type="number" [(ngModel)]="number_of_pages" matInput placeholder="Number of pages"
+          <input type="number" [(ngModel)]="numberOfPages" matInput placeholder="Number of pages"
             name="number_of_pages">
         </mat-form-field>
       </div>
@@ -52,7 +51,7 @@
         </div>
         <div class="form-group col-6">
           <mat-form-field class="exemple-container test">
-            <mat-select [(ngModel)]="is_borrowed" placeholder="Status" name="is_borrowed" disabled>
+            <mat-select [(ngModel)]="isBorrowed" placeholder="Status" name="is_borrowed" disabled>
               <mat-option value="false">Available</mat-option>
               <mat-option value="true">Borrowed</mat-option>
             </mat-select>
@@ -60,79 +59,34 @@
         </div>
       </div>
     </div>
-    <!-- al patrulea rand -->
 
-    <!-- optional -->
-    <!-- <div class="form-row">
-      <div class="form-group col-6">
-        <mat-form-field class="exemple-container test">
-          <mat-select [(ngModel)]="rrowed" placeholder="Current borrower" name="is_borrowed">
-            <mat-option value="option">Current borrower</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div class="form-row col-6">
-        <div class="form-group col-6">
-          <mat-form-field class="mat1">
-            <input matInput [matDatepicker]="piker1" placeholder="Lend date">
-            <mat-datepicker-toggle matSuffix [for]="piker1"></mat-datepicker-toggle>
-            <mat-datepicker #piker1></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="form-group col-6">
-          <mat-form-field class="mat1">
-            <input matInput [matDatepicker]="piker2" placeholder="Due date">
-            <mat-datepicker-toggle matSuffix [for]="piker2"></mat-datepicker-toggle>
-            <mat-datepicker #piker2></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </div>
-    </div> -->
-
-
-
-    <!-- al 4+1 rand -->
     <div class="form-group description">
       <mat-form-field class="test">
         <input [(ngModel)]="description" matInput id="inputDescription" placeholder="Desription" name="description">
       </mat-form-field>
     </div>
 
-
-    <!-- butoanele radio -->
-
-
     <div class="form-row radio-buttons" class="form-group col-6" class="distance-check" class="container_css">
 
       <div class="radio-item">
-        <input type="radio" [(ngModel)]="virtual_book" id="ritema" name="virtual_book" value="VirtualBook"
+        <input type="radio" [(ngModel)]="virtualBook" id="ritema" name="virtual_book" value="VirtualBook"
           (click)="virtual_book='VirtualBook'">
         <label for="ritema">Virtual book</label>
       </div>
 
       <div class="radio-item">
-        <input type="radio" [(ngModel)]="virtual_book" id="ritemb" name="virtual_book" value="PhisicalBook"
+        <input type="radio" [(ngModel)]="virtualBook" id="ritemb" name="virtual_book" value="PhisicalBook"
           (click)="virtual_book='PhisicalBook'">
         <label for="ritemb">Physical book</label>
       </div>
     </div>
-    <!-- <mat-radio-group class="radio-item">
-        <mat-radio-button id="ritema" name="bookType" value="VirtualBook" (click)="bookType='VirtualBook'" ngModel>
-          VirtualBook</mat-radio-button>
-        <mat-radio-button id="ritemb" name="bookType" value="PhisicalBook" (click)="bookType='PhisicalBook'"
-          [checked]=true ngModel> PhisicalBook</mat-radio-button>
-      </mat-radio-group> -->
 
-    <!-- </div> -->
-    <!-- <input type="file" id (change)="onFileUpload($event)"> -->
-
-    <p *ngIf="virtual_book ==='VirtualBook'">
+    <p *ngIf="virtualBook ==='VirtualBook'">
       <input class="inputFile" type="file" name="pic" accept="pdf/*">
 
     </p>
     <br>
-    <p *ngIf="is_succeful === true" class="alert alert-success" role="alert">
+    <p *ngIf="isSucceful === true" class="alert alert-success" role="alert">
       Book successfully updated
     </p>
 
@@ -154,4 +108,3 @@
 
     </div>
   </form>
-  <!-- <pre>{{ editBookForm.value | json }}</pre> -->

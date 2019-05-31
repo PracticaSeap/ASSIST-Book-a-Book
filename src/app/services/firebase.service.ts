@@ -17,7 +17,9 @@ export class FirebaseService {
     return this.db.list('/books').update(id, bookDetails);
   }
 
+
   deleteBook(key) {
     return this.db.list('/books/' + key).remove();
   }
+
 }
