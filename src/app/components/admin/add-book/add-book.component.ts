@@ -61,7 +61,8 @@ export class AddBookComponent implements OnInit {
     });
   }
 
-  onSubmit(value: Book): void {
+  onSubmit(value): void {
+    value.is_borrowed = 'false';
     console.log('form book :', this.addBookForm.value);
     console.log('Books :', this.booksLength.value);
     this.addBookForm.value.id = this.booksLength;
