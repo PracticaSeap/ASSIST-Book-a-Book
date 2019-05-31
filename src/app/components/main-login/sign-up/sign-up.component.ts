@@ -27,11 +27,13 @@ export class SignUpComponent implements OnInit {
     public loginService: LoginService) { }
 
   ngOnInit() {
-    this.loginService.loggedUser.subscribe(loggedUser =>{
-      
-     if (loggedUser){
-       this.router.navigate(['/dashboard']);
-     }});
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser !== null) {
+          this.router.navigate(['/dashboard']);
+        } 
+      }
+    });
   }
 
   createUserWithEmailAndPassword() {
