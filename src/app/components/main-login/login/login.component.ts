@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ischecked = false;
 
   user;
-  
+
   constructor(public loginservice: LoginService, 
     public afAuth: AngularFireAuth,  
     private router: Router,
@@ -33,11 +33,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginService.loggedUser.subscribe(currentUser => {
       if (currentUser !== undefined) {
-        if (currentUser === null) {
+        if (currentUser !== null) {
           this.router.navigate(['/dashboard']);
-        } else {
-          this.user = currentUser;
-        }
+        } 
       }
     });
 
