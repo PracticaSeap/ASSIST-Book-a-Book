@@ -78,6 +78,22 @@
               </div>
             </div>
           </div>
+          <div *ngIf="user.userRole == 'admin'">
+            <button
+              (click)="editBook()"
+              class="btn btn-primary editButton ml-3"
+            >
+              Edit
+            </button>
+          </div>
+          <div *ngIf="user.userRole == 'admin'">
+            <button
+              (click)="deleteBook()"
+              class="btn btn-primary deleteButton ml-3"
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>

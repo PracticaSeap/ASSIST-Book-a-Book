@@ -69,4 +69,12 @@ export class BookDetailsComponent implements OnInit {
       this.descr -= 1;
     }
   }
+
+  editBook() {
+    this.router.navigate(['/edit-book/', this.key]);
+  }
+
+  deleteBook() {
+    this.firebaseService.deleteBook(this.key);
+  }
 }

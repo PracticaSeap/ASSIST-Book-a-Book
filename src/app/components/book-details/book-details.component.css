@@ -286,3 +286,41 @@ button.btn.btn-default {
 .alert {
   margin-bottom: 0;
 }
+
+.editButton{
+  height: 36px;
+  width: 131px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
+  border-color: #1CD4D4;
+  border-radius: 3.91304px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10.9565px;
+  line-height: 13px;
+  text-align: center;
+
+  color: #1CD4D4;
+}
+
+.deleteButton{
+  height: 36px;
+  width: 131px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 3.13043px 7.04348px rgba(28, 212, 212, 0.2);
+  border-color: rgb(156, 3, 36);
+  border-radius: 3.91304px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10.9565px;
+  line-height: 13px;
+  text-align: center;
+
+  color: rgb(156, 3, 36);
+}
