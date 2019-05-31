@@ -15,7 +15,7 @@ export class LoginService {
   public users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   public usersByKey: Subject<any> = new Subject<any>();
   usersKeyValue: {[ key: string ]: User} = {};
-  public loggedUser: Subject<User> = new Subject<User>();
+  public loggedUser: BehaviorSubject<User> = new BehaviorSubject<User>(undefined);
 
   constructor(public afAuth: AngularFireAuth, public router: Router, public db: AngularFireDatabase) {
     this.afAuth.auth.onAuthStateChanged(user => {

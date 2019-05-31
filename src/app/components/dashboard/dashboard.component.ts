@@ -26,10 +26,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.loginService.loggedUser.subscribe(currentUser => {
-      if(!currentUser) {
-        this.router.navigate(["/login"]);
+      if (currentUser !== undefined) {
+        if (currentUser === null) {
+          this.router.navigate(['/login']);
+        } else {
+          this.user = currentUser;
+        }
       }
-      this.user = currentUser;
     });
 
     this.dashboardService.getBooks().subscribe( list => {
