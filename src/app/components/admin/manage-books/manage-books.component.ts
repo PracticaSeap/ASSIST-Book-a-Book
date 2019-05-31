@@ -96,4 +96,8 @@ export class ManageBooksComponent implements OnInit {
     this.router.navigate(['/book-details/' + bookKey]);
   }
 
+  goTo() {
+    this.router.navigate(['/add-book']);
+  }
+
 }

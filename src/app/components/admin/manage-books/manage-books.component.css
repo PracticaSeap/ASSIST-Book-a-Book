@@ -38,7 +38,9 @@
     text-align: center;
     color: #FFFFFF;
 }
-
+.Buton :hover{
+    cursor:pointer;
+}
 .w-100 {
     display: flex;
     justify-content: flex-end;

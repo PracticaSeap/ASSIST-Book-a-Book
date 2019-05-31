@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { User } from 'src/app/models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -21,9 +22,19 @@ export class SignUpComponent implements OnInit {
   errMessage = '';
 
   succValue = false;
-  constructor(public loginservice: LoginService,  public db: AngularFireDatabase) { }
+  constructor(public loginservice: LoginService,  public db: AngularFireDatabase,
+    private router: Router,
+    public loginService: LoginService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loginService.loggedUser.subscribe(currentUser => {
+      if (currentUser !== undefined) {
+        if (currentUser !== null) {
+          this.router.navigate(['/dashboard']);
+        } 
+      }
+    });
+  }
 
   createUserWithEmailAndPassword() {
     if (this.password.length >= 8){
