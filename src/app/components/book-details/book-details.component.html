@@ -20,6 +20,7 @@
             <button
               (click)="borrowBook()"
               class="btn btn-primary borrowButton mr-2"
+              *ngIf="user && user.userRole == 'admin'"
             >
               Borrow
             </button>

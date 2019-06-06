@@ -5,11 +5,11 @@
 
   <div class="px-3 col-6 bookRow">
     <div>
-      <h4 class="card-title pl-3 pt-3">{{ inputBook.title }}</h4>
+      <h4 class="card-title pl-3 pt-3">{{ inputBook.title | limitTo: 35 }}</h4>
       <p class="card-text pl-3">{{ inputBook.description | limitTo: 140 }}</p>
 
       <div class="btn-group pl-3" role="group" aria-label="Basic example">
-        
+
         <button
           (click)="onSelectBorrow()"
           *ngIf="inputBook.is_borrowed == 'false' && (user && user.userRole == 'admin')"
