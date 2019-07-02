@@ -50,7 +50,7 @@ export class MyBooksComponent implements OnInit {
     }
 
     const myBooks = this.booksHistory.filter(
-      book => book.userKey === this.user.key
+      book => book.userKey === this.user.key && book.returnDate == ""
     );
 
     myBooks.forEach(entry => {
