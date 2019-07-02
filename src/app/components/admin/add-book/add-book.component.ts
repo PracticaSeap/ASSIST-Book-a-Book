@@ -81,6 +81,12 @@ export class AddBookComponent implements OnInit {
   redirect() {
     this.router.navigate(['/dashboard']);
   }
+   setVirtualBook() {
+    this.virtualBook = 'Virtual_book';
+   }
+   setPsihicalBook() {
+    this.virtualBook = 'PhisicalBook';
+   }
 }
 
 

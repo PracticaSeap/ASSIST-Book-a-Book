@@ -61,7 +61,8 @@
     <!-- al patrulea rand-->
     <div class="form-group description">
       <mat-form-field class="test">
-        <input formControlName="description" matInput id="inputDescription" placeholder="Description" name="description">
+        <input formControlName="description" matInput id="inputDescription" placeholder="Description"
+          name="description">
       </mat-form-field>
     </div>
 
@@ -71,21 +72,25 @@
     <div class="form-row radio-buttons" class="form-group col-6" class="distance-check" class="container_css">
 
       <div class="radio-item">
-        <input type="radio" id="ritema" formControlName="virtual_book" value="Virtual_book" name="virtual_book"
-          (click)="virtual_book='Virtual_book'">
+        <input type="radio" id="ritema" formControlName="virtual_book" value="virtual_book" name="virtual_book"
+          (click)="setVirtualBook()">
+          <!-- (click)="virtual_book='Virtual_book'"> -->
+          
         <label for="ritema">Virtual book</label>
       </div>
 
       <div class="radio-item">
         <input type="radio" id="ritemb" formControlName="virtual_book" value="PhisicalBook" name="virtual_book"
-          (click)="virtual_book='PhisicalBook'" checked>
+          (click)="setPsihicalBook()" checked>
         <label for="ritemb">Physical book</label>
       </div>
     </div>
 
-    <p *ngIf="virtualBook ==='virtual_book'">
+    <p *ngIf="virtualBook ==='Virtual_book'">
       <input class="inputFile" type="file" name="pic" accept="pdf/*">
     </p>
+
+
     <!-- a fost aici form -->
     <div *ngIf="isSucceful== true">
       <p class="alert alert-success" role="alert">Book successfully added</p>
